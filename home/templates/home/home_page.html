@@ -10,11 +10,30 @@
 {% block content %}
 
 <div class="burger-bg">
+        <div class="menu_top_images">
+                <img src="{% static 'image/circus_logo_white.png' %}" class="menu_logo">
+                <img src="{% static 'image/menu_cross.png' %}" class="menu_icon">
+        </div>
         <div class="burger-container">
-                <div class="burger-elements element1">LINKS</div>
-                <div class="burger-elements element2">LINKS</div>
-                <div class="burger-elements element3">LINKS</div>
-                <div class="burger-elements element4">LINKS</div>
+                <div class="burger-elements element1">
+                        <div class="burger-link">Releases</div>
+                        <div class="burger-link">Merch</div>
+                        <div class="burger-link">Livestream</div>
+                        <div class="burger-link">Mailing list signup</div>
+                        <div class="burger-link">About</div>
+                </div>
+                <div class="burger-elements element2">
+                        <div class="burger-link">Spotify</div>
+                        <div class="burger-link">Instagram</div>
+                        <div class="burger-link">YouTube</div>
+                        <div class="burger-link">Twitch</div>
+                        <div class="burger-link">Facebook</div>
+                        <div class="burger-link">TikTok</div>
+                        <div class="burger-link">Twitter</div>
+                        <div class="burger-link">Soundcloud</div>
+                </div>
+                <!-- <div class="burger-elements element3">LINKS</div>
+                <div class="burger-elements element4">LINKS</div> -->
         </div>
 </div>
 
@@ -26,16 +45,18 @@
                         <div class="bar3"></div>
                 </div>
                 <img src="{% static 'image/circus_logo.png' %}" class="responsive_logo">
-                <img src="{% static 'image/electric_logo.png' %}" class="responsive_logo">
-                <img src="{% static 'image/dpmo_logo.png' %}" class="responsive_logo">
+                <img src="{% static 'image/electric_logo4.png' %}" class="responsive_logo electric_logo">
+                <img src="{% static 'image/dpmo_logo2.png' %}" class="responsive_logo dpmo_logo">
         </div>
         <div class="links">Links and stuff</div>        
-        <div class="search">SEARCH</div>
+        <div class="search">
+                <img src="{% static 'image/search_icon.png' %}" class="responsive_logo">
+        </div>
 </div>
 
 <div class="carousel-container">
         <div class="image-placeholder"></div>
-        <img src="{% static 'image/mob_carousel.png' %}" class="responsive_banner">     
+        <img src="{% static 'image/Carousel design flux announce2.png' %}" class="responsive_banner">     
 </div>
 
 <div class="release-container">
@@ -45,24 +66,27 @@
         </div>
         <div class="releases release1">
                 <img src="{% static 'image/CR0560 1000px.jpg' %}" class="responsive_packshot">
-                <div>QUARTZONE</div>
-                <div>THE QUEEN'S LAMENT</div>
+                <div>Quartzone</div>
+                <div>The Queen's Lament</div>
         </div>
         <div class="releases release2">
                 <img src="{% static 'image/CR0561 1000px.jpg' %}" class="responsive_packshot">
-                <div>CONRANK</div>
-                <div>CULTIVATE</div>
+                <div>Conrank</div>
+                <div>Cultivate</div>
         </div>
         <div class="releases release3">
                 <img src="{% static 'image/CR0562 1000px.jpg' %}" class="responsive_packshot">
-                <div>ACE AURA</div>
-                <div>CRYSTAL COALITION</div>
+                <div>Ace Aura</div>
+                <div>Crystal Coalition</div>
                 <div>EP</div>
         </div>
         <div class="releases release4">
                 <img src="{% static 'image/CR0564 1000px.jpg' %}" class="responsive_packshot">
-                <div>WALTER WILDE X GRAVITY</div>
-                <div>CATACOMBS</div>
+                <div>Walter Wilde x Gravity</div>
+                <div>Catacombs</div>
+        </div>
+        <div class="see-more">
+                <div>See More</div>
         </div>
 </div>
 
@@ -73,23 +97,26 @@
         </div>
         <div class="merch-items item1">
                 <img src="{% static 'image/LP sq 1k.jpg' %}" class="responsive_merch">
-                <div>WAV LP - $20</div>
-                <div>BUY</div>
+                <div>.wav LP - $20</div>
+                <button class="merch-button">BUY</button>
         </div>
         <div class="merch-items item2">
                 <img src="{% static 'image/hoodie sq 1k.jpg' %}" class="responsive_merch">
-                <div>HOODIE - $20</div>
-                <div>BUY</div>
+                <div>Hoodie - $20</div>
+                <button class="merch-button">BUY</button>
         </div>
         <div class="merch-items item3">
                 <img src="{% static 'image/sine tee sq 1k.jpg' %}" class="responsive_merch">
-                <div>SINE TEE - $20</div>
-                <div>BUY</div>
+                <div>Sine Tee - $20</div>
+                <button class="merch-button">BUY</button>
         </div>
         <div class="merch-items item4">
                 <img src="{% static 'image/wav tee sq 1k.jpg' %}" class="responsive_merch">
-                <div>WAV TEE - $20</div>
-                <div>BUY</div>
+                <div>.wav Tee - $20</div>
+                <button class="merch-button">BUY</button>
+        </div>
+        <div class="see-more">
+                <div>See More</div>
         </div>
 </div>
 
@@ -108,22 +135,65 @@
                 <div>SIGNUP</div>
                 <div class="signup_bar"></div>
         </div>
-        <div class="signup"></div>
+        <div class="signup">
+                <div>Subscribe for the all the latest release, events and news from the Circus Records family</div>
+                <div>First Name</div>
+                <div class="info-entry">Type your first name</div>
+                <div>Last Name</div>
+                <div class="info-entry">Type your last name</div>
+                <div>Email [Required]</div>
+                <div class="info-entry">Type your email</div>
+                <button>SUBMIT</button>
+        </div>
 </div>
 
 <div class="about-container">
-        <div class="about_title">
+        <!-- <div class="about_title">
                 <div>ABOUT</div>
                 <div class="about_bar"></div>
+        </div> -->
+        <div class="about">
+
+                        <img src="{% static 'image/about2.png' %}" class="responsive_about_item">
+
+                        <img src="{% static 'image/playlists2.png' %}" class="responsive_about_item">
+
+                        <img src="{% static 'image/livestream2.png' %}" class="responsive_about_item">
+
+                        <img src="{% static 'image/demosub2.png' %}" class="responsive_about_item">
+
         </div>
-        <div class="about"></div>
 </div>
 
 <div class="footer-container">
-        <div class="signup_title">
-                <div>FOOTER</div>
-                <div class="signup_bar"></div>
+        <div class="footer_title">
+                <!-- <div>FOOTER</div> -->
+                <div class="footer_bar"></div>
         </div>
-        <div class="footer"></div>
+        <div class="footer_logo">
+                <img src="{% static 'image/circus_logo.png' %}" class="responsive_footer_logo">
+        </div>
+        <div class="footer_links1">
+                <div class="footer-link">Releases</div>
+                <div class="footer-link">Merch</div>
+                <div class="footer-link">Mailing list signup</div>
+        </div>
+        <div class="footer_links2">
+                <div class="footer-link">Contact</div>
+                <div class="footer-link">Terms & Conditions</div>
+                <div class="footer-link">Privacy Policy</div>
+        </div>
+        <div class="footer_socials1">
+                <div class="footer-link">Spotify</div>
+                <div class="footer-link">Instagram</div>
+                <div class="footer-link">YouTube</div>
+                <div class="footer-link">Twitch</div>
+        </div>
+        <div class="footer_socials2">
+                <div class="footer-link">Facebook</div>
+                <div class="footer-link">TikTok</div>
+                <div class="footer-link">Twitter</div>
+                <div class="footer-link">Soundcloud</div>
+        </div>
 </div>
 {% endblock content %}
