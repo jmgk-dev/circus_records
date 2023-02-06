@@ -1,10 +1,26 @@
-/* body {
-    overflow: hidden;
-} */
+body {
+    /* overflow: hidden; */
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+}
+
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
 
 .responsive_banner {
     width: 100%;
     height: auto;
+}
+
+h6 {
+    font-family: Acrom;
 }
 
 /* --------------------------------------------------------- BURGER MENU */
@@ -36,20 +52,51 @@
 	}
 }
 
+.menu_top_images {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.menu_logo {
+    width: 4rem;
+}
+
+.menu_icon {
+    width: 2rem;
+}
+
 .burger-container {
     display: grid;
-    grid-template-columns: auto repeat(4, 324px) auto;
-    grid-template-rows: 432px;
+    /* grid-template-columns: auto repeat(4, 324px) auto; */
+    /* grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr)); */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60vh;
     position: sticky; /* Stay in place */
     column-gap: 3rem;
-    padding-top: max(20vh, 62px);
+    padding-top: max(10vh, 40px);
 }
 
 .burger-elements {
-    background-color:darkgoldenrod;
+    color: white;
+    font-family: Acrom;
+    text-decoration: underline;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10vw;
+    padding-right: 10vw;
+
 }
 
-.element1 {
+.burger-link {
+    padding-bottom: 3vh;
+}
+
+/* .element1 {
     grid-column: 2;
     grid-row: 1;
 }
@@ -67,7 +114,7 @@
 .element4 {
     grid-column: 5;
     grid-row: 1;
-}
+} */
 
 /* --------------------------------------------------------- STICKY HEADER */
 
@@ -75,12 +122,10 @@
     display: grid;
     grid-template-columns: auto repeat(4, 324px) auto;
     grid-template-rows: 62px;
-    gap: 3rem;
+    gap: 5vw;
     position: sticky;
     top: 0;
     left: 0;
-    background-color: aqua;
-    opacity: 0.9;
     z-index: 0;
 }
 
@@ -101,12 +146,20 @@
 }
 
 .bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
+    width: 25px;
+    height: 3px;
     background-color: #333;
-    margin: 3px 0;
+    margin: 4px 0;
     transition: 0.4s;
 }
+
+/* .electric_logo {
+    opacity: 0.5;
+}
+
+.dpmo_logo {
+    opacity: 0.5;
+} */
 
 .search {
     display: flex;
@@ -119,8 +172,8 @@
 @media screen and (max-width: 600px) {
     .sticky-header {
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        background-color: white;
+        /* gap: 25vw; */
+        background-color: rgba(255,255,255,0.9);
     }
 
     .logos {
@@ -178,12 +231,13 @@
     align-items: center;
     justify-content: space-between;
     font-family: Acrom;
+    color: #0062dc;
 }
 
 .releases_bar {
-    width: 57vw;
-    height: 3px;
-    background-color: #333;
+    width: 53vw;
+    height: 2px;
+    background-color: #0062dc;
     margin: 3px 0;
 }
 
@@ -194,9 +248,10 @@
     gap: 3rem;
 }
 
-/* .releases {
-    background-color: coral;
-} */
+.releases {
+    font-family: Acrom;
+    padding-bottom: 1rem;
+}
 
 .responsive_packshot {
     width: 100%;
@@ -230,9 +285,8 @@
     .release-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 48px minmax(min-content, max-content) minmax(min-content, max-content);
+        grid-template-rows: 48px minmax(min-content, max-content) minmax(min-content, max-content) 48px;
         gap: 1rem;
-        padding-bottom: 2rem;
     }
     
     .release1 {
@@ -254,6 +308,15 @@
         grid-column: 2;
         grid-row: 3;
     }
+
+    .see-more {
+        grid-row: 4;
+        grid-column: span 2;
+        font-family: Acrom;
+        text-decoration: underline;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 /* --------------------------------------------------------- MERCH */
@@ -265,9 +328,17 @@
     gap: 3rem;
 }
 
-/* .merch-items {
-    background-color:darkseagreen;
-} */
+.merch-items {
+    font-family: Acrom;
+    padding-bottom: 1rem;
+}
+
+.merch-button {
+    background-color: black;
+    color: white;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 
 .item1 {
     grid-column: 2;
@@ -299,21 +370,21 @@
         align-items: center;
         justify-content: space-between;
         font-family: Acrom;
+        color: #de1c1c;
     }
     
     .merch_bar {
-        width: 57vw;
-        height: 3px;
-        background-color: #333;
+        width: 77vw;
+        height: 2px;
+        background-color: #de1c1c;
         margin: 3px 0;
     }
 
     .merch-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 48px minmax(min-content, max-content) minmax(min-content, max-content);
+        grid-template-rows: 48px minmax(min-content, max-content) minmax(min-content, max-content) 48px;
         gap: 1rem;
-        padding-bottom: 2rem;
     }
     
     .merch-items {
@@ -370,12 +441,13 @@
         align-items: center;
         justify-content: space-between;
         font-family: Acrom;
+        color: #148c39;
     }
     
     .livestream_bar {
-        width: 57vw;
-        height: 3px;
-        background-color: #333;
+        width: 65vw;
+        height: 2px;
+        background-color: #148c39;
         margin: 3px 0;
     }
 
@@ -402,8 +474,9 @@
 }
 
 .signup {
-    background-color:chartreuse;
+    /* background-color:chartreuse; */
     grid-column: 2;
+    font-family: Acrom;
 }
 
 @media screen and (max-width: 600px) {
@@ -416,12 +489,13 @@
         align-items: center;
         justify-content: space-between;
         font-family: Acrom;
+        color: #eb5e00;
     }
     
     .signup_bar {
-        width: 57vw;
-        height: 3px;
-        background-color: #333;
+        width: 74vw;
+        height: 2px;
+        background-color: #eb5e00;
         margin: 3px 0;
     }
 
@@ -433,9 +507,14 @@
     }
     
     .signup {
-        background-color:chartreuse;
+        /* background-color:chartreuse; */
         grid-column: 1;
         grid-row: 2;
+    }
+
+    .info-entry {
+        color: grey;
+        background-color: azure;
     }
 }
 
@@ -448,7 +527,7 @@
 }
 
 .about {
-    background-color:darkturquoise;
+    /* background-color:darkturquoise; */
     grid-column: 2;
 }
 
@@ -462,12 +541,13 @@
         align-items: center;
         justify-content: space-between;
         font-family: Acrom;
+        color: #e556ff;
     }
     
     .about_bar {
-        width: 57vw;
-        height: 3px;
-        background-color: #333;
+        width: 76vw;
+        height: 2px;
+        background-color: #e556ff;
         margin: 3px 0;
     }
 
@@ -479,9 +559,23 @@
     }
     
     .about {
-        background-color:darkturquoise;
         grid-column: 1;
         grid-row: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        }
+/* 
+    .about-item {
+        background-color:darkturquoise;
+    } */
+
+    .responsive_about_item {
+        width: 45%;
+        height: auto;
+        border-radius: 3%;
+        border: 1px solid rgb(85, 85, 85);
     }
     
 }
@@ -509,24 +603,67 @@
         align-items: center;
         justify-content: space-between;
         font-family: Acrom;
+        color: #ff6767;
+    }
+
+    .footer_logo {
+        grid-column: 1;
+        grid-row: 2
+    }
+
+    .responsive_footer_logo {
+        width: 15vw;
     }
     
     .footer_bar {
-        width: 57vw;
-        height: 3px;
-        background-color: #333;
+        width: 100%;
+        height: 1px;
+        background-color: black;
         margin: 3px 0;
     }
     
     .footer-container {
         display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 48px 232px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 48px 48px 232px 232px;
+        font-family: Acrom;
+        padding-left: 2vw;
+        padding-right: 2vw;
     }
     
-    .footer {
-        background-color:darkslateblue;
+    .footer_links1 {
         grid-column: 1;
-        grid-row: 2;
+        grid-row: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-decoration: underline;
+    }
+
+    .footer_links2 {
+        grid-column: 2;
+        grid-row: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-decoration: underline;
+    }
+
+    .footer_socials1 {
+        grid-column: 1;
+        grid-row: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-decoration: underline;
+    }
+
+    .footer_socials2 {
+        grid-column: 2;
+        grid-row: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-decoration: underline;
     }
 }
