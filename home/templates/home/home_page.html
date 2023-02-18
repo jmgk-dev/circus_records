@@ -9,54 +9,9 @@
 
 {% block content %}
 
-<div class="burger-bg">
-        <div class="menu_top_images">
-                <img src="{% static 'image/circus_logo_white.png' %}" class="menu_logo">
-                <img src="{% static 'image/menu_cross.png' %}" class="menu_icon">
-        </div>
-        <div class="burger-container">
-                <div class="burger-elements element1">
-                        <div class="burger-link">Releases</div>
-                        <div class="burger-link">Merch</div>
-                        <div class="burger-link">Livestream</div>
-                        <div class="burger-link">Mailing list signup</div>
-                        <div class="burger-link">About</div>
-                </div>
-                <div class="burger-elements element2">
-                        <div class="burger-link">Spotify</div>
-                        <div class="burger-link">Instagram</div>
-                        <div class="burger-link">YouTube</div>
-                        <div class="burger-link">Twitch</div>
-                        <div class="burger-link">Facebook</div>
-                        <div class="burger-link">TikTok</div>
-                        <div class="burger-link">Twitter</div>
-                        <div class="burger-link">Soundcloud</div>
-                </div>
-                <!-- <div class="burger-elements element3">LINKS</div>
-                <div class="burger-elements element4">LINKS</div> -->
-        </div>
-</div>
-
-<div class="sticky-header">
-        <div class="logos">
-                <div class="bar_menu">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                </div>
-                <img src="{% static 'image/circus_logo.png' %}" class="responsive_logo">
-                <img src="{% static 'image/electric_logo4.png' %}" class="responsive_logo electric_logo">
-                <img src="{% static 'image/dpmo_logo2.png' %}" class="responsive_logo dpmo_logo">
-        </div>
-        <div class="links">Links and stuff</div>        
-        <div class="search">
-                <img src="{% static 'image/search_icon.png' %}" class="responsive_logo">
-        </div>
-</div>
-
 <div class="carousel-container">
-        <div class="image-placeholder"></div>
-        <img src="{% static 'image/Carousel design flux announce2.png' %}" class="responsive_banner">     
+        <img src="{% static 'image/Carousel - New Rounded.png' %}" class="responsive_banner_large">
+        <img src="{% static 'image/Carousel - New Rounded small.png' %}" class="responsive_banner_small"> 
 </div>
 
 <div class="release-container">
@@ -85,9 +40,12 @@
                 <div>Walter Wilde x Gravity</div>
                 <div>Catacombs</div>
         </div>
-        <div class="see-more">
-                <div>See More</div>
+        <div class="see-more-releases">
+                <div>see more</div>
         </div>
+        <!-- <div class="see-more-button">
+                <img src="{% static 'image/see more blue.png' %}" class="see-more-blue">
+        </div> -->
 </div>
 
 <div class="merch-container">
@@ -115,8 +73,8 @@
                 <div>.wav Tee - $20</div>
                 <button class="merch-button">BUY</button>
         </div>
-        <div class="see-more">
-                <div>See More</div>
+        <div class="see-more-merch">
+                <div>see more</div>
         </div>
 </div>
 
@@ -126,11 +84,12 @@
                 <div class="livestream_bar"></div>
         </div>
         <div class="livestream">
-                <img src="{% static 'image/livestream thumbnail.jpg' %}" class="responsive_banner">
+                <!-- <img src="{% static 'image/livestream thumbnail.jpg' %}" class="responsive_banner"> -->
+                <iframe class="responsive-iframe" src="https://www.youtube.com/embed/o8LyCavr-X8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 </div>
 
-<div class="signup-container">
+<!-- <div class="signup-container">
         <div class="signup_title">
                 <div>SIGNUP</div>
                 <div class="signup_bar"></div>
@@ -145,13 +104,9 @@
                 <div class="info-entry">Type your email</div>
                 <button>SUBMIT</button>
         </div>
-</div>
+</div> -->
 
 <div class="about-container">
-        <!-- <div class="about_title">
-                <div>ABOUT</div>
-                <div class="about_bar"></div>
-        </div> -->
         <div class="about">
 
                         <img src="{% static 'image/about2.png' %}" class="responsive_about_item">
@@ -167,7 +122,6 @@
 
 <div class="footer-container">
         <div class="footer_title">
-                <!-- <div>FOOTER</div> -->
                 <div class="footer_bar"></div>
         </div>
         <div class="footer_logo">
@@ -195,5 +149,6 @@
                 <div class="footer-link">Twitter</div>
                 <div class="footer-link">Soundcloud</div>
         </div>
+        <div class="footer_bar2"></div>
 </div>
 {% endblock content %}
