@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/mainpage.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/roster.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="roster-container">
+        <div class="artists">
+            <div class="artist">ACE AURA</div>
+            <div class="artist">AUDIGY</div>
+            <div class="artist">BEATCORE</div>
+            <div class="artist">BLOSSO</div>
+            <div class="artist">CONRANK</div>
+            <div class="artist">COOKIE MONSTA</div>
+            <div class="artist">CRAYMAK</div>
+            <div class="artist">CYRAN</div>
+            <div class="artist">DOCTOR NEIMAN</div>
+            <div class="artist">DOCTOR P</div>
+            <a href="{% slugurl 'flux-pavilion' %}"><div onmouseenter="artistPic()" onmouseleave="artistPic()" class="artist">FLUX PAVILION</div></a>
+            <img src="{% static 'image/flux profile bw.png' %}" class="artist_pic" id="fluxpic">
+            <div class="artist">FRANKY NUTS</div>
+            <div class="artist">FUNTCASE</div>
+            <div class="artist">IPSIOM</div>
+            <div class="artist">JESSICA AUDIFFRED</div>
+            <div class="artist">LUCAS LARVENZ</div>
+            <div class="artist">PHOCUST</div>
+            <div class="artist">REAUBEAU</div>
+            <div class="artist">SHAPES</div>
+            <div class="artist">UFO PROJECT</div>
+            <div class="artist">YAWDEL</div>
+        </div>
+</div>
+
+{% endblock content %}

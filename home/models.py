@@ -13,3 +13,8 @@ class HomePage(Page):
         FieldPanel('body'),
     ]
     
+class RosterPage(Page):
+    template = "home/roster.html"
+
+class ArtistPage(Page):
+    template = "home/artist.html"

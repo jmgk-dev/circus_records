@@ -1,0 +1,83 @@
+.roster-container {
+    display: grid;
+    grid-template-columns: auto 1540px auto;
+}
+
+.artists {
+    font-family: Acrom;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5vh;
+    grid-column: 2;
+}
+
+.artist {
+    cursor: pointer;
+    color: black;
+}
+
+.artist:hover {
+    color: crimson;
+}
+
+.artist_pic {
+    display: none;
+    position: fixed;
+    width: 50vw;
+    top: 10%;
+    left: 45%;
+    right: 5%;
+    bottom: 40%;
+    opacity: 0.9;
+}
+
+.show {display:block;} 
+
+.artist-content {
+    font-family: Acrom;
+    display: grid;
+    grid-template-columns: auto 770px 770px auto;
+    grid-template-rows: 424px auto;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.artist-info {
+    grid-column: 2;
+    padding-right: 100px;
+}
+
+.artist_pic_static {
+    opacity: 0.9;
+    width: 700px;
+    grid-column: 3;
+}
+
+.artist-name {
+    font-size: x-large;
+}
+
+@media screen and (max-width: 1540px) {
+
+    .roster-container {
+        grid-template-columns: auto 1100px auto;
+    }
+
+    .artist-content {
+        font-family: Acrom;
+        display: grid;
+        grid-template-columns: auto 500px 500px auto;
+        grid-template-rows: 424px auto;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+    }
+
+    .artist_pic_static {
+        opacity: 0.9;
+        width: 600px;
+        grid-column: 3;
+    }
+
+}

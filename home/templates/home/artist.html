@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/mainpage.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/roster.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+        <script type="text/javascript">
+            /* curator-feed-default-feed-layout */
+            (function(){
+            var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+            i.src="https://cdn.curator.io/published/54bbeb02-1d85-40ca-b034-9302277871ec.js";
+            e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+            })();
+        </script>
+{% endblock %}
+
+{% block content %}
+
+<div class="artist-content">
+
+    <div class="artist-info">
+        <div class="artist-name">FLUX PAVILION</div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </div>
+
+    <img src="{% static 'image/flux profile bw.png' %}" class="artist_pic_static">
+
+</div>
+
+<div id="curator-feed-default-feed-layout">
+    <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
+</div>
+
+{% endblock content %}
