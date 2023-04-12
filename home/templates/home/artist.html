@@ -4,7 +4,6 @@
 {% load static %}
 
 {% block extra_css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/mainpage.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/roster.css' %}">
 {% endblock %}
 
@@ -22,13 +21,15 @@
 {% block content %}
 
 <div class="artist-content">
-
+    <div class="artist_page_bar"></div>
     <div class="artist-info">
         <div class="artist-name">FLUX PAVILION</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div>A true polymath, Flux Pavilion’s ability to involve himself in all aspects of music cannot be understated. Known as Joshua Steele to friends and family, he is a singer-songwriter, record producer and label owner who can express himself as well with the drums, guitar, saxophone and piano as well as he can behind the studio desk. Releasing his first record at only 19 years old, over the course of a decade at the top of the bass music game Joshua has sold out the legendary Red Rocks Amphitheatre in Colorado twice, notched up a UK top 10 chart hit with grime MC Sway, earned a place in the hallowed DJ Mag top 100 list and had the legendary Kanye West & Jay Z sample his dance floor anthem I Cant Stop.</div>
     </div>
-
     <img src="{% static 'image/flux profile bw.png' %}" class="artist_pic_static">
+</div>
+
+<div latest_release>
 
 </div>
 

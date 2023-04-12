@@ -18,3 +18,9 @@ class RosterPage(Page):
 
 class ArtistPage(Page):
     template = "home/artist.html"
+
+class MerchPage(Page):
+    template = "home/merch.html"
+
+class PlaylistPage(Page):
+    template = "home/playlists.html"

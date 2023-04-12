@@ -5,47 +5,67 @@
 
 {% block extra_css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/mainpage.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/carousel.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/releases.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/merch.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bumpers.css' %}">
 {% endblock %}
 
 {% block content %}
 
 <div class="carousel-container">
-        <img src="{% static 'image/Carousel - New Rounded.png' %}" class="responsive_banner_large">
-        <img src="{% static 'image/Carousel - New Rounded small.png' %}" class="responsive_banner_small"> 
+        <img src="{% static 'image/Carousel design - New SQ-min.png' %}" class="responsive_banner_large">
+        <img src="{% static 'image/Carousel design - New SQ - Small-min.png' %}" class="responsive_banner_small"> 
 </div>
 
 <div class="release-container">
         <div class="releases_title">
-                <div>LATEST RELEASES</div>
+                <div class="release_title_txt">LATEST RELEASES</div>
                 <div class="releases_bar"></div>
         </div>
+
         <div class="releases release1">
-                <img src="{% static 'image/CR0560 1000px.jpg' %}" class="responsive_packshot">
+                <img src="{% static 'image/CR0560 1000px-min.jpg' %}" class="responsive_packshot">
                 <div>Quartzone</div>
                 <div>The Queen's Lament</div>
         </div>
         <div class="releases release2">
-                <img src="{% static 'image/CR0561 1000px.jpg' %}" class="responsive_packshot">
+                <img src="{% static 'image/CR0561 1000px-min.jpg' %}" class="responsive_packshot">
                 <div>Conrank</div>
                 <div>Cultivate</div>
         </div>
         <div class="releases release3">
-                <img src="{% static 'image/CR0562 1000px.jpg' %}" class="responsive_packshot">
+                <img src="{% static 'image/CR0562 1000px-min.jpg' %}" class="responsive_packshot">
                 <div>Ace Aura</div>
                 <div>Crystal Coalition</div>
                 <div>EP</div>
         </div>
         <div class="releases release4">
-                <img src="{% static 'image/CR0564 1000px.jpg' %}" class="responsive_packshot">
+                <img src="{% static 'image/CR0564 1000px-min.jpg' %}" class="responsive_packshot">
                 <div>Walter Wilde x Gravity</div>
                 <div>Catacombs</div>
         </div>
-        <div class="see-more-releases">
-                <div>see more</div>
+
+        <div class="releases release5">
+                <img src="{% static 'image/CR0565 1000px-min.jpg' %}" class="responsive_packshot">
+                <div>Doctor P</div>
+                <div>Truth Or Consequences</div>
         </div>
-        <!-- <div class="see-more-button">
-                <img src="{% static 'image/see more blue.png' %}" class="see-more-blue">
-        </div> -->
+        <div class="releases release6">
+                <img src="{% static 'image/CR0567 1000px-min.jpg' %}" class="responsive_packshot">
+                <div>Conrank</div>
+                <div>Moonshine (Remixes)</div>
+                <div>EP</div>
+        </div>
+        <div class="releases release7">
+                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="responsive_packshot">
+                <div>Flux Pavilion</div>
+                <div>Paradise</div>
+        </div>
+
+        <div class="see-more-releases">
+                <button class="button release-button">see more</button>
+        </div>
 </div>
 
 <div class="merch-container">
@@ -53,70 +73,74 @@
                 <div>MERCH</div>
                 <div class="merch_bar"></div>
         </div>
+
+
         <div class="merch-items item1">
-                <img src="{% static 'image/LP sq 1k.jpg' %}" class="responsive_merch">
-                <div>.wav LP - $20</div>
-                <button class="merch-button">BUY</button>
+                <img src="{% static 'image/LP sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">.wav LP - $20</div>
+                <!-- <button class="merch-button">BUY</button> -->
         </div>
         <div class="merch-items item2">
-                <img src="{% static 'image/hoodie sq 1k.jpg' %}" class="responsive_merch">
-                <div>Hoodie - $20</div>
-                <button class="merch-button">BUY</button>
+                <img src="{% static 'image/hoodie sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Hoodie - $20</div>
+                <!-- <button class="merch-button">BUY</button> -->
         </div>
         <div class="merch-items item3">
-                <img src="{% static 'image/sine tee sq 1k.jpg' %}" class="responsive_merch">
-                <div>Sine Tee - $20</div>
-                <button class="merch-button">BUY</button>
+                <img src="{% static 'image/sine tee sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Sine Tee - $20</div>
+                <!-- <button class="merch-button">BUY</button> -->
         </div>
         <div class="merch-items item4">
-                <img src="{% static 'image/wav tee sq 1k.jpg' %}" class="responsive_merch">
-                <div>.wav Tee - $20</div>
-                <button class="merch-button">BUY</button>
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">.wav Tee - $20</div>
+                <!-- <button class="merch-button">BUY</button> -->
         </div>
+
+        <div class="merch-items item5">
+                <img src="{% static 'image/bucket hat 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">.wav LP - $20</div>
+                <!-- <button class="merch-button">BUY</button> -->
+        </div>
+        <div class="merch-items item6">
+                <img src="{% static 'image/doctor p tee 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Hoodie - $20</div>
+                <!-- <button class="merch-button">BUY</button> -->
+        </div>
+        <div class="merch-items item7">
+                <img src="{% static 'image/wav cap 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Sine Tee - $20</div>
+                <!-- <button class="merch-button">BUY</button> -->
+        </div>
+
         <div class="see-more-merch">
-                <div>see more</div>
+                <button class="button merch-seemore-button">see more</button>
         </div>
 </div>
 
-<div class="livestream-container">
-        <div class="livestream_title">
-                <div>LIVESTREAM</div>
-                <div class="livestream_bar"></div>
+<div class="news-container">
+        <div class="news_title">
+                <div>NEWS</div>
+                <div class="news_bar"></div>
         </div>
-        <div class="livestream">
-                <!-- <img src="{% static 'image/livestream thumbnail.jpg' %}" class="responsive_banner"> -->
-                <iframe class="responsive-iframe" src="https://www.youtube.com/embed/o8LyCavr-X8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <div class="news-items nitem1">
+                <img src="{% static 'image/Quickfire with FuntCase - website-min.jpg' %}" class="responsive_news">
+                <div class="news_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
         </div>
+
+        <div class="news-items nitem2">
+                <img src="{% static 'image/Getting to Know Youth In Circles - website-min.jpg' %}" class="responsive_news">
+                <div class="news_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </div>
+
 </div>
 
-<!-- <div class="signup-container">
-        <div class="signup_title">
-                <div>SIGNUP</div>
-                <div class="signup_bar"></div>
-        </div>
-        <div class="signup">
-                <div>Subscribe for the all the latest release, events and news from the Circus Records family</div>
-                <div>First Name</div>
-                <div class="info-entry">Type your first name</div>
-                <div>Last Name</div>
-                <div class="info-entry">Type your last name</div>
-                <div>Email [Required]</div>
-                <div class="info-entry">Type your email</div>
-                <button>SUBMIT</button>
-        </div>
-</div> -->
-
-<div class="about-container">
-        <div class="about">
-
-                        <img src="{% static 'image/about2.png' %}" class="responsive_about_item">
-
-                        <img src="{% static 'image/playlists2.png' %}" class="responsive_about_item">
-
-                        <img src="{% static 'image/livestream2.png' %}" class="responsive_about_item">
-
-                        <img src="{% static 'image/demosub2.png' %}" class="responsive_about_item">
-
+<div class="bumper-container">
+        <div class="bumper">
+                        <button class="button responsive_bumper_item button1">About</button>
+                        <button class="button responsive_bumper_item button2">Playlists</button>
+                        <button class="button responsive_bumper_item button3">Merch</button>
+                        <button class="button responsive_bumper_item button4">Artists</button>
         </div>
 </div>
 
@@ -125,7 +149,7 @@
                 <div class="footer_bar"></div>
         </div>
         <div class="footer_logo">
-                <img src="{% static 'image/circus_logo.png' %}" class="responsive_footer_logo">
+                <img src="{% static 'image/circus_logo-min.png' %}" class="responsive_footer_logo">
         </div>
         <div class="footer_links1">
                 <div class="footer-link">Releases</div>

@@ -18,7 +18,7 @@
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/circus_site_2023.css' %}">
-
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
         {% endblock %}
@@ -29,15 +29,15 @@
 
         <div class="burger-bg" id="colour_burger_menu">
             <div class="menu_top_images">
-                    <img src="{% static 'image/circus_logo_white.png' %}" class="menu_logo">
+                    <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_white.png' %}" class="menu_logo"></a>
                     <img src="{% static 'image/menu_cross.png' %}" class="menu_icon" onclick="dropDown()">
             </div>
             <div class="burger-container">
                     <div class="burger-elements element1">
                             <div class="burger-link">Releases</div>
-                            <div class="burger-link">Merch</div>
-                            <div class="burger-link">Artists</div>
-                            <div class="burger-link">Mailing list signup</div>
+                            <div class="burger-link"><a href="{% slugurl 'merch' %}">Merch</a></div>
+                            <div class="burger-link"><a href="{% slugurl 'roster' %}">Artists</a></div>
+                            <div class="burger-link"><a href="{% slugurl 'playlists' %}">Playlists</a></div>
                             <div class="burger-link">About</div>
                     </div>
                     <div class="burger-elements element2">
@@ -54,26 +54,27 @@
         </div>
         
         <div class="sticky-header">
-            <div class="logos">
-                    <div onclick="dropDown()" class="bar_menu">
-                            <div class="bar1"></div>
-                            <div class="bar2"></div>
-                            <div class="bar3"></div>
-                    </div>
-                    <img src="{% static 'image/circus_logo.png' %}" class="responsive_logo circus_logo">
-                    <img src="{% static 'image/electric_logo4.png' %}" class="responsive_logo electric_logo">
-                    <img src="{% static 'image/dpmo_logo2.png' %}" class="responsive_logo dpmo_logo">
-            </div>
-            <div class="header-links">
-                    <div class="header-link">Releases</div>
-                    <div class="header-link">Merch</div>
-                    <div class="header-link"><a href="{% slugurl 'roster' %}">Artists</a></div>
-                    <div class="header-link">Signup</div>
-                    <div class="header-link">About</div>
-            </div>        
-            <div class="search">
-                    <img src="{% static 'image/search_icon.png' %}" class="responsive_logo">
-            </div>
+                <div class="logos">
+                        <div onclick="dropDown()" class="bar_menu">
+                                <div class="bar1"></div>
+                                <div class="bar2"></div>
+                                <div class="bar3"></div>
+                        </div>
+                                <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo.png' %}" class="responsive_logo circus_logo"></a>
+                                <img src="{% static 'image/electric_logo4.png' %}" class="responsive_logo electric_logo">
+                                <img src="{% static 'image/dpmo_logo2.png' %}" class="responsive_logo dpmo_logo">
+                </div>
+                <div class="header-links">
+                        <div class="header-link hlink1">Releases</div>
+                        <div class="header-link hlink2"><a href="{% slugurl 'merch' %}" class="merch_link">Merch</a></div>
+                        <div class="header-link hlink3"><a href="{% slugurl 'roster' %}" class="artist_link">Artists</a></div>
+                        <div class="header-link hlink4"><a href="{% slugurl 'playlists' %}" class="playlists_link">Playlists</a></div>
+                        <div class="header-link hlink5">About</div>
+                </div>        
+                <div class="search">
+                        <div class="search_txt">Search</div>
+                        <img src="{% static 'image/search_icon.png' %}" class="responsive_logo">
+                </div>
         </div>
 
         {% block content %}{% endblock %}

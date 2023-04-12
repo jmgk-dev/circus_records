@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/merch_page.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="merch-container">
+
+        <div class="merch_page_bar"></div>
+
+        <div class="region_switcher">
+                <div class="button store_button1">US STORE</div>
+                <div class="button store_button2">UK STORE</div>
+
+        </div>
+
+        <div class="filters">
+                <div class="button filter_button">FILTERS</div>
+        </div>
+
+        <div class="merch-items item1">
+                <img src="{% static 'image/LP sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">.wav LP - $20</div>
+        </div>
+        <div class="merch-items item2">
+                <img src="{% static 'image/hoodie sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Hoodie - $20</div>
+        </div>
+        <div class="merch-items item3">
+                <img src="{% static 'image/sine tee sq 1k-min.jpg' %}" class="responsive_merch2">
+                <div class="merch_descrip">Sine Tee - $20</div>
+        </div>
+        <div class="merch-items item4">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="responsive_merch2">
+                <div class="merch_descrip">.wav Tee - $20</div>
+        </div>
+
+
+        <div class="merch-items item5">
+                <img src="{% static 'image/LP sq 1k greygradient.jpg' %}" class="responsive_merch3">
+                <div class="merch_descrip">.wav LP - $20</div>
+        </div>
+        <div class="merch-items item6">
+                <img src="{% static 'image/hoodie sq 1k redgradient.jpg' %}" class="responsive_merch3">
+                <div class="merch_descrip">Hoodie - $20</div>
+        </div>
+        <div class="merch-items item7">
+                <img src="{% static 'image/sine tee sq 1k redgradient.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Sine Tee - $20</div>
+        </div>
+        <div class="merch-items item8">
+                <img src="{% static 'image/wav tee sq 1k-min greygradient.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">.wav Tee - $20</div>
+        </div>
+
+
+        <div class="merch-items item9">
+                <img src="{% static 'image/LP sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">.wav LP - $20</div>
+        </div>
+        <div class="merch-items item10">
+                <img src="{% static 'image/hoodie sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Hoodie - $20</div>
+        </div>
+        <div class="merch-items item11">
+                <img src="{% static 'image/sine tee sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">Sine Tee - $20</div>
+        </div>
+        <div class="merch-items item12">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="responsive_merch">
+                <div class="merch_descrip">.wav Tee - $20</div>
+        </div>
+        
+<!-- 
+    <div class="see-more-merch">
+            <button class="button merch-seemore-button">see more</button>
+    </div> -->
+</div>
+
+
+{% endblock content %}

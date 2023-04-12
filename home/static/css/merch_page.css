@@ -1,0 +1,302 @@
+.hlink2 {
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    color: #f40405;
+}
+
+/* --------------------------------------------------------- MERCH */
+
+.merch-container {
+    display: grid;
+    grid-template-columns: auto repeat(4, 385px) auto;
+    grid-template-rows: 48px 100px repeat(3,minmax(min-content, max-content));
+    padding-bottom: 80px;
+}
+
+.region_switcher {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    padding-left: 9%;
+}
+
+.store_button1 {
+    background-color: black;
+}
+
+.store_button2 {
+    color: black;
+}
+
+.filters {
+    grid-column: 5;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 9%;
+}
+
+.filter_button {
+    background-color: #f40405;
+}
+
+.merch_page_bar {
+    width: 100%;
+    height: 2px;
+    background-color: #f40405;
+    margin: 3px 0;
+    grid-column: 2;
+    grid-column-end: span 4;
+    grid-row: 1;
+}
+
+.merch-items {
+    font-family: Acrom;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.merch-button {
+    background-color: black;
+    color: white;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.responsive_merch {
+    width: 100%;
+    height: auto;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+}
+
+.responsive_merch2 {
+    width: 100%;
+    height: auto;
+}
+
+.responsive_merch3 {
+    width: 100%;
+    height: auto;
+    background-color: grey;
+}
+
+
+.responsive_merch:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
+.item1 {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.item2 {
+    grid-column: 3;
+    grid-row: 3; 
+}
+
+.item3 {
+    grid-column: 4;
+    grid-row: 3;
+}
+
+.item4 {
+    grid-column: 5;
+    grid-row: 3;
+}
+
+.item5 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.item6 {
+    grid-column: 3;
+    grid-row: 4; 
+}
+
+.item7 {
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.item8 {
+    grid-column: 5;
+    grid-row: 4;
+}
+
+.item9 {
+    grid-column: 2;
+    grid-row: 5;
+}
+
+.item10 {
+    grid-column: 3;
+    grid-row: 5; 
+}
+
+.item11 {
+    grid-column: 4;
+    grid-row: 5;
+}
+
+.item12 {
+    grid-column: 5;
+    grid-row: 5;
+}
+
+.merch_descrip {
+    padding-top: 7px;
+}
+
+
+@media screen and (max-width: 1540px) {
+
+    .merch-container {
+        display: grid;
+        grid-template-columns: auto repeat(4, 347.5px) auto;
+        padding-bottom: 80px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .merch-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 48px 30px repeat(6, minmax(min-content, max-content)) 48px;
+        gap: 0rem;
+        padding-bottom: 50px;
+    }
+
+    .merch_page_bar {
+        width: 100%;
+        height: 2px;
+        background-color: #f40405;
+        margin: 3px 0;
+        grid-column: 1;
+        grid-column-end: span 2;
+        grid-row: 1;
+    }
+    
+    .merch_bar {
+        width: 300px;
+    }
+
+    .region_switcher {
+        grid-column: 1;
+        grid-row: 2;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-evenly;
+        padding-left: 9%;
+    }
+    
+    .store_button1 {
+        background-color: black;
+        font-size: small;
+        padding: 5px 10px;
+    }
+    
+    .store_button2 {
+        color: black;
+        font-size: small;
+        padding: 5px 10px;
+    }
+    
+    .filters {
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding-right: 9%;
+    }
+    
+    .filter_button {
+        background-color: #f40405;
+        font-size: small;
+        padding: 5px 10px;
+    }
+    
+    .merch-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+    
+    .item1 {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    
+    .item2 {
+        grid-column: 2;
+        grid-row: 3; 
+    }
+    
+    .item3 {
+        grid-column: 1;
+        grid-row: 4;
+    }
+    
+    .item4 {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .item5 {
+        grid-column: 1;
+        grid-row: 5;
+    }
+    
+    .item6 {
+        grid-column: 2;
+        grid-row: 5; 
+    }
+    
+    .item7 {
+        grid-column: 1;
+        grid-row: 6;
+    }
+    
+    .item8 {
+        grid-column: 2;
+        grid-row: 6;
+    }
+    
+    .item9 {
+        grid-column: 1;
+        grid-row: 7;
+    }
+    
+    .item10 {
+        grid-column: 2;
+        grid-row: 7; 
+    }
+    
+    .item11 {
+        grid-column: 1;
+        grid-row: 8;
+    }
+    
+    .item12 {
+        grid-column: 2;
+        grid-row: 8;
+    }
+
+}
