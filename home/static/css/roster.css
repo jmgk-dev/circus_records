@@ -1,6 +1,30 @@
+
+
+.hlink3 {
+    text-decoration: underline;
+    color: #e805f6;
+    text-decoration-thickness: 4px;
+}
+
+.artist_link {
+    text-decoration: underline;
+}
+
+
 .roster-container {
     display: grid;
+    grid-template-rows: 48px auto;
     grid-template-columns: auto 1540px auto;
+}
+
+.roster_page_bar {
+    width: 100%;
+    height: 2px;
+    background-color: #e805f6;
+    margin: 3px 0;
+    grid-column: 1;
+    grid-column-end: span 3;
+    grid-row: 1;
 }
 
 .artists {
@@ -11,6 +35,7 @@
     flex-direction: column;
     padding-top: 1.5vh;
     grid-column: 2;
+    grid-row: 2;
 }
 
 .artist {
@@ -38,21 +63,32 @@
 .artist-content {
     font-family: Acrom;
     display: grid;
-    grid-template-columns: auto 770px 770px auto;
-    grid-template-rows: 424px auto;
+    grid-template-columns: auto repeat(4, 385px) auto;
+    grid-template-rows: 48px 212px 100px auto;
     padding-top: 5vh;
     padding-bottom: 5vh;
 }
 
-.artist-info {
+.artist_page_bar {
+    width: 100%;
+    height: 2px;
+    background-color: #e805f6;
+    margin: 3px 0;
     grid-column: 2;
+    grid-column-end: span 2;
+    grid-row: 1;
+}
+
+.artist-info {
+    grid-column: 2 / span 2;
+    grid-row: 2;
     padding-right: 100px;
 }
 
 .artist_pic_static {
     opacity: 0.9;
     width: 700px;
-    grid-column: 3;
+    grid-column: 4;
 }
 
 .artist-name {
@@ -68,10 +104,16 @@
     .artist-content {
         font-family: Acrom;
         display: grid;
-        grid-template-columns: auto 500px 500px auto;
-        grid-template-rows: 424px auto;
+        grid-template-columns: auto 712px 712px auto;
+        grid-template-rows: 48px 250px 250px auto;
         padding-top: 5vh;
         padding-bottom: 5vh;
+    }
+
+    .artist-info {
+        grid-column: 2;
+        grid-row: 2;
+        padding-right: 100px;
     }
 
     .artist_pic_static {

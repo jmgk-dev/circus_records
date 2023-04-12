@@ -1,0 +1,296 @@
+@font-face 
+{
+  font-family: "Acrom - Extra Bold"; 
+  src: url("fonts/The-Northern-Block-Ltd-Acrom-ExtraBold-1.otf") format("opentype");
+
+}
+@font-face {
+  font-family: "Acrom";
+  src: url("fonts/The-Northern-Block-Ltd-Acrom-1.otf") format("opentype"); 
+}
+
+body {
+    /* overflow: hidden; */
+    /* padding-left: max(10vw);
+    padding-right: max(10vw); */
+}
+
+.hideoverflow {overflow:hidden;}
+
+html {
+    box-sizing: border-box;
+
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+h6 {
+    font-family: Acrom;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.header-link {
+    text-underline-offset: 12px;
+}
+
+.button {
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: large;
+    font-family: Acrom;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------- BURGER MENU */
+
+.burger-bg {
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    top: 0;
+    display: none;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+/* https://manuel.pinto.dev */
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.menu_top_images {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 5vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.menu_logo {
+    width: 4rem;
+}
+
+.menu_icon {
+    width: 2rem;
+    cursor: pointer;
+}
+
+.burger-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60vh;
+    position: sticky; /* Stay in place */
+    column-gap: 3rem;
+    padding-top: max(10vh, 40px);
+    font-size: larger;
+}
+
+.burger-elements {
+    color: white;
+    font-family: Acrom;
+    text-decoration: underline;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.burger-link {
+    padding-bottom: 3vh;
+}
+
+.show {display:block;} 
+
+
+@media screen and (max-width: 600px) {
+
+    .burger-container {
+        column-gap: 0rem;
+        font-size: medium;
+    }
+
+}
+
+/* --------------------------------------------------------- STICKY HEADER */
+
+.sticky-header {
+    display: grid;
+    grid-template-columns: auto repeat(4, 385px) auto;
+    grid-template-rows: 70px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(255,255,255,0.9);
+}
+
+.logos {
+    grid-column: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3rem;
+}
+
+
+.header-links {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    font-family: Acrom;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color: black;
+    padding-left: 8rem;
+    padding-right: 8rem;
+}
+
+.header-link {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.header-link:hover {
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.hlink1:hover {
+    background-color: #0814f1;
+}
+
+.hlink2:hover {
+    background-color: #f40405;
+}
+
+.hlink3:hover {
+    background-color: #e805f6;
+    color: white;
+}
+
+.hlink4:hover {
+    background-color: #03c842;
+}
+
+.hlink5:hover {
+    background-color: #f7e905;
+}
+
+.responsive_logo {
+    width: 2rem;
+}
+
+.circus_logo {
+    width: 40px;
+}
+
+.bar_menu {
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+
+.search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-column: 5;
+    font-family: Acrom;
+    gap: 1rem;
+    padding-right: 3rem;
+}
+
+@media screen and (max-width: 1540px) {
+
+    .sticky-header {
+        grid-template-columns: auto repeat(4, 347.5px) auto;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .sticky-header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 60px;
+    }
+
+    .logos {
+        grid-column: 1;
+        padding-left: 1rem;
+        gap: 2rem;
+    }
+
+    .links {
+        display: none;
+    }
+    
+    .search {
+        grid-column: 2;
+    }
+
+    .search_txt {
+        display: none;
+    }
+
+    .header-links {
+        display: none;
+    }
+
+    .search {
+        padding-right: 1rem;
+    }
+
+    .search_txt {
+        display: none;
+    }
+}

@@ -1,0 +1,47 @@
+/* --------------------------------------------------------- CAROUSEL */
+
+.carousel-container {
+    display: grid;
+    grid-template-rows: minmax(min-content, max-content);
+    grid-template-columns: auto 1540px auto;
+    padding-bottom: 80px;
+}
+
+
+.responsive_banner_large {
+    grid-column: 2;
+    width: 100%;
+    height: auto;
+}
+
+.responsive_banner_small {
+    grid-column: 1;
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+@media screen and (max-width: 1540px) {
+
+    .carousel-container {
+        grid-template-columns: auto 1390px auto;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .carousel-container {
+        grid-template-columns: 1fr;
+        padding-bottom: 30px;
+    }
+
+    .responsive_banner_large {
+        display: none;
+    }
+
+    .responsive_banner_small {
+        display: block;
+    }
+    
+}
