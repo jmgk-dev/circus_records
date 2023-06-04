@@ -17,10 +17,14 @@
     width: 10%;
     font-size: 1.2em;
     height: 70px;
+    filter: drop-shadow(3px 3px 2px grey);
+    background-color: white;
+    color: black;
 }
 
-.button1 {
-    background-color: #f7e905;
+/* .button1 {
+    background-color: white;
+    color: black;
 }
 
 .button2 {
@@ -33,7 +37,7 @@
 
 .button4 {
     background-color: #e805f6;
-}
+} */
 
 @media screen and (max-width: 1540px) {
 

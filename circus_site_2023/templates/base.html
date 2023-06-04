@@ -34,11 +34,12 @@
             </div>
             <div class="burger-container">
                     <div class="burger-elements element1">
-                            <div class="burger-link">Releases</div>
+                            <div class="burger-link"><a href="{% slugurl 'releases' %}">Releases</a></div>
                             <div class="burger-link"><a href="{% slugurl 'merch' %}">Merch</a></div>
                             <div class="burger-link"><a href="{% slugurl 'roster' %}">Artists</a></div>
                             <div class="burger-link"><a href="{% slugurl 'playlists' %}">Playlists</a></div>
-                            <div class="burger-link">About</div>
+                            <div class="burger-link"><a href="{% slugurl 'about' %}">About</a></div>
+                            <div class="burger-link"><a href="{% slugurl 'signup' %}">Sign Up</a></div>
                     </div>
                     <div class="burger-elements element2">
                             <div class="burger-link">Spotify</div>
@@ -64,20 +65,53 @@
                                 <img src="{% static 'image/electric_logo4.png' %}" class="responsive_logo electric_logo">
                                 <img src="{% static 'image/dpmo_logo2.png' %}" class="responsive_logo dpmo_logo">
                 </div>
+
                 <div class="header-links">
-                        <div class="header-link hlink1">Releases</div>
-                        <div class="header-link hlink2"><a href="{% slugurl 'merch' %}" class="merch_link">Merch</a></div>
-                        <div class="header-link hlink3"><a href="{% slugurl 'roster' %}" class="artist_link">Artists</a></div>
-                        <div class="header-link hlink4"><a href="{% slugurl 'playlists' %}" class="playlists_link">Playlists</a></div>
-                        <div class="header-link hlink5">About</div>
+                        <a href="{% slugurl 'releases' %}" class="releases_link"><div class="header-link hlink1">Releases</div></a>
+                        <a href="{% slugurl 'merch' %}" class="merch_link"><div class="header-link hlink2">Merch</div></a>
+                        <a href="{% slugurl 'roster' %}" class="artist_link"><div class="header-link hlink3">Artists</div></a>
+                        <a href="{% slugurl 'playlists' %}" class="playlists_link"><div class="header-link hlink4">Playlists</div></a>
+                        <a href="{% slugurl 'about' %}" class="about_link"><div class="header-link hlink5">About</div></a>
+                        <a href="{% slugurl 'signup' %}" class="signup_link"><div class="header-link hlink6">Sign Up</div></a>
+                        <img src="{% static 'image/search_icon.png' %}" class="search_icon">
                 </div>        
-                <div class="search">
-                        <div class="search_txt">Search</div>
-                        <img src="{% static 'image/search_icon.png' %}" class="responsive_logo">
-                </div>
+
         </div>
 
         {% block content %}{% endblock %}
+
+        <div class="footer-container">
+                <div class="footer_title">
+                        <div class="footer_bar"></div>
+                </div>
+                <div class="footer_logo">
+                        <img src="{% static 'image/circus_logo-min.png' %}" class="responsive_footer_logo">
+                </div>
+                <div class="footer_links1">
+                        <div class="footer-link">About</div>
+                        <div class="footer-link">Demo Submission</div>
+                        <div class="footer-link">Terms & Conditions</div>
+                </div>
+                <div class="footer_links2">
+                        <a href="{% slugurl 'contact' %}"><div class="footer-link">Contact</div></a>
+                        <div class="footer-link">Sign Up</div>
+                        <div class="footer-link">Privacy Policy</div>
+                </div>
+                <div class="footer_socials1">
+                        <div class="footer-link">Spotify</div>
+                        <div class="footer-link">Instagram</div>
+                        <div class="footer-link">YouTube</div>
+                        <div class="footer-link">Twitch</div>
+                </div>
+                <div class="footer_socials2">
+                        <div class="footer-link">Facebook</div>
+                        <div class="footer-link">TikTok</div>
+                        <div class="footer-link">Twitter</div>
+                        <div class="footer-link">Soundcloud</div>
+                </div>
+                <div class="footer_bar2"></div>
+        </div>
+        
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/circus_site_2023.js' %}"></script>

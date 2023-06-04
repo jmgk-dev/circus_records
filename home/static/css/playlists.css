@@ -2,12 +2,13 @@
     text-decoration: underline;
     text-decoration-thickness: 4px;
     color: #03c842;
+    pointer-events: none;
 }
 
 .playlists_container {
     display: grid;
     grid-template-columns: auto repeat(2, 770px) auto;
-    grid-template-rows: 48px repeat(3,minmax(min-content, max-content));
+    grid-template-rows: 48px 140px repeat(3, minmax(min-content, max-content));
 }
 
 .playlists_page_bar {
@@ -20,11 +21,23 @@
     grid-column-end: span 2;
 }
 
+.playlist_main_descrip {
+    font-family: Acrom;
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: 2rem;
+}
+
 .playlist_item {
     font-family: Acrom;
     padding: 2rem;
     display: flex;
     flex-direction: column;
+}
+
+.playlist_header {
+    font-size: x-large;
+    padding-bottom: 10px;
 }
 
 .playlist_descrip {
@@ -36,32 +49,32 @@
 
 .pitem1 {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 3;
 }
 
 .pitem2 {
     grid-column: 3;
-    grid-row: 2; 
+    grid-row: 3; 
 }
 
 .pitem3 {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 .pitem4 {
     grid-column: 3;
-    grid-row: 3;
+    grid-row: 4;
 }
 
 .pitem5 {
     grid-column: 2;
-    grid-row: 4;
+    grid-row: 5;
 }
 
 .pitem6 {
     grid-column: 3;
-    grid-row: 4; 
+    grid-row: 5; 
 }
 
 @media screen and (max-width: 1540px) {
@@ -69,9 +82,7 @@
     .playlists_container {
         display: grid;
         grid-template-columns: auto 1fr 1fr auto;
-        grid-template-rows: 48px repeat(3,minmax(min-content, max-content));
     }
-
 
 }
 
@@ -85,6 +96,10 @@
 
     .playlists_page_bar {
         grid-column: 1;
+    }
+
+    .playlist_main_descrip {
+        display: none;
     }
 
     .pitem1 {

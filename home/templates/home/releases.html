@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags home_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/releases_page.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="release-page-container">
+
+    <div class="releases_page_bar"></div>
+
+    <div class="releases_main_descrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+
+    <div class="filters">
+            <div class="button filter_button">FILTERS</div>
+    </div>
+
+<div class="releases_catalogue_container">
+        {% releases %}
+</div>
+
+</div>
+
+{% endblock content %}

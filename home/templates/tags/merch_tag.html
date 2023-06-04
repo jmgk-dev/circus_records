@@ -1,0 +1,15 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+
+<ul class="merch-items">
+    {% for item in merch_items %}
+        <li class="merch-item">
+            <a href="{{item.url}}" class="merch-pic">
+                {% image item.image original class="responsive_merch" %}
+            </a>
+            <span class="merch_item_title">{{item.title}}</span>
+            <span class="merch_item_price">{{item.price}}</span>
+            <span class="merch_item_type">{{item.merch_type}}</span>
+        </li>
+    {% endfor %}
+</ul>

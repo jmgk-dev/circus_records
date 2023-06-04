@@ -8,8 +8,13 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 
+from django.conf.urls import include
+
+from wagtailautocomplete.urls.admin import urlpatterns as autocomplete_admin_urls
+
 urlpatterns = [
     path("django-admin/", admin.site.urls),
+    path("admin/autocomplete/", include(autocomplete_admin_urls)),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),

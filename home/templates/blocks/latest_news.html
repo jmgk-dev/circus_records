@@ -1,0 +1,22 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+
+{% if latest_news %}
+
+<div class="news_container">
+    <div class="news_title">
+            <div class="news_bar"></div>
+            <div>{{value.title}}</div>
+    </div>
+</div>
+
+<ul class="news_list">
+    {% for news in latest_news %}
+    <li class="news-items">
+        {% image news.image original class="responsive_news" %}
+        <span class="news_text">{{news.description|richtext}}</span>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endif %}

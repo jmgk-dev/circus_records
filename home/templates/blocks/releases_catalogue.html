@@ -1,0 +1,13 @@
+{% load wagtailimages_tags %}
+
+{% for release in value.releases %}
+{% if release.image %}
+    <div class="releases">
+        <a href="{{release.link}}">
+            {% image release.image original class="responsive_packshot" %}
+        </a>
+        <div>{{release.artist}}</div>
+        <div>{{release.title}}</div>
+    </div>
+{% endif %} 
+{% endfor %}

@@ -1,0 +1,14 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+
+<ul class="releases_list">
+    {% for release in releases %}
+    {% if release.artist == 'Flux Pavilion' %}
+    <li class="release_list_item">
+        <a href="{{release.url}}" class="releases">
+            {% image release.artwork max-128x128 class="latest_release_pic" %}
+        </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>

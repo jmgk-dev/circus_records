@@ -1,0 +1,428 @@
+.hlink3 {
+    text-decoration: underline;
+    color: #e805f6;
+    text-decoration-thickness: 4px;
+    /* pointer-events: none; */
+}
+
+.artist_link {
+    text-decoration: underline;
+}
+
+.back_to_artists {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2rem;
+}
+
+.back_button {
+    background-color: #e805f6;
+    padding: 8px 16px;
+}
+
+.artist-content {
+    font-family: Acrom;
+    display: grid;
+    grid-template-columns: auto minmax(100px, 720px) 100px minmax(100px, 720px) auto;
+    grid-template-rows: 48px 48px 48px 240px 75px repeat(3, 48px 180px) auto;
+    padding-bottom: 5vh;
+}
+
+.artist_page_bar {
+    width: 100%;
+    height: 2px;
+    background-color: #e805f6;
+    margin: 3px 0;
+    grid-column: 2 / span 3;
+    grid-row: 1;
+}
+
+.title {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bar {
+    width: 550px;
+    height: 2px;
+    background-color: #e805f6;
+}
+
+
+/* --------------------------------------------------------- */
+
+
+.artist-name {
+    font-size: x-large;
+    grid-row: 3;
+    grid-column: 2;
+    padding-left: 2rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.artist-info {
+    grid-row: 4;
+    grid-column: 2;
+    padding-right: 100px;
+    overflow: hidden;
+    padding-left: 2rem;
+}
+
+
+/* --------------------------------------------------------- */
+
+
+.artist_pic_static {
+    opacity: 0.9;
+    grid-row: 2 / span 2;
+    grid-column: 4;
+    padding-right: 2rem;
+}
+
+/* --------------------------------------------------------- */
+
+.artist-socials {
+    grid-row: 5;
+    grid-column: 2;
+    display: flex;
+    flex-direction: row;
+    padding-left: 2rem;
+}
+
+.social_icon {
+    padding: 10px;
+}
+
+.sicon1 {
+    padding-left: 0px;
+}
+
+.sicon_pic {
+    width: 30px;
+}
+
+/* --------------------------------------------------------- */
+
+.latest_releases_title {
+    grid-row: 8;
+    grid-column: 2;
+    padding-left: 2rem;
+}
+
+.latest_releases_bar {
+    grid-row: 8;
+    grid-column: 2;
+    width: 450px;
+}
+
+.latest_releases {
+    grid-column: 2;
+    grid-row: 9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2rem;
+    overflow: scroll;
+}
+
+.releases_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.release_list_item {
+    margin-right: 50px;
+}
+
+.latest_release_pic {
+    /* width: 128px; */
+    border-radius: 3%;
+    border: 1px solid rgb(85, 85, 85);
+}
+
+/* --------------------------------------------------------- */
+
+.live_dates_title {
+    grid-row: 6;
+    grid-column: 2;
+    padding-left: 2rem;
+}
+
+.live_dates_bar {
+    grid-row: 6;
+    grid-column: 2;
+    width: 82%;
+}
+
+.live_dates {
+    grid-row: 7;
+    grid-column: 2;
+    display: flex;
+    flex-direction: row;
+    padding-left: 2rem;
+    overflow: scroll;
+}
+
+.date {
+    width: 220px;
+    padding: 1rem;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+    margin-right: 50px;
+    color: black;
+}
+
+/* --------------------------------------------------------- */
+
+.merch_title {
+    grid-row: 10;
+    grid-column: 2;
+    padding-left: 2rem;
+}
+
+.merch_bar {
+    grid-row: 10;
+    grid-column: 2;
+    width: 540px;
+}
+
+.merch {
+    grid-row: 11;
+    grid-column: 2;
+    overflow: scroll;
+}
+
+.merch_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.merch_list_item {
+    margin-right: 50px;
+}
+
+.merch_pic {
+    padding: 1rem;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 8px;
+}
+
+/* --------------------------------------------------------- */
+
+.artist_news_title {
+    grid-row: 6;
+    grid-column: 4;
+    padding-right: 2rem;
+}
+
+.news_bar {
+    grid-row: 6;
+    grid-column: 4;
+    width: 550px;
+}
+
+.artist-news-item {
+    grid-row: 7;
+    grid-column: 4;
+    padding-right: 2rem;
+}
+
+.news_pic {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* --------------------------------------------------------- */
+
+.curator_feed {
+    padding-top: 100px;
+    grid-row: 12;
+    grid-column: 2 / span 3;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* --------------------------------------------------------- */
+
+@media screen and (max-width: 600px) {
+
+    .artist-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 40px 250px 60px 140px repeat(2, 48px 170px) auto;
+    }
+
+    .back_to_artists {
+        grid-column: 1;
+        grid-row: 1;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding-left: 0rem;
+    }
+
+    .artist_page_bar {
+        grid-column: 1;
+    }
+
+    .bar {
+        width: 60%;
+    }
+
+    .right-button-rel {
+        grid-row: 9;
+        grid-column: 1;
+        width: 5vw;
+    }
+
+    .right-button-merch {
+        grid-row: 11;
+        grid-column: 1;
+        width: 5vw;
+    }
+
+    .artist_pic_static {
+        grid-column: 1;
+        grid-row: 3;
+        width: 100%;
+        padding: 0rem;
+    }
+
+    .socials-title {
+        display: none;
+        padding: 0rem;
+    }
+    
+    .artist-socials {
+        grid-row: 4;
+        grid-column: 1;
+        padding: 0rem;
+    }
+
+    .artist-name {
+        grid-row: 2;
+        grid-column: 1;
+        padding: 0rem;
+    }
+    
+    .artist-info {
+        grid-row: 5;
+        grid-column: 1;
+        text-align: justify;
+        padding: 0rem;
+    }
+
+    .live_dates_title {
+        grid-row: 6;
+        grid-column: 1;
+        padding: 0rem;
+    }
+    
+    .live_dates_bar {
+        grid-row: 7;
+        grid-column: 1;
+    }
+    
+    .live_dates {
+        grid-row: 7;
+        grid-column: 1;
+        padding: 0rem;
+    }
+
+    .latest_releases_title {
+        grid-row: 8;
+        grid-column: 1;
+        padding: 0rem;
+    }
+    
+    .latest_releases_bar {
+        grid-row: 8;
+        grid-column: 1;
+    }
+    
+    .latest_releases {
+        grid-row: 9;
+        grid-column: 1;
+        padding: 0rem;
+    }
+
+    .latest_release_pic {
+        width: 30vw;
+    }
+
+    .release3, .release4 {
+        display: none;
+    }
+
+    .merch_title {
+        grid-row: 10;
+        grid-column: 1;
+        padding-left: 0rem;
+    }
+    
+    .merch_bar {
+        grid-row: 10;
+        grid-column: 1;
+        width: 80%;
+    }
+    
+    .merch {
+        grid-row: 11;
+        grid-column: 1;
+        padding-left: 0rem;
+    }
+
+    .mitem3, .mitem4 {
+        display: none;
+    }
+
+    .merch_pic {
+        width: 30vw;
+        padding: 1rem;
+    }
+
+    .artist_news_title {
+        grid-row: 12;
+        grid-column: 1;
+        padding-right: 0rem;
+    }
+    
+    .news_bar {
+        grid-row: 12;
+        grid-column: 1;
+        width: 80%;
+    }
+    
+    .artist-news-item {
+        grid-row: 13;
+        grid-column: 1;
+        padding-right: 0rem;
+    }
+
+    .curator_feed {
+        grid-row: 14;
+        grid-column: 1;
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+
+
+}
