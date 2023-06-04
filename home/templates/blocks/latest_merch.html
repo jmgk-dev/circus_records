@@ -1,0 +1,27 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+
+{% if latest_merch %}
+
+    <div class="merch_title">
+        <div class="merch_bar"></div>
+        <div>Merch</div>
+    </div>
+
+    <ul class="merch-items">
+        {% for item in latest_merch %}
+            <li class="merch-item">
+                <a href="{{item.url}}" class="merch-pic">
+                    {% image item.image original class="responsive_merch" %}
+                </a>
+                <span class="merch_item_title">{{item.title}}</span>
+                <span class="merch_item_price">{{item.price}}</span>
+                <span class="merch_item_type">{{item.merch_type}}</span>
+            </li>
+        {% endfor %}
+            <li class="merch-item">
+                <img src="{% static 'image/red block2.jpg' %}" class="responsive_merch">
+            </li>
+    </ul>
+    
+{% endif %}

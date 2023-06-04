@@ -1,0 +1,25 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+    
+    <ul class="releases_list">
+        {% for release in releases %}
+        <li class="release_list_item">
+            <a href="{{release.url}}" class="releases">
+                {% image release.artwork original class="responsive_packshot" %}
+            </a>
+            {% if release.artist_pages.all %}
+            <ul class="release__artist-tags">
+                {% for artist in release.artist_pages.all %}
+                    <li>
+                        <a href="{{artist.url}}"><span class="release_artist_name_link">{{release.artist}}</span></a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <span class="release_artist_name">{{release.artist}}</span>
+            {% endif %}
+            <span class="release_title">{{release.title}}</span>
+            <span class="release_type">{{release.release_type}}</span>
+        </li>
+        {% endfor %}
+    </ul>

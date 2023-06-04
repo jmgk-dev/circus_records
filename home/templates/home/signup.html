@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="signup_container">
+        <div class="signup_page_bar"></div>
+
+        <div class="signup_main_descrip">
+                {% include_block page.signup_text|richtext %}
+        </div>
+
+        <div class="contact_form">
+                <a href="https://dashboard.mailerlite.com/forms/***REMOVED***/90059146017113940/share">SIGNUP</a>
+        </div>
+
+        <img src="{% static 'image/00A2797-3-EDIT-min.jpg' %}" class="signup_pic_static">
+
+</div>
+
+
+{% endblock content %}

@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
+{% load wagtailcore_tags home_tags %}
+
 {% load static %}
 
 {% block extra_css %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/roster.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/artist_page.css' %}">
 {% endblock %}
 
 {% block extra_js %}
@@ -21,20 +23,160 @@
 {% block content %}
 
 <div class="artist-content">
+
     <div class="artist_page_bar"></div>
-    <div class="artist-info">
-        <div class="artist-name">FLUX PAVILION</div>
-        <div>A true polymath, Flux Pavilion’s ability to involve himself in all aspects of music cannot be understated. Known as Joshua Steele to friends and family, he is a singer-songwriter, record producer and label owner who can express himself as well with the drums, guitar, saxophone and piano as well as he can behind the studio desk. Releasing his first record at only 19 years old, over the course of a decade at the top of the bass music game Joshua has sold out the legendary Red Rocks Amphitheatre in Colorado twice, notched up a UK top 10 chart hit with grime MC Sway, earned a place in the hallowed DJ Mag top 100 list and had the legendary Kanye West & Jay Z sample his dance floor anthem I Cant Stop.</div>
+
+        <div class="back_to_artists">
+            <a href="{% slugurl 'roster' %}"><div class="button back_button">⬅ back to artists</div></a>
+        </div>
+
+        <div class="artist-name">{{page.title}}</div>
+        <div class="artist-info">{{page.bio|richtext}}</div>
+
+        {% image page.photo max-700x394 class="artist_pic_static" %}
+
+        <!-- <div class="socials-title">Artist Socials</div> -->
+        <div class="artist-socials">
+            <div class="social_icon sicon1">
+                <img src="{% static 'image/socials/spotify logo 500.png' %}" class="sicon_pic">
+            </div>
+            <div class="social_icon sicon2">
+                <img src="{% static 'image/socials/IG Logo 500.png' %}" class="sicon_pic">
+            </div>
+            <div class="social_icon sicon3">
+                <img src="{% static 'image/socials/twitter logo 500.png' %}" class="sicon_pic">
+            </div>
+            <div class="social_icon sicon4">
+                <img src="{% static 'image/socials/youtube logo 500 b.png' %}" class="sicon_pic">
+            </div>
+            <div class="social_icon sicon5">
+                <img src="{% static 'image/socials/sc logo 500.png' %}" class="sicon_pic">
+            </div>
+            <div class="social_icon sicon6">
+                <img src="{% static 'image/socials/fb logo 500.png' %}" class="sicon_pic">
+            </div>
+        </div>
+
+        <div class="latest_releases_title title">
+            <div>Latest Releases</div>
+            <div class="latest_releases_bar bar"></div>
+        </div>
+        <div class="latest_releases content_box">
+
+            {% artist_releases %}
+            
+            {% comment %} 
+            <div class="release release1">
+                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
+            </div>
+            <div class="release release2">
+                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
+            </div>
+            <div class="release release3">
+                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
+            </div>
+            <div class="release release4">
+                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
+            </div> {% endcomment %}
+
+        </div>
+
+        <div class="live_dates_title title">
+            <div>Live Dates</div>
+            <div class="live_dates_bar bar"></div>
+        </div>
+        <div class="live_dates content_box">
+
+            {% for listing in listings %}
+            <a href={{ listing.4 }}><div class="date date1">
+                <div>{{ listing.1 }}</div>
+                <br>
+                <div>{{ listing.0 }}</div>
+                <br>
+                <div>{{ listing.2 }} {{ listing.3 }}</div>
+            </div></a>
+            {% endfor %}
+
+            {% comment %} <div class="date date1">
+                <div>Echostage</div>
+                <br>
+                <div>Washington, US</div>
+                <br>
+                <div>May 13 2023</div>
+            </div>
+            <div class="date date2">
+                <div>Echostage</div>
+                <br>
+                <div>Washington, US</div>
+                <br>
+                <div>May 13 2023</div>
+            </div>
+            <div class="date date3">
+                <div>Echostage</div>
+                <br>
+                <div>Washington, US</div>
+                <br>
+                <div>May 13 2023</div>
+            </div>
+            <div class="date date4">
+                <div>Echostage</div>
+                <br>
+                <div>Washington, US</div>
+                <br>
+                <div>May 13 2023</div>
+            </div>
+            <div class="date date5">
+                <div>Echostage</div>
+                <br>
+                <div>Washington, US</div>
+                <br>
+                <div>May 13 2023</div>
+            </div> {% endcomment %}
+
+        </div>
+
+        <div class="merch_title title">
+            <div>Merch</div>
+            <div class="merch_bar bar"></div>
+        </div>
+        <div class="merch content_box">
+
+            {% artist_merch_items %}
+
+            {% comment %} <div class="merch_item mitem1">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
+            </div>
+            <div class="merch_item mitem2">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
+            </div>
+            <div class="merch_item mitem3">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
+            </div>
+            <div class="merch_item mitem4">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
+            </div>
+            <div class="merch_item mitem5">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
+            </div>
+            <div class="merch_item mitem6">
+                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
+            </div> {% endcomment %}
+        </div>
+
+        <div class="artist_news_title title">
+            <div>News</div>
+            <div class="news_bar bar"></div>
+        </div>
+        <div class="artist-news-item content_box">
+                <img src="{% static 'image/Quickfire with FuntCase - website-min.jpg' %}" class="news_pic">
+                <div class="news_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        </div>
+    
+
+    <div class="curator_feed" id="curator-feed-default-feed-layout">
+        <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
     </div>
-    <img src="{% static 'image/flux profile bw.png' %}" class="artist_pic_static">
-</div>
 
-<div latest_release>
-
-</div>
-
-<div id="curator-feed-default-feed-layout">
-    <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
 </div>
 
 {% endblock content %}

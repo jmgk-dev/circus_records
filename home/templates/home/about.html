@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load static %}
+
+{% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/about_page.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="about_container">
+
+        <div class="about_page_bar"></div>
+
+        <div class="about_mission">
+                <div>Who We Are</div>
+                {% include_block page.mission_statement|richtext %}
+        </div>
+
+        <img src="{% static 'image/flux profile bw.png' %}" class="mission_pic">
+
+        <div class="page_bar1"></div>
+
+        <div class="about_history">
+                <div>What We've Done</div>
+                {% include_block page.history|richtext %}
+        </div>
+
+        <img src="{% static 'image/funtcase_live-min.jpg' %}" class="history_pic">
+
+        <div class="page_bar2"></div>
+
+        <div class="about_gaming">
+                <div>Gaming</div>
+                {% include_block page.gaming_info|richtext %}
+        </div>
+
+        <img src="{% static 'image/shutterstock_1430140070-min.jpg' %}" class="gaming_pic">
+
+</div>
+
+
+{% endblock content %}

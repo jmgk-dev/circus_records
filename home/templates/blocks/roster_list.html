@@ -1,0 +1,12 @@
+{% load wagtailimages_tags static %}
+
+    <ul class="artists">
+    {% for artist in value.artists %}
+        <li>
+            <a href="{{artist.url}}">
+                {% comment %} {% image artist.thumbnail original class="responsive_packshot" %} {% endcomment %}
+               <span class="artist">{{artist.title}}</span>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
