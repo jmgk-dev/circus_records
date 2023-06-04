@@ -1,0 +1,13 @@
+{% load wagtailimages_tags %}
+
+{% for item in value.merch %}
+{% if item.image %}
+    <div class="merch-item">
+        <a href="{{item.link}}">
+            {% image item.image original class="responsive_merch" %}
+        </a>
+        <div>{{item.description}}</div>
+        <div>{{item.price}}</div>
+    </div>
+{% endif %} 
+{% endfor %}

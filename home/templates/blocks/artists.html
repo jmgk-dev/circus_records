@@ -1,0 +1,19 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+
+    <ul class="artists_list">
+    {% for artist in value.artists %}
+        <li class="artist-item">
+            <a href="{{artist.url}}">
+                {% image artist.logo original class="artist-logo" %}
+                {% image artist.thumbnail original class="artist-image" %}
+            </a>
+            <span class="artist_name">{{artist.title}}</span>
+        </li>
+    {% endfor %}
+    <li class="artist-item see_more_artist">
+        <a href="{% slugurl 'roster' %}">
+        <img src="{% static 'image/artists_tiled-min.jpg' %}" class="see_more_artist_image">
+        </a>
+    </li>
+    </ul>
