@@ -62,7 +62,7 @@
     border-radius: 3%;
     z-index: 0;
     position: relative;
-    filter: blur(2px);
+    /* filter: blur(2px); */
 }
 
 .see_more_artist_text {
