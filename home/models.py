@@ -14,8 +14,10 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.core.fields import StreamField
 from wagtail.snippets.models import register_snippet
 from wagtail.contrib.settings.models import BaseSetting, register_setting
-from .blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesBlock, ArtistsBlock, RosterBlock, LatestMerchBlock, LatestNewsBlock
+from . blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesBlock, ArtistsBlock, RosterBlock, LatestMerchBlock, LatestNewsBlock, PlaylistsBlock
 from wagtailautocomplete.edit_handlers import AutocompletePanel
+from django.core.paginator import Paginator
+
 
 # ----------------------------------------------
 
@@ -91,10 +93,8 @@ class Release(ClusterableModel):
 
     def __str__(self):
         return f'{self.artist} - {self.title}'
-    
 
 # ----------------------------------------------
-
 
 @register_snippet
 class MerchItem(ClusterableModel):
@@ -216,9 +216,62 @@ class NewsItem(ClusterableModel):
     
 # ----------------------------------------------
 
+@register_snippet
+class Playlist(ClusterableModel, Orderable):
+
+    title = models.CharField(
+        null=False,
+        blank=False,
+        max_length=255
+    )
+
+    headline = models.CharField(
+        null=False,
+        blank=False,
+        max_length=255
+    )
+
+    url = models.URLField(
+        blank=False, 
+        null=True
+    )
+
+    description = RichTextField(
+        null=False,
+        blank=False
+    )
+
+    artist_pages = ParentalManyToManyField(
+        'home.ArtistPage',
+        blank=True,
+        related_name='+'
+    )
+
+    live = models.BooleanField(
+        default=False,
+        null=False,
+        blank=True
+    )
+
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('headline'),
+        FieldPanel('url'),
+        FieldPanel('description'),
+        AutocompletePanel('artist_pages'),
+        FieldPanel('live'),
+    ]
+
+    def __str__(self):
+        return f'{self.title}'
+
+
+# ----------------------------------------------
 
 class HomePageCarouselImages(Orderable):
+
     page = ParentalKey("home.HomePage", related_name="carousel_images")
+
     carousel_image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -272,6 +325,20 @@ class MerchPage(Page):
         FieldPanel('merch_catalogue')
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        merch = (
+            MerchItem
+            .objects
+            .filter(live=True)
+            .prefetch_related('artist_pages')
+        )
+
+        context['merch'] = merch
+
+        return context
+
 # ----------------------------------------------
 
 class ReleasesPage(Page):
@@ -289,6 +356,24 @@ class ReleasesPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('releases_catalogue')
     ]
+
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+
+        current_page = request.GET.get('page', 1)
+        releases = (
+            Release
+            .objects
+            .filter(live=True)
+            .prefetch_related('artist_pages')
+        )
+
+        page_obj = Paginator(releases, 6)
+
+
+        context['page_obj'] = page_obj.get_page(current_page)
+
+        return context
 
 # ----------------------------------------------
 
@@ -372,57 +457,104 @@ class ArtistPage(Page):
         related_name="+"
     )
 
+    songkick_url = models.URLField(
+        blank=True, 
+        null=True
+    )
+
     bio = RichTextField(
         null=True,
         blank=True,
         max_length=800
     )
 
+    playlist = models.URLField(
+        blank=True, 
+        null=True
+    )
+
+    instagram = models.URLField(
+        blank=True, 
+        null=True
+    )
+
+    spotify = models.URLField(
+        blank=True, 
+        null=True
+    )
+
+    twitter = models.URLField(
+        blank=True, 
+        null=True
+    ) 
+
     content_panels = Page.content_panels + [
         FieldPanel('photo'),
         FieldPanel('thumbnail'),
         FieldPanel('logo'),
+        FieldPanel('songkick_url'),
         FieldPanel('bio'),
+        FieldPanel('playlist'),
+        FieldPanel('instagram'),
+        FieldPanel('spotify'),
+        FieldPanel('twitter'),
     ]
 
 
     def get_context(self, request, *args, **kwargs) -> dict:
         context = super().get_context(request, *args, **kwargs)
 
-        response = requests.get("https://www.songkick.com/artists/1845075-flux-pavilion/calendar")
+        if self.songkick_url != None:
 
-        if response.status_code != 200:
-            print("Error fetching page")
-            exit()
-        else:
-            content = response.content
-                
-        soup = BeautifulSoup(response.content, 'html.parser')
-        calendar = soup.find(id="calendar-summary")
-        listings = calendar.find_all(class_="event-listing")
-        list = []
+            try:
+                response = requests.get(self.songkick_url)
+            except:
+                exit()
 
-        for event in listings:
-            event_list = []
+            if response.status_code != 200:
+                print("Error fetching page")
+                exit()
+            else:
+                content = response.content
 
-            city = event.find(class_='primary-detail')
-            event_list.append(city.text)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            calendar = soup.find(id="calendar-summary")
+            listings = calendar.find_all(class_="event-listing")
+            list = []
 
-            venue = event.find(class_='secondary-detail')
-            event_list.append(venue.text)
+            for event in listings:
+                event_list = []
 
-            month = event.find(class_='month')
-            event_list.append(month.text)
+                city = event.find(class_='primary-detail')
+                event_list.append(city.text)
 
-            date = event.find(class_='date')
-            event_list.append(date.text.strip())
+                venue = event.find(class_='secondary-detail')
+                event_list.append(venue.text)
 
-            link = event.a
-            event_list.append("https://www.songkick.com/" + link.get('href'))
+                month = event.find(class_='month')
+                event_list.append(month.text)
 
-            list.append(event_list)
+                date = event.find(class_='date')
+                event_list.append(date.text.strip())
 
-        context['listings'] = list
+                link = event.a
+                event_list.append("https://www.songkick.com/" + link.get('href'))
+
+                list.append(event_list)
+
+            context['listings'] = list
+
+        context['releases'] = Release.objects.filter(
+            artist_pages=self, live=True).order_by('-release_date')
+        
+        context['merch'] = MerchItem.objects.filter(
+            artist_pages=self, live=True).order_by('-live')
+
+        context['news'] = NewsItem.objects.filter(
+            artist_pages=self, live=True).order_by('-live')
+        
+        context['playlist'] = Playlist.objects.filter(
+            artist_pages=self, live=True).order_by('-live')
 
         return context
 
@@ -449,6 +581,21 @@ class RosterPage(Page):
 
 class PlaylistPage(Page):
     template = "home/playlists.html"
+
+    body = StreamField(
+    [
+        ('playlists', PlaylistsBlock()),
+    ],
+    null=True,
+    blank=False,
+    use_json_field = True
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body')
+    ]
+
+# ----------------------------------------------
 
 class ContactPage(Page):
     template = "home/contact.html"

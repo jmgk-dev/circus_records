@@ -1,6 +1,7 @@
 from wagtail.core import blocks
-
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.snippets.blocks import SnippetChooserBlock
+from wagtail.embeds.blocks import EmbedBlock
 
 # ----------------------------------------------
 
@@ -70,7 +71,6 @@ class LatestReleasesBlock(blocks.StructBlock):
 
 # ----------------------------------------------
 
-
 class MerchBlock(blocks.StructBlock):
     image = ImageChooserBlock(required=True)
     link = blocks.URLBlock(required=True)
@@ -133,3 +133,17 @@ class LatestNewsBlock(blocks.StructBlock):
         )[:value['limit']]
 
         return context
+    
+# ----------------------------------------------
+
+class PlaylistsBlock(blocks.StructBlock):
+    class Meta:
+        icon = 'star'
+        template = 'blocks/playlists.html'
+
+    objects = blocks.ListBlock(
+        SnippetChooserBlock('home.Playlist', required=True),
+        required=True
+    )
+
+

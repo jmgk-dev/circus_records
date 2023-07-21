@@ -5,6 +5,15 @@
     pointer-events: none;
 }
 
+li {
+    list-style-type: none;
+}
+
+button {
+    font-size: 20px;
+    padding: 10px;
+  }
+
 /* --------------------------------------------------------- MERCH */
 
 .merch-container {
@@ -56,13 +65,23 @@
 .merch_catalogue_container {
     grid-row: 3;
     grid-column: 2 / span 2;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr)); */
+}
+
+.merch_list {
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
 }
 
 .merch-item {
     font-family: Acrom;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .merch-button {
@@ -73,7 +92,7 @@
 }
 
 .responsive_merch {
-    width: 100%;
+    width: 280px;
     height: auto;
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);

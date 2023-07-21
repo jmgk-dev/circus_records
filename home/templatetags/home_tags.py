@@ -1,5 +1,5 @@
 from django import template
-from home.models import MerchItem, Release
+from home.models import MerchItem, Release, Playlist
 
 register = template.Library()
 
@@ -19,18 +19,10 @@ def releases(context):
         'request': context['request'],
     }
 
-# Artist Release snippets
-@register.inclusion_tag('tags/artist_release_tag.html', takes_context=True)
-def artist_releases(context):
+# Playlist snippets
+@register.inclusion_tag('tags/playlist_tag.html', takes_context=True)
+def playlists(context):
     return {
-        'releases': Release.objects.all(),
-        'request': context['request'],
-    }
-
-# Artist Merch snippets
-@register.inclusion_tag('tags/artist_merch_tag.html', takes_context=True)
-def artist_merch_items(context):
-    return {
-        'merch_items': MerchItem.objects.all(),
+        'playlists': Playlist.objects.all(),
         'request': context['request'],
     }

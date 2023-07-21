@@ -5,10 +5,6 @@
     /* pointer-events: none; */
 }
 
-.artist_link {
-    text-decoration: underline;
-}
-
 .back_to_artists {
     grid-column: 2;
     grid-row: 2;
@@ -24,12 +20,40 @@
     padding: 8px 16px;
 }
 
+.content_box {
+    width: 700px;
+    padding: 2rem;
+    flex-basis: 50%;
+    filter: drop-shadow(3px 3px 2px grey);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 2rem;
+    padding-top: 3.5rem;
+    border-radius: 3%;
+    border: 1px solid rgb(224, 224, 224);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: scroll;
+    background: rgb(255, 255, 255);  
+}
+
 .artist-content {
     font-family: Acrom;
     display: grid;
-    grid-template-columns: auto minmax(100px, 720px) 100px minmax(100px, 720px) auto;
-    grid-template-rows: 48px 48px 48px 240px 75px repeat(3, 48px 180px) auto;
+    grid-template-columns: auto minmax(100px, 770px) minmax(100px, 770px) auto;
+    grid-template-rows: 48px 48px 48px 240px 75px auto auto;
     padding-bottom: 5vh;
+}
+
+.panel_title {
+    position: absolute;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    font-size: larger;
 }
 
 .artist_page_bar {
@@ -37,7 +61,7 @@
     height: 2px;
     background-color: #e805f6;
     margin: 3px 0;
-    grid-column: 2 / span 3;
+    grid-column: 2 / span 2 ;
     grid-row: 1;
 }
 
@@ -55,6 +79,11 @@
     width: 550px;
     height: 2px;
     background-color: #e805f6;
+}
+
+.see_more {
+    width: 250px;
+    height: auto;
 }
 
 
@@ -82,11 +111,16 @@
 /* --------------------------------------------------------- */
 
 
-.artist_pic_static {
-    opacity: 0.9;
-    grid-row: 2 / span 2;
-    grid-column: 4;
+.artist_pic {
+    grid-row: 2 / span 4;
+    grid-column: 3;
+    padding-left: 2rem;
     padding-right: 2rem;
+}
+
+.artist_pic_static {
+    width: 100%;
+    height: auto;
 }
 
 /* --------------------------------------------------------- */
@@ -113,69 +147,33 @@
 
 /* --------------------------------------------------------- */
 
-.latest_releases_title {
-    grid-row: 8;
-    grid-column: 2;
-    padding-left: 2rem;
-}
-
-.latest_releases_bar {
-    grid-row: 8;
-    grid-column: 2;
-    width: 450px;
-}
-
-.latest_releases {
-    grid-column: 2;
-    grid-row: 9;
+.artist_panels {
+    grid-column: 2 / span 2;
+    grid-row: 6;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 2rem;
-    overflow: scroll;
+    flex-flow: row wrap;
 }
 
-.releases_list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+/* --------------------------------------------------------- */
 
 .release_list_item {
     margin-right: 50px;
 }
 
+.releases_title {
+    color: #0814f1;
+}
+
 .latest_release_pic {
-    /* width: 128px; */
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
 }
 
 /* --------------------------------------------------------- */
 
-.live_dates_title {
-    grid-row: 6;
-    grid-column: 2;
-    padding-left: 2rem;
-}
-
-.live_dates_bar {
-    grid-row: 6;
-    grid-column: 2;
-    width: 82%;
-}
-
-.live_dates {
-    grid-row: 7;
-    grid-column: 2;
-    display: flex;
-    flex-direction: row;
-    padding-left: 2rem;
-    overflow: scroll;
-}
-
-.date {
+.livedate {
     width: 220px;
+    height: 170px;
     padding: 1rem;
     border: black;
     border-style: solid;
@@ -185,79 +183,47 @@
     color: black;
 }
 
+.event {
+    overflow: hidden;
+}
+
 /* --------------------------------------------------------- */
-
-.merch_title {
-    grid-row: 10;
-    grid-column: 2;
-    padding-left: 2rem;
-}
-
-.merch_bar {
-    grid-row: 10;
-    grid-column: 2;
-    width: 540px;
-}
-
-.merch {
-    grid-row: 11;
-    grid-column: 2;
-    overflow: scroll;
-}
-
-.merch_list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 2rem;
-}
 
 .merch_list_item {
     margin-right: 50px;
 }
 
 .merch_pic {
-    padding: 1rem;
-    border: black;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 8px;
+    border-radius: 3%;
+    border: 1px solid rgb(85, 85, 85);
+}
+
+.merch_title {
+    color: #f40405;
 }
 
 /* --------------------------------------------------------- */
 
-.artist_news_title {
-    grid-row: 6;
-    grid-column: 4;
-    padding-right: 2rem;
-}
-
-.news_bar {
-    grid-row: 6;
-    grid-column: 4;
-    width: 550px;
-}
-
 .artist-news-item {
-    grid-row: 7;
-    grid-column: 4;
     padding-right: 2rem;
 }
 
 .news_pic {
     width: 100%;
+    height: auto;
     border-radius: 8px;
+}
+
+.news_title {
+    color: #e805f6;
 }
 
 /* --------------------------------------------------------- */
 
-.curator_feed {
+.social_feed {
     padding-top: 100px;
     grid-row: 12;
-    grid-column: 2 / span 3;
+    grid-column: 2 / span 2;
     padding-left: 2rem;
     padding-right: 2rem;
 }

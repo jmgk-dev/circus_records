@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-{% load wagtailcore_tags home_tags %}
+{% load wagtailcore_tags %}
 {% load static %}
 
 {% block extra_css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/merch_page.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+        <script src="{% static 'js/infinite-scroll.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/merch_page.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -23,7 +28,19 @@
         </div>
 
         <div class="merch_catalogue_container">
-                {% merch_items %}
+                <ul id="merch_list" class="merch_list">
+                        {% for item in merch %}
+                        <li class="merch-item">
+                            <a href="{{item.url}}" class="merch-pic">
+                                {% image item.image original class="responsive_merch" %}
+                            </a>
+                            <span class="merch_item_title">{{item.title}}</span>
+                            <span class="merch_item_price">{{item.price}}</span>
+                            <span class="merch_item_type">{{item.merch_type}}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <p><button class="view-more-button">View more</button></p>
         </div>
         
 </div>
