@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-{% load wagtailcore_tags home_tags %}
+{% comment %} {% load wagtailcore_tags home_tags %} {% endcomment %}
+{% load wagtailembeds_tags %}
 
 {% load static %}
 
@@ -33,150 +34,141 @@
         <div class="artist-name">{{page.title}}</div>
         <div class="artist-info">{{page.bio|richtext}}</div>
 
-        {% image page.photo max-700x394 class="artist_pic_static" %}
+        <div class="artist_pic">
+            {% image page.photo original class="artist_pic_static" %}
+        </div>
 
-        <!-- <div class="socials-title">Artist Socials</div> -->
         <div class="artist-socials">
-            <div class="social_icon sicon1">
-                <img src="{% static 'image/socials/spotify logo 500.png' %}" class="sicon_pic">
+            {% if page.spotify %}
+            <div class="social_icon">
+                <a href="{{page.spotify}}"><img src="{% static 'image/socials/spotify logo 500.png' %}" class="sicon_pic"></a>
             </div>
-            <div class="social_icon sicon2">
-                <img src="{% static 'image/socials/IG Logo 500.png' %}" class="sicon_pic">
+            {% endif %}
+            {% if page.instagram %}
+            <div class="social_icon">
+                <a href="{{page.instagram}}"><img src="{% static 'image/socials/IG logo 500.png' %}" class="sicon_pic"></a>
             </div>
-            <div class="social_icon sicon3">
-                <img src="{% static 'image/socials/twitter logo 500.png' %}" class="sicon_pic">
+            {% endif %}
+            {% if page.twitter%}
+            <div class="social_icon">
+                <a href="{{page.twitter}}"><img src="{% static 'image/socials/twitter logo 500.png' %}" class="sicon_pic"></a>
             </div>
-            <div class="social_icon sicon4">
-                <img src="{% static 'image/socials/youtube logo 500 b.png' %}" class="sicon_pic">
-            </div>
-            <div class="social_icon sicon5">
-                <img src="{% static 'image/socials/sc logo 500.png' %}" class="sicon_pic">
-            </div>
-            <div class="social_icon sicon6">
-                <img src="{% static 'image/socials/fb logo 500.png' %}" class="sicon_pic">
-            </div>
+            {% endif %}
+
         </div>
 
-        <div class="latest_releases_title title">
-            <div>Latest Releases</div>
-            <div class="latest_releases_bar bar"></div>
-        </div>
+        <!-- PANELS  -->
+
+        <div class="artist_panels">
+
+        <!-- RELEASES -->
+
+        {% if releases %}
         <div class="latest_releases content_box">
-
-            {% artist_releases %}
-            
-            {% comment %} 
-            <div class="release release1">
-                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
-            </div>
-            <div class="release release2">
-                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
-            </div>
-            <div class="release release3">
-                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
-            </div>
-            <div class="release release4">
-                <img src="{% static 'image/CR0570 1000px-min.jpg' %}" class="latest_release_pic">
-            </div> {% endcomment %}
-
-        </div>
-
-        <div class="live_dates_title title">
-            <div>Live Dates</div>
-            <div class="live_dates_bar bar"></div>
-        </div>
-        <div class="live_dates content_box">
-
-            {% for listing in listings %}
-            <a href={{ listing.4 }}><div class="date date1">
-                <div>{{ listing.1 }}</div>
-                <br>
-                <div>{{ listing.0 }}</div>
-                <br>
-                <div>{{ listing.2 }} {{ listing.3 }}</div>
-            </div></a>
+            <span class="panel_title releases_title">Latest Releases</span>
+            <ul class="releases_list">
+            {% for release in releases %}
+                <li class="release_list_item">
+                    <a href="{{release.url}}">{% image release.artwork max-250x250 class="latest_release_pic" %}</a>
+                </li>
             {% endfor %}
-
-            {% comment %} <div class="date date1">
-                <div>Echostage</div>
-                <br>
-                <div>Washington, US</div>
-                <br>
-                <div>May 13 2023</div>
-            </div>
-            <div class="date date2">
-                <div>Echostage</div>
-                <br>
-                <div>Washington, US</div>
-                <br>
-                <div>May 13 2023</div>
-            </div>
-            <div class="date date3">
-                <div>Echostage</div>
-                <br>
-                <div>Washington, US</div>
-                <br>
-                <div>May 13 2023</div>
-            </div>
-            <div class="date date4">
-                <div>Echostage</div>
-                <br>
-                <div>Washington, US</div>
-                <br>
-                <div>May 13 2023</div>
-            </div>
-            <div class="date date5">
-                <div>Echostage</div>
-                <br>
-                <div>Washington, US</div>
-                <br>
-                <div>May 13 2023</div>
-            </div> {% endcomment %}
-
+                <li class="release_list_item">
+                    <a href="{% slugurl 'releases' %}"><img src="{% static 'image/blue block3.jpg' %}" class="latest_release_pic see_more"></a>
+                </li>
+            </ul>
         </div>
+        {% endif %}
 
-        <div class="merch_title title">
-            <div>Merch</div>
-            <div class="merch_bar bar"></div>
-        </div>
+        <!-- MERCH -->
+
+        {% if merch %}
         <div class="merch content_box">
-
-            {% artist_merch_items %}
-
-            {% comment %} <div class="merch_item mitem1">
-                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
-            </div>
-            <div class="merch_item mitem2">
-                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
-            </div>
-            <div class="merch_item mitem3">
-                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
-            </div>
-            <div class="merch_item mitem4">
-                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
-            </div>
-            <div class="merch_item mitem5">
-                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
-            </div>
-            <div class="merch_item mitem6">
-                <img src="{% static 'image/wav tee sq 1k-min.jpg' %}" class="merch_pic">
-            </div> {% endcomment %}
+            <span class="panel_title merch_title">Latest Merch</span>
+            <ul class="merch_list">
+            {% for item in merch %}
+                <li class="merch_list_item">
+                    <a href="{{item.url}}">{% image item.image max-250x250 class="merch_pic" %}</a>
+                </li>
+            {% endfor %}
+                <li class="merch_list_item">
+                    <a href="{% slugurl 'merch' %}"><img src="{% static 'image/red block3.jpg' %}" class="merch_pic see_more"></a>
+                </li>
+            </ul>
         </div>
+        {% endif %}
 
-        <div class="artist_news_title title">
-            <div>News</div>
-            <div class="news_bar bar"></div>
+        <!-- PLAYLIST -->
+
+        {% if request.in_preview_panel %}
+
+        <span>Open full preview to see this widget</span>
+
+        {% else %}
+
+        {% if playlist %}    
+        <div class="playlist content_box">
+            {% for p in playlist %}
+                {% embed p.url %}
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% endif %}
+
+        <!-- NEWS -->
+
+        {% if news %}
         <div class="artist-news-item content_box">
-                <img src="{% static 'image/Quickfire with FuntCase - website-min.jpg' %}" class="news_pic">
-                <div class="news_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-        </div>
-    
+            <span class="panel_title news_title">Latest News</span>
+            <ul class="news_list">
+            {% for item in news %}
+                <li>
+                    <a href="{{item.url}}">{% image item.image max-500x281 class="news_pic" %}</a>
+                </li>
+            {% endfor %}
+            </ul>
 
+        </div>
+        {% endif %}
+
+        <!-- LISTINGS -->
+
+        {% if request.in_preview_panel %}
+        <span>Open full preview to see this widget</span>
+
+        {% else %}
+
+        {% if listings %}
+        <div class="live_dates content_box">
+            <span class="panel_title listings_title">Live Dates</span>
+            <ul class="livedate_list">
+            {% for listing in listings %}
+                <li class="livedate">
+                    <a href={{ listing.4 }}>
+                        <div>
+                            <span class="event">{{ listing.1 }}</span>
+                            <br>
+                            <span>{{ listing.0 }}</span>
+                            <br>
+                            <span>{{ listing.2 }} {{ listing.3 }}</span>    
+                        </div>   
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% endif %}
+    
+        </div>
+
+    <div class="social_feed">
     <div class="curator_feed" id="curator-feed-default-feed-layout">
         <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
     </div>
-
+    </div>
+    
 </div>
 
 {% endblock content %}

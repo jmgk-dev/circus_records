@@ -1,0 +1,13 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+
+<div class="latest_releases content_box">
+    <span class="panel_title releases_title">Latest Releases</span>
+    <ul class="releases_list">
+    {% for release in releases %}
+        <li class="release_list_item">
+            <a href="{{release.url}}">{% image release.artwork max-250x250 class="latest_release_pic" %}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

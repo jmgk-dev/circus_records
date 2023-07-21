@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
-{% load wagtailcore_tags home_tags %}
+{% load wagtailcore_tags %}
 {% load static %}
 
 {% block extra_css %}
@@ -21,7 +21,35 @@
     </div>
 
 <div class="releases_catalogue_container">
-        {% releases %}
+        <ul class="releases_list">
+        {% for release in page_obj.object_list %}
+        <li class="release_list_item">
+            <a href="{{release.url}}" class="releases">
+                {% image release.artwork original class="responsive_packshot" %}
+            </a>
+            {% if release.artist_pages.all %}
+            <ul class="release__artist-tags">
+                {% for artist in release.artist_pages.all %}
+                    <li>
+                        <a href="{{artist.url}}"><span class="release_artist_name_link">{{release.artist}}</span></a>
+                    </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <span class="release_artist_name">{{release.artist}}</span>
+            {% endif %}
+            <span class="release_title">{{release.title}}</span>
+            <span class="release_type">{{release.release_type}}</span>
+        </li>
+        {% endfor %}
+        </ul>
+        {% for page_number in page_obj.paginator.page_range %}
+        <ul>
+            <li>
+                <a href="?page={{page_number}}" class="{% if page_number == page_obj.number %}current{% endif %}">{{page_number}}</a>
+            </li>
+        </ul>
+    {% endfor %}
 </div>
 
 </div>

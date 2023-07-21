@@ -5,6 +5,10 @@
     pointer-events: none;
 }
 
+li {
+    list-style-type: none;
+}
+
 .release-page-container {
     display: grid;
     grid-template-columns: auto repeat(2, minmax(100px, 770px)) auto;
@@ -47,13 +51,29 @@
     grid-row: 1;
 }
 
-.releases {
+/* .releases {
     font-family: Acrom;
     padding: 2rem;
+} */
+
+/* --------------------------------------------------------- */
+
+.releases_list {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+}
+
+.release_list_item {
+    font-family: Acrom;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    color: black;
 }
 
 .responsive_packshot {
-    width: 100%;
+    width: 280px;
     height: auto;
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
@@ -68,8 +88,6 @@
 .releases_catalogue_container {
     grid-row: 3;
     grid-column: 2 / span 2;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
 }
 
 .filters {

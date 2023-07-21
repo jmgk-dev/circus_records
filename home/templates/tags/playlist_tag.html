@@ -1,0 +1,14 @@
+{% load wagtailimages_tags static %}
+{% load wagtailcore_tags %}
+{% load wagtailembeds_tags %}
+
+<ul class="playlist_list">
+    {% for playlist in playlists %}
+    <li class="playlist_item">
+        <span class="playlist_header">{{playlist.headline}}</span>
+        {% embed playlist.url %}
+        <spa class="playlist_descrip">{{playlist.description|richtext}}</span>
+    </li>
+    {% endfor %}
+</ul>
+    
