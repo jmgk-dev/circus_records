@@ -11,9 +11,9 @@ from modelcluster.fields import ParentalKey
 from wagtail.images import get_image_model_string
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
-from wagtail.core.fields import StreamField
+from wagtail.fields import StreamField
 from wagtail.snippets.models import register_snippet
-from wagtail.contrib.settings.models import BaseSetting, register_setting
+# from wagtail.contrib.settings.models import BaseSetting, register_setting
 from . blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesBlock, ArtistsBlock, RosterBlock, LatestMerchBlock, LatestNewsBlock, PlaylistsBlock
 from wagtailautocomplete.edit_handlers import AutocompletePanel
 from django.core.paginator import Paginator
