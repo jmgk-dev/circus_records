@@ -83,28 +83,6 @@ TEMPLATES = [
 WSGI_APPLICATION = "circus_site_2023.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-
-if DEBUG:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
-    }
-else:
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'REMOVED_DB_NAME',
-        'USER': 'REMOVED_DB_USER',
-        'PASSWORD': 'REMOVED_DB_PASSWORD',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
 
 
 # Password validation
