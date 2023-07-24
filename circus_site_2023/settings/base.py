@@ -17,6 +17,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+DEBUG = False
+
+ALLOWED_HOSTS = ["146.190.150.21"]
+
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 DB_NAME = os.environ['DB_NAME']
 DB_USER = os.environ['DB_USER']
