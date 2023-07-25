@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "bugsnag.django.middleware.BugsnagMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -174,3 +175,8 @@ WAGTAILADMIN_BASE_URL = "http://example.com"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+
+BUGSNAG = {
+    'api_key': 'REMOVED_BUGSNAG_API_KEY',
+    'project_root': '/path/to/your/app',
+}
