@@ -178,5 +178,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 BUGSNAG = {
     'api_key': 'REMOVED_BUGSNAG_API_KEY',
-    'project_root': '/path/to/your/app',
+    'project_root': '/home/jamiek/crsite',
 }
