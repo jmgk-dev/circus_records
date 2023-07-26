@@ -1,0 +1,76 @@
+/* --------------------------------------------------------- BUMPERS */
+
+.bumper-container {
+    display: grid;
+    grid-template-columns: auto 1540px auto;
+}
+
+.bumper {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.responsive_bumper_item {
+    width: 10%;
+    font-size: 1.2em;
+    height: 70px;
+    filter: drop-shadow(3px 3px 2px grey);
+    background-color: white;
+    color: black;
+}
+
+/* .button1 {
+    background-color: white;
+    color: black;
+}
+
+.button2 {
+    background-color: #03c842;
+}
+
+.button3 {
+    background-color: #f40405;
+}
+
+.button4 {
+    background-color: #e805f6;
+} */
+
+@media screen and (max-width: 1540px) {
+
+    .bumper-container {
+        display: grid;
+        grid-template-columns: auto 1390px auto;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .bumper-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 232px;
+        padding-bottom: 0rem;
+    }
+    
+    .bumper {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1rem;
+    }
+
+    .responsive_bumper_item {
+        width: 33%;
+        height: 80px;
+        font-size: 1em;
+    }
+    
+}
