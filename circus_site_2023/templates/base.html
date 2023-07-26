@@ -28,8 +28,8 @@
 
         <div class="burger-bg" id="colour_burger_menu">
             <div class="menu_top_images">
-                        <img src="{% static 'static/image/menu_cross.png' %}" class="menu_icon" onclick="dropDown()">
-                        <a href="{% slugurl 'home' %}"><img src="{% static 'static/image/circus_logo_white.png' %}" class="menu_logo"></a>
+                        <img src="{% static 'image/menu_cross.png' %}" class="menu_icon" onclick="dropDown()">
+                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_white.png' %}" class="menu_logo"></a>
             </div>
             <div class="burger-container">
                     <ul class="burger-elements element1">
@@ -44,49 +44,49 @@
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>Spotify</span>
-                                        <img src="{% static 'static/image/spotify_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/spotify_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>Instagram</span>
-                                        <img src="{% static 'static/image/ig_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/ig_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>YouTube</span>
-                                        <img src="{% static 'static/image/youtube_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/youtube_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>Twitch</span>
-                                        <img src="{% static 'static/image/youtube_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/youtube_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>Facebook</span>
-                                        <img src="{% static 'static/image/fb_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/fb_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>TikTok</span>
-                                        <img src="{% static 'static/image/tiktok_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/tiktok_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>Twitter</span>
-                                        <img src="{% static 'static/image/twitter_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/twitter_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="" class="b-link-content">
                                         <span>Soundcloud</span>
-                                        <img src="{% static 'static/image/socials/sc_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/socials/sc_logo_500_w.png' %}" class="sicon">
                                 </a>
                             </li>
                     </ul>
@@ -100,9 +100,9 @@
                                 <div class="bar2"></div>
                                 <div class="bar3"></div>
                         </div>
-                                <a href="{% slugurl 'home' %}"><img src="{% static 'static/image/circus_logo.png' %}" class="responsive_logo circus_logo"></a>
-                                <img src="{% static 'static/image/electric_logo4.png' %}" class="responsive_logo electric_logo">
-                                <img src="{% static 'static/image/dpmo_logo2.png' %}" class="responsive_logo dpmo_logo">
+                                <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo.png' %}" class="responsive_logo circus_logo"></a>
+                                <img src="{% static 'image/electric_logo4.png' %}" class="responsive_logo electric_logo">
+                                <img src="{% static 'image/dpmo_logo2.png' %}" class="responsive_logo dpmo_logo">
                 </div>
 
                 <div class="header-links">
@@ -112,7 +112,7 @@
                         <a href="{% slugurl 'playlists' %}" class="playlists_link"><div class="header-link hlink4">Playlists</div></a>
                         <a href="{% slugurl 'about' %}" class="about_link"><div class="header-link hlink5">About</div></a>
                         <a href="{% slugurl 'signup' %}" class="signup_link"><div class="header-link hlink6">Sign Up</div></a>
-                        <img src="{% static 'static/image/search_icon.png' %}" class="search_icon">
+                        <img src="{% static 'image/search_icon.png' %}" class="search_icon">
                 </div>        
 
         </div>
@@ -124,7 +124,7 @@
                 <div class="footer_links">
 
                         <ul class="footer-list">
-                                <li class="footer-logo"><img src="{% static 'static/image/circus_logo-min.png' %}" class="responsive_footer_logo"></li>
+                                <li class="footer-logo"><img src="{% static 'image/circus_logo-min.png' %}" class="responsive_footer_logo"></li>
                                 <li class="footer-link">About</li>
                                 <li class="footer-link">Demo Submission</li>
                         </ul>
@@ -157,8 +157,8 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/circus_site_2023.js' %}"></script>
-        <script src="{% static 'static/js/dropdown.js' %}"></script>
-        <script src="{% static 'static/js/roster.js' %}"></script>
+        <script src="{% static 'js/dropdown.js' %}"></script>
+        <script src="{% static 'js/roster.js' %}"></script>
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
         {% endblock %}
