@@ -181,3 +181,6 @@ BUGSNAG = {
     'api_key': 'REMOVED_BUGSNAG_API_KEY',
     'project_root': '/home/jamiek/crsite',
 }
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
