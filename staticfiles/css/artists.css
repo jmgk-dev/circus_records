@@ -1,7 +1,7 @@
 .block-artists {
     display: grid;
     grid-template-columns: auto minmax(100px, 1540px) auto;
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
     font-family: Acrom;
 }
 
@@ -11,7 +11,6 @@
     flex-direction: row;
     justify-content: center;
     margin: 0;
-    padding: 0;
 }
 
 .artist-logo {
@@ -81,34 +80,9 @@
 
 @media screen and (max-width: 600px) {
 
-    .artists-container {
-        grid-template-columns: repeat(5, 250px);
+    .artists_list {
         overflow: scroll;
-    }
-
-    .artist {
-        padding-left: 3rem;
-    }
-
-    .artist1 {
-        grid-column: 1;
-    }
-
-    .artist2 {
-        grid-column: 2;
-    }
-
-    .artist3 {
-        grid-column: 3;
-    }
-
-    .artist4 {
-        grid-column: 4;
-    }
-
-    .see_more_artist {
-        grid-column: 5;
-        padding-left: 3rem;
+        justify-content: flex-start;
     }
 
 }

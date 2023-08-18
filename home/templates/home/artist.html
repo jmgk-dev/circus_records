@@ -61,12 +61,28 @@
 
         <div class="artist_panels">
 
+        <!-- PLAYLIST -->
+
+                {% if request.in_preview_panel %}
+
+                <span>Open full preview to see this widget</span>
+        
+                {% else %}
+        
+                {% if page.playlist %}    
+                    <div class="playlist">
+                            {% embed page.playlist %}
+                    </div>
+                {% endif %}
+        
+                {% endif %}
+
         <!-- RELEASES -->
 
         {% if releases %}
         <div class="latest_releases content_box">
             <span class="panel_title releases_title">Latest Releases</span>
-            <ul class="releases_list">
+            <ul class="releases_list artist_list">
             {% for release in releases %}
                 <li class="release_list_item">
                     <a href="{{release.url}}">{% image release.artwork max-250x250 class="latest_release_pic" %}</a>
@@ -84,7 +100,7 @@
         {% if merch %}
         <div class="merch content_box">
             <span class="panel_title merch_title">Latest Merch</span>
-            <ul class="merch_list">
+            <ul class="merch_list artist_list">
             {% for item in merch %}
                 <li class="merch_list_item">
                     <a href="{{item.url}}">{% image item.image max-250x250 class="merch_pic" %}</a>
@@ -97,30 +113,12 @@
         </div>
         {% endif %}
 
-        <!-- PLAYLIST -->
-
-        {% if request.in_preview_panel %}
-
-        <span>Open full preview to see this widget</span>
-
-        {% else %}
-
-        {% if playlist %}    
-        <div class="playlist content_box">
-            {% for p in playlist %}
-                {% embed p.url %}
-            {% endfor %}
-        </div>
-        {% endif %}
-
-        {% endif %}
-
         <!-- NEWS -->
 
         {% if news %}
         <div class="artist-news-item content_box">
             <span class="panel_title news_title">Latest News</span>
-            <ul class="news_list">
+            <ul class="news_list artist_list">
             {% for item in news %}
                 <li>
                     <a href="{{item.url}}">{% image item.image max-500x281 class="news_pic" %}</a>
@@ -141,7 +139,7 @@
         {% if listings %}
         <div class="live_dates content_box">
             <span class="panel_title listings_title">Live Dates</span>
-            <ul class="livedate_list">
+            <ul class="livedate_list artist_list">
             {% for listing in listings %}
                 <li class="livedate">
                     <a href={{ listing.4 }}>
@@ -164,9 +162,9 @@
         </div>
 
     <div class="social_feed">
-    <div class="curator_feed" id="curator-feed-default-feed-layout">
-        <a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a>
-    </div>
+        {% if page.rss_feed %}
+            <rssapp-wall id="{{page.rss_feed}}"></rssapp-wall><script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+        {% endif %}
     </div>
     
 </div>
