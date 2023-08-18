@@ -21,6 +21,20 @@
     </div>
 
 <div class="releases_catalogue_container">
+
+        {% if artists %}
+        <form method="GET" action="{{page.url}}">
+            <select name="artist">
+                <option value="">All</option>
+                {% for artist in artists %}
+                <option value="{{artist.slug}}" {% if filtered_artist == artist.slug %}selected{% endif %}>{{artist.title}}</option>
+                {% endfor %}
+            </select>
+            {% if filtered_artist %}<a href="{{page.url}}">Reset</a>{% endif %}
+            <button type="submit">Filter</button>
+        </form>
+        {% endif %}
+
         <ul class="releases_list">
         {% for release in page_obj.object_list %}
         <li class="release_list_item">

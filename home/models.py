@@ -1,6 +1,6 @@
 from django.db import models
 from django.shortcuts import render
-
+import bugsnag
 import requests
 from bs4 import BeautifulSoup
 
@@ -17,7 +17,8 @@ from wagtail.snippets.models import register_snippet
 from . blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesBlock, ArtistsBlock, RosterBlock, LatestMerchBlock, LatestNewsBlock, PlaylistsBlock
 from wagtailautocomplete.edit_handlers import AutocompletePanel
 from django.core.paginator import Paginator
-
+from django.core.cache import cache
+from wagtailcache.cache import WagtailCacheMixin
 
 # ----------------------------------------------
 
@@ -49,10 +50,10 @@ class Release(ClusterableModel):
     )
 
     RELEASE_TYPE_CHOICES = [
-    ('Single', 'Single'),
-    ('EP', 'EP'),
-    ('Album', 'Album'),
-    ('Compilation', 'Compilation'),
+        ('Single', 'Single'),
+        ('EP', 'EP'),
+        ('Album', 'Album'),
+        ('Compilation', 'Compilation'),
     ]
 
     release_type = models.CharField(
@@ -124,10 +125,10 @@ class MerchItem(ClusterableModel):
     )
 
     MERCH_TYPE_CHOICES = [
-    ('T-shirt', 'T-shirt'),
-    ('Hoodie', 'Hoodie'),
-    ('Hat', 'Hat'),
-    ('Vinyl', 'Vinyl'),
+        ('T-shirt', 'T-shirt'),
+        ('Hoodie', 'Hoodie'),
+        ('Hat', 'Hat'),
+        ('Vinyl', 'Vinyl'),
     ]
 
     merch_type = models.CharField(
@@ -286,7 +287,7 @@ class HomePageCarouselImages(Orderable):
 
 # ----------------------------------------------
 
-class HomePage(Page):
+class HomePage(WagtailCacheMixin, Page):
 
     body = StreamField(
     [
@@ -296,7 +297,7 @@ class HomePage(Page):
         ('news', LatestNewsBlock()),
     ],
     null=True,
-    blank=False,
+    blank=True,
     use_json_field = True
     )
 
@@ -309,7 +310,7 @@ class HomePage(Page):
 
 # ----------------------------------------------
 
-class MerchPage(Page):
+class MerchPage(WagtailCacheMixin, Page):
     template = "home/merch.html"
 
     merch_catalogue = StreamField(
@@ -317,7 +318,7 @@ class MerchPage(Page):
         ('merch_catalogue', MerchCatalogueBlock())
     ],
     null=True,
-    blank=False,
+    blank=True,
     use_json_field = True
     )
 
@@ -341,7 +342,7 @@ class MerchPage(Page):
 
 # ----------------------------------------------
 
-class ReleasesPage(Page):
+class ReleasesPage(WagtailCacheMixin, Page):
     template = "home/releases.html"
 
     releases_catalogue = StreamField(
@@ -349,7 +350,7 @@ class ReleasesPage(Page):
         ('releases_catalogue', ReleasesCatalogueBlock())
     ],
     null=True,
-    blank=False,
+    blank=True,
     use_json_field = True
     )
 
@@ -360,16 +361,24 @@ class ReleasesPage(Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
+        artists = ArtistPage.objects.exclude(releases=None).live().values('slug', 'title')
+        context['artists'] = artists
+
+        filtered_artist = request.GET.get('artist', None)
+
         current_page = request.GET.get('page', 1)
-        releases = (
+        release_objs = (
             Release
             .objects
             .filter(live=True)
             .prefetch_related('artist_pages')
         )
 
-        page_obj = Paginator(releases, 6)
+        if filtered_artist:
+            release_objs = release_objs.filter(artist_pages__slug=filtered_artist)
+            context['filtered_artist'] = filtered_artist
 
+        page_obj = Paginator(release_objs, 6)
 
         context['page_obj'] = page_obj.get_page(current_page)
 
@@ -377,7 +386,7 @@ class ReleasesPage(Page):
 
 # ----------------------------------------------
 
-class AboutPage(Page):
+class AboutPage(WagtailCacheMixin, Page):
     template = "home/about.html"
 
     mission_statement = RichTextField(blank=False)
@@ -419,7 +428,7 @@ class AboutPage(Page):
 
 # ----------------------------------------------
 
-class SignupPage(Page):
+class SignupPage(WagtailCacheMixin, Page):
     template = "home/signup.html"
 
     signup_text = RichTextField(blank=True)
@@ -430,7 +439,7 @@ class SignupPage(Page):
 
 # ----------------------------------------------
 
-class ArtistPage(Page):
+class ArtistPage(WagtailCacheMixin, Page):
     template = "home/artist.html"
 
     photo = models.ForeignKey(
@@ -473,6 +482,12 @@ class ArtistPage(Page):
         null=True
     )
 
+    rss_feed = models.CharField(
+        blank=True,
+        null=True,
+        max_length=255
+    )
+
     instagram = models.URLField(
         blank=True, 
         null=True
@@ -493,6 +508,7 @@ class ArtistPage(Page):
         FieldPanel('thumbnail'),
         FieldPanel('logo'),
         FieldPanel('songkick_url'),
+        FieldPanel('rss_feed'),
         FieldPanel('bio'),
         FieldPanel('playlist'),
         FieldPanel('instagram'),
@@ -500,27 +516,22 @@ class ArtistPage(Page):
         FieldPanel('twitter'),
     ]
 
+    def get_events_from_songkick(self):
+        try:
+            response = requests.get(self.songkick_url)
+            assert response.status_code == 200
+            content = response.content
+        except Exception as e:
+            bugsnag.notify(e)
+            return []
+            
+        soup = BeautifulSoup(content, 'html.parser')
+        calendar = soup.find(id="calendar-summary")
+        events = []
 
-    def get_context(self, request, *args, **kwargs) -> dict:
-        context = super().get_context(request, *args, **kwargs)
-
-        if self.songkick_url != None:
-
-            try:
-                response = requests.get(self.songkick_url)
-            except:
-                exit()
-
-            if response.status_code != 200:
-                print("Error fetching page")
-                exit()
-            else:
-                content = response.content
-
-            soup = BeautifulSoup(response.content, 'html.parser')
-            calendar = soup.find(id="calendar-summary")
+        if calendar:
+            
             listings = calendar.find_all(class_="event-listing")
-            list = []
 
             for event in listings:
                 event_list = []
@@ -540,9 +551,27 @@ class ArtistPage(Page):
                 link = event.a
                 event_list.append("https://www.songkick.com/" + link.get('href'))
 
-                list.append(event_list)
+                events.append(event_list)
 
-            context['listings'] = list
+        return events
+    
+    def get_events(self):
+        cache_key = f'events_for_{self.slug}'
+        cached_data = cache.get(cache_key)
+        if not cached_data:
+            data = self.get_events_from_songkick()
+            cache.set(cache_key, data, 3600) # hour
+            return data
+
+        return cached_data
+
+    def get_context(self, request, *args, **kwargs) -> dict:
+        context = super().get_context(request, *args, **kwargs)
+
+        if self.songkick_url:
+            events = self.get_events()
+            
+            context['listings'] = events
 
         context['releases'] = Release.objects.filter(
             artist_pages=self, live=True).order_by('-release_date')
@@ -553,15 +582,15 @@ class ArtistPage(Page):
         context['news'] = NewsItem.objects.filter(
             artist_pages=self, live=True).order_by('-live')
         
-        context['playlist'] = Playlist.objects.filter(
-            artist_pages=self, live=True).order_by('-live')
+        # context['playlist'] = Playlist.objects.filter(
+        #     artist_pages=self, live=True).order_by('-live')
 
         return context
 
 
 # ----------------------------------------------
 
-class RosterPage(Page):
+class RosterPage(WagtailCacheMixin, Page):
     template = "home/roster.html"
 
     body = StreamField(
@@ -569,17 +598,21 @@ class RosterPage(Page):
         ('artists', RosterBlock()),
     ],
     null=True,
-    blank=False,
+    blank=True,
     use_json_field = True
     )
 
     content_panels = Page.content_panels + [
         FieldPanel('body')
     ]
-       
+    def get_context(self, request, *args, **kwargs) -> dict:
+        context = super().get_context(request, *args, **kwargs)
+        artists = ArtistPage.objects.live().order_by('title')
+        context['artists'] = artists
+        return context
 # ----------------------------------------------
 
-class PlaylistPage(Page):
+class PlaylistPage(WagtailCacheMixin, Page):
     template = "home/playlists.html"
 
     body = StreamField(
@@ -597,5 +630,5 @@ class PlaylistPage(Page):
 
 # ----------------------------------------------
 
-class ContactPage(Page):
+class ContactPage(WagtailCacheMixin, Page):
     template = "home/contact.html"

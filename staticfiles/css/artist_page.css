@@ -21,19 +21,20 @@
 }
 
 .content_box {
-    width: 700px;
-    padding: 2rem;
-    flex-basis: 50%;
-    filter: drop-shadow(3px 3px 2px grey);
+    padding-top: 2rem;
+    /* flex-basis: 50%;
+    flex-grow: 1; */
+    overflow: scroll;
+    /* filter: drop-shadow(3px 3px 2px grey); */
 }
 
-ul {
+.artist_list {
     list-style-type: none;
     margin: 0;
     padding: 2rem;
     padding-top: 3.5rem;
     border-radius: 3%;
-    border: 1px solid rgb(224, 224, 224);
+    /* border: 1px solid rgb(224, 224, 224); */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -119,8 +120,9 @@ ul {
 }
 
 .artist_pic_static {
-    width: 100%;
-    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 /* --------------------------------------------------------- */
@@ -151,7 +153,16 @@ ul {
     grid-column: 2 / span 2;
     grid-row: 6;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: column;
+    /* flex-flow: row wrap; */
+}
+
+/* --------------------------------------------------------- */
+
+.playlist {
+    padding-top: 2rem;
+    max-width: 50%;
+    padding-left: 2rem;
 }
 
 /* --------------------------------------------------------- */
@@ -232,163 +243,43 @@ ul {
 
 @media screen and (max-width: 600px) {
 
+    .content_box {
+        flex-basis: 100%;
+    }
+
     .artist-content {
-        grid-template-columns: 1fr;
-        grid-template-rows: 80px 40px 250px 60px 140px repeat(2, 48px 170px) auto;
+        grid-template-columns: auto 1fr 1fr auto;
+        grid-template-rows: 48px 48px 48px 240px 75px auto auto;
     }
 
-    .back_to_artists {
-        grid-column: 1;
-        grid-row: 1;
-        align-items: flex-end;
-        justify-content: flex-start;
-        padding-left: 0rem;
-    }
-
-    .artist_page_bar {
-        grid-column: 1;
-    }
-
-    .bar {
-        width: 60%;
-    }
-
-    .right-button-rel {
-        grid-row: 9;
-        grid-column: 1;
-        width: 5vw;
-    }
-
-    .right-button-merch {
-        grid-row: 11;
-        grid-column: 1;
-        width: 5vw;
-    }
-
-    .artist_pic_static {
-        grid-column: 1;
-        grid-row: 3;
-        width: 100%;
-        padding: 0rem;
-    }
-
-    .socials-title {
-        display: none;
-        padding: 0rem;
-    }
-    
-    .artist-socials {
+    .artist_pic {
         grid-row: 4;
-        grid-column: 1;
-        padding: 0rem;
+        grid-column: 2 / span 2;
     }
 
-    .artist-name {
-        grid-row: 2;
-        grid-column: 1;
-        padding: 0rem;
-    }
-    
     .artist-info {
         grid-row: 5;
-        grid-column: 1;
-        text-align: justify;
-        padding: 0rem;
+        grid-column: 2 / span 2;
     }
 
-    .live_dates_title {
-        grid-row: 6;
-        grid-column: 1;
-        padding: 0rem;
-    }
-    
-    .live_dates_bar {
-        grid-row: 7;
-        grid-column: 1;
-    }
-    
-    .live_dates {
-        grid-row: 7;
-        grid-column: 1;
-        padding: 0rem;
-    }
-
-    .latest_releases_title {
-        grid-row: 8;
-        grid-column: 1;
-        padding: 0rem;
-    }
-    
-    .latest_releases_bar {
-        grid-row: 8;
-        grid-column: 1;
-    }
-    
-    .latest_releases {
-        grid-row: 9;
-        grid-column: 1;
-        padding: 0rem;
+    .artist-socials {
+        grid-row: 3;
+        grid-column: 3;
     }
 
     .latest_release_pic {
-        width: 30vw;
-    }
-
-    .release3, .release4 {
-        display: none;
-    }
-
-    .merch_title {
-        grid-row: 10;
-        grid-column: 1;
-        padding-left: 0rem;
-    }
-    
-    .merch_bar {
-        grid-row: 10;
-        grid-column: 1;
-        width: 80%;
-    }
-    
-    .merch {
-        grid-row: 11;
-        grid-column: 1;
-        padding-left: 0rem;
-    }
-
-    .mitem3, .mitem4 {
-        display: none;
+        width: 192px;
+        height: auto;
     }
 
     .merch_pic {
-        width: 30vw;
-        padding: 1rem;
+        width: 192px;
+        height: auto;
     }
 
-    .artist_news_title {
-        grid-row: 12;
-        grid-column: 1;
-        padding-right: 0rem;
+    .playlist {
+        max-width: 100%;
+        padding-right: 2rem;
     }
-    
-    .news_bar {
-        grid-row: 12;
-        grid-column: 1;
-        width: 80%;
-    }
-    
-    .artist-news-item {
-        grid-row: 13;
-        grid-column: 1;
-        padding-right: 0rem;
-    }
-
-    .curator_feed {
-        grid-row: 14;
-        grid-column: 1;
-        padding-left: 0rem;
-        padding-right: 0rem;
-    }
-
 
 }
