@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "wagtail.images",
     "wagtail.search",
     "wagtail.admin",
+    "wagtailcache",
     "wagtail",
     "wagtailautocomplete",
     "modelcluster",
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "wagtailcache.cache.UpdateCacheMiddleware",
     "bugsnag.django.middleware.BugsnagMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -67,6 +69,7 @@ MIDDLEWARE = [
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "wagtailcache.cache.FetchFromCacheMiddleware",
 ]
 
 ROOT_URLCONF = "circus_site_2023.urls"
@@ -172,7 +175,7 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://http://146.190.150.21"
+# WAGTAILADMIN_BASE_URL = "http://http://146.190.150.21"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
@@ -184,13 +187,22 @@ BUGSNAG = {
 
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-EMAIL_PASSWORD = os.environ['EMAIL_PASSWORD']
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'REMOVED_EMAIL_HOST'
-EMAIL_HOST_PASSWORD = EMAIL_PASSWORD
 DEFAULT_FROM_EMAIL = 'jamie@circus-records.co.uk'
 
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),        
+    },
+    "wagtailcache": {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'KEY_PREFIX': 'wagtailcache',
+        'TIMEOUT': 3600 * 24 * 7, # one week,
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),
+    },
+}

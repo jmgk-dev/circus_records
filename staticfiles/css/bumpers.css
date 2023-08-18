@@ -3,6 +3,7 @@
 .bumper-container {
     display: grid;
     grid-template-columns: auto 1540px auto;
+    margin-bottom: 8vw;
 }
 
 .bumper {
@@ -21,23 +22,6 @@
     background-color: white;
     color: black;
 }
-
-/* .button1 {
-    background-color: white;
-    color: black;
-}
-
-.button2 {
-    background-color: #03c842;
-}
-
-.button3 {
-    background-color: #f40405;
-}
-
-.button4 {
-    background-color: #e805f6;
-} */
 
 @media screen and (max-width: 1540px) {
 
