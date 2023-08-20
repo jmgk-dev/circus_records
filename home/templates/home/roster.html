@@ -12,9 +12,18 @@
 <div class="roster-container">
 
         <div class="roster_page_bar"></div>
-        {{artists}}
+        
+        <ul class="artists">
+                {% for artist in artists %}
+                    <li>
+                        <a href="{{artist.url}}">
+                            {% comment %} {% image artist.thumbnail original class="responsive_packshot" %} {% endcomment %}
+                           <span class="artist">{{artist.title}}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+        </ul>
 
-        {% comment %} {% include_block page.body %} {% endcomment %}
 
 </div>
 

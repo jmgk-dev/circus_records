@@ -117,7 +117,7 @@ class LatestNewsBlock(blocks.StructBlock):
         icon = 'star'
         template = 'blocks/latest_news.html'
         
-    title = blocks.CharBlock(required=False, default="Latest Merch")
+    title = blocks.CharBlock(required=False, default="Latest News")
     limit = blocks.IntegerBlock(label="Show maximum", required=True, default=2)
 
     def get_context(self, value, parent_context=None):
