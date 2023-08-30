@@ -5,15 +5,30 @@
     grid-template-rows: auto;
     grid-template-columns: auto minmax(100px, 1390px) auto;
     padding-bottom: 60px;
-    margin-left: 1rem;
-    margin-right: 1rem;
     position: relative;
+}
+
+.carousel-cell {
+    position: relative;
+}
+
+.slide_info {
+    color: white;
+    font-size: larger;
+    font-family: Acrom;
+    position: absolute;
+    z-index: 1;
+    bottom: 100px;
+    left: 100px;
+    display: flex;
+    gap: 380px;
 }
 
 .carousel {
     grid-column: 2;
     position: relative;
 }
+
 
 .responsive_banner_large {
     width: 100%;
@@ -29,7 +44,7 @@
 .info_box_container {
     position: absolute;
     width: 100%;
-    height: 42vw;
+    height: 800px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -37,20 +52,86 @@
 }
 
 .info_box {
-    width: 95%;
-    height: 8vw;
-    margin-bottom: 7vw;
+    width: 1300px;
+    height: 105px;
+    margin-bottom: 300px;
     border: 5px solid rgb(255, 255, 255);
 }
 
+.carousel_text {
+    color: white;
+    /* font-size: x-large; */
+}
 
-@media screen and (max-width: 1540px) {
+.carousel_more {
+    color: white;
+}
+
+@media screen and (max-width: 1400px) {
+    
+    .info_box_container {
+        position: absolute;
+        width: 100%;
+        height: 42vw;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        pointer-events: none;
+    }
+    
+    .info_box {
+        width: 95%;
+        height: 8vw;
+        margin-bottom: 7vw;
+        border: 5px solid rgb(255, 255, 255);
+    }
+
+    .slide_info {
+        bottom: 8vw;
+        left: 9vw;
+        gap: 15vw;
+        font-size: large;
+    }
+
+
+}
+
+@media screen and (max-width: 1400px) {
 
 
 }
 
 @media screen and (max-width: 600px) {
 
+    .carousel-container {
+        padding-bottom: 90px;
+    }
 
+    .slide_info {
+        font-size: small;
+        bottom: 5vw;
+        left: 5vw;
+        font-size: smaller;
+        gap: 7vw;
+    }
+
+    .info_box {
+        width: 96%;
+        height: 9vw;
+        margin-bottom: -13.7vw;
+        border: 2px solid rgb(255, 255, 255);
+    }
+
+    .responsive_banner_large {
+        width: 100%;
+        height: auto;
+        display: none;
+    }
+    
+    .responsive_banner_small {
+        width: 100%;
+        height: auto;
+        display: inline;
+    }
     
 }

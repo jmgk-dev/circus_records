@@ -38,6 +38,7 @@ li {
     grid-column: 2;
     grid-row: 2;
     text-transform: uppercase;
+    padding-left: 0;
 }
 
 .artist {
@@ -68,6 +69,10 @@ li {
         display: grid;
         grid-template-rows: 48px auto;
         grid-template-columns: 1fr;
+    }
+
+    .artists {
+        grid-column: 1;
     }
 
 }

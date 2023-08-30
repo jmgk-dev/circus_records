@@ -34,7 +34,8 @@ li {
     grid-column: 2;
     display: flex;
     flex-direction: row;
-    overflow: scroll;
+    overflow: hidden;
+    font-size: smaller;
 }
 
 .merch-item {
@@ -45,7 +46,7 @@ li {
 }
 
 .responsive_merch {
-    width: 280px;
+    width: 250px;
     height: auto;
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
@@ -83,11 +84,17 @@ li {
 @media screen and (max-width: 600px) {
 
     .responsive_merch {
-        width: 192px;
+        /* width: 192px; */
     }
 
     .block-latest_merch {
         grid-template-rows: 48px 350px;
+        padding-bottom: 2rem;
     }
+
+    .merch-item {
+    font-size: smaller;
+    }
+
 
 }

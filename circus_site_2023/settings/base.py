@@ -175,15 +175,9 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-# WAGTAILADMIN_BASE_URL = "http://http://146.190.150.21"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-
-BUGSNAG = {
-    'api_key': 'REMOVED_BUGSNAG_API_KEY',
-    'project_root': '/home/jamiek/crsite',
-}
 
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 

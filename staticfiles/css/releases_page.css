@@ -51,10 +51,55 @@ li {
     grid-row: 1;
 }
 
+.release__artist-tags {
+    padding-left: 0;
+}
+
 /* .releases {
     font-family: Acrom;
     padding: 2rem;
 } */
+
+.page-numbers {
+    list-style: none;
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+.page-numbers li {
+    margin: 0 5px;
+}
+
+.page-numbers li:nth-child(@{paginator.page_number}) {
+    color: red;
+}
+
+/* --------------------------------------------------------- */
+
+.filter_form {
+    width: 30%;
+    font-family: Acrom;
+    padding-left: 2rem;
+}
+
+.ts-wrapper {
+    margin-bottom: 1rem;
+}
+
+.submit_button {
+    background-color: #0814f1;
+    font-family: Acrom;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+    border-radius: 5%;
+    border: none;
+    font-size: medium;
+    cursor: pointer;
+}
 
 /* --------------------------------------------------------- */
 
@@ -70,6 +115,7 @@ li {
     display: flex;
     flex-direction: column;
     color: black;
+    font-size: small;
 }
 
 .responsive_packshot {

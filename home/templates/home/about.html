@@ -13,30 +13,48 @@
 
         <div class="about_page_bar"></div>
 
-        <div class="about_mission">
-                <div>Who We Are</div>
-                {% include_block page.mission_statement|richtext %}
+
+        <div class="mission">
+
+                <div class="about_mission">
+                        <b>Who We Are</b>
+                        {% include_block page.mission_statement|richtext %}
+                </div>
+
+                {% image page.mission_pic width-770 class="mission_pic" %}
+
+
         </div>
 
-        <img src="{% static 'image/funtcase_live-min.jpg' %}" class="mission_pic">
 
         <div class="page_bar1"></div>
 
-        <div class="about_history">
-                <div>What We've Done</div>
-                {% include_block page.history|richtext %}
-        </div>
 
-        <img src="{% static 'image/funtcase_live-min.jpg' %}" class="history_pic">
+        <div class="history">
+
+                {% image page.history_pic width-770 class="history_pic" %}
+
+                <div class="about_history">
+                        <b>What We've Done</b>
+                        {% include_block page.history|richtext %}
+                </div>
+
+        </div>  
+
 
         <div class="page_bar2"></div>
 
-        <div class="about_gaming">
-                <div>Gaming</div>
-                {% include_block page.gaming_info|richtext %}
-        </div>
 
-        <img src="{% static 'image/shutterstock_1430140070-min.jpg' %}" class="gaming_pic">
+        <div class="gaming">
+
+                <div class="about_gaming">
+                        <b>Gaming</b>
+                        {% include_block page.gaming_info|richtext %}
+                </div>
+
+                {% image page.gaming_pic width-770 class="gaming_pic" %}
+
+        </div>
 
 </div>
 

@@ -266,7 +266,6 @@ class Playlist(ClusterableModel, Orderable):
     def __str__(self):
         return f'{self.title}'
 
-
 # ----------------------------------------------
 
 class HomePageCarouselImages(Orderable):
@@ -280,10 +279,36 @@ class HomePageCarouselImages(Orderable):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+
     link = models.URLField(blank=True, default='')
 
-    panels = [FieldPanel("carousel_image"), FieldPanel("link")]
+    text = models.CharField(
+        null=False,
+        blank=False,
+        default='',
+        max_length=255
+    )
 
+    TYPE_CHOICES = [
+        ('Release', 'Release'),
+        ('Merch', 'Merch'),
+        ('Playlist', 'Playlist'),
+        ('News', 'News'),
+    ]
+
+    type = models.CharField(
+        max_length=11, 
+        choices=TYPE_CHOICES,
+        default='News',
+        blank=True, 
+        null=True
+    )
+
+    panels = [FieldPanel("carousel_image"), 
+              FieldPanel("link"),
+              FieldPanel("text"),
+              FieldPanel("type")
+    ]
 
 # ----------------------------------------------
 
@@ -313,18 +338,18 @@ class HomePage(WagtailCacheMixin, Page):
 class MerchPage(WagtailCacheMixin, Page):
     template = "home/merch.html"
 
-    merch_catalogue = StreamField(
-    [
-        ('merch_catalogue', MerchCatalogueBlock())
-    ],
-    null=True,
-    blank=True,
-    use_json_field = True
-    )
+    # merch_catalogue = StreamField(
+    # [
+    #     ('merch_catalogue', MerchCatalogueBlock())
+    # ],
+    # null=True,
+    # blank=True,
+    # use_json_field = True
+    # )
 
-    content_panels = Page.content_panels + [
-        FieldPanel('merch_catalogue')
-    ]
+    # content_panels = Page.content_panels + [
+    #     FieldPanel('merch_catalogue')
+    # ]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
@@ -345,18 +370,18 @@ class MerchPage(WagtailCacheMixin, Page):
 class ReleasesPage(WagtailCacheMixin, Page):
     template = "home/releases.html"
 
-    releases_catalogue = StreamField(
-    [
-        ('releases_catalogue', ReleasesCatalogueBlock())
-    ],
-    null=True,
-    blank=True,
-    use_json_field = True
-    )
+    # releases_catalogue = StreamField(
+    # [
+    #     ('releases_catalogue', ReleasesCatalogueBlock())
+    # ],
+    # null=True,
+    # blank=True,
+    # use_json_field = True
+    # )
 
-    content_panels = Page.content_panels + [
-        FieldPanel('releases_catalogue')
-    ]
+    # content_panels = Page.content_panels + [
+    #     FieldPanel('releases_catalogue')
+    # ]
 
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
@@ -378,7 +403,7 @@ class ReleasesPage(WagtailCacheMixin, Page):
             release_objs = release_objs.filter(artist_pages__slug=filtered_artist)
             context['filtered_artist'] = filtered_artist
 
-        page_obj = Paginator(release_objs, 6)
+        page_obj = Paginator(release_objs, 8)
 
         context['page_obj'] = page_obj.get_page(current_page)
 
@@ -587,24 +612,23 @@ class ArtistPage(WagtailCacheMixin, Page):
 
         return context
 
-
 # ----------------------------------------------
 
 class RosterPage(WagtailCacheMixin, Page):
     template = "home/roster.html"
 
-    body = StreamField(
-    [
-        ('artists', RosterBlock()),
-    ],
-    null=True,
-    blank=True,
-    use_json_field = True
-    )
+    # body = StreamField(
+    # [
+    #     ('artists', RosterBlock()),
+    # ],
+    # null=True,
+    # blank=True,
+    # use_json_field = True
+    # )
 
-    content_panels = Page.content_panels + [
-        FieldPanel('body')
-    ]
+    # content_panels = Page.content_panels + [
+    #     FieldPanel('body')
+    # ]
     def get_context(self, request, *args, **kwargs) -> dict:
         context = super().get_context(request, *args, **kwargs)
         artists = ArtistPage.objects.live().order_by('title')

@@ -8,17 +8,8 @@
 
 {% block extra_css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/artist_page.css' %}">
-{% endblock %}
-
-{% block extra_js %}
-        <script type="text/javascript">
-            /* curator-feed-default-feed-layout */
-            (function(){
-            var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
-            i.src="https://cdn.curator.io/published/54bbeb02-1d85-40ca-b034-9302277871ec.js";
-            e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-            })();
-        </script>
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -32,10 +23,20 @@
         </div>
 
         <div class="artist-name">{{page.title}}</div>
-        <div class="artist-info">{{page.bio|richtext}}</div>
 
-        <div class="artist_pic">
-            {% image page.photo original class="artist_pic_static" %}
+        <div class="artist-info">{{page.bio|richtext|slice:":200"}}
+            <span id="dots">...</span>
+            <span id="more">{{page.bio|richtext|slice:"200:"}}</span>
+
+            <button class="readmore_button" onclick="readMore()" id="myBtn">Read more</button>
+        </div>
+
+        <div class="artist_pic_landscape">
+            {% image page.photo width-900 class="artist_pic_static" %}
+        </div>
+
+        <div class="artist_pic_square">
+            {% image page.thumbnail fill-400x400 class="artist_pic_static" %}
         </div>
 
         <div class="artist-socials">
@@ -85,7 +86,7 @@
             <ul class="releases_list artist_list">
             {% for release in releases %}
                 <li class="release_list_item">
-                    <a href="{{release.url}}">{% image release.artwork max-250x250 class="latest_release_pic" %}</a>
+                    <a href="{{release.url}}">{% image release.artwork original class="latest_release_pic" %}</a>
                 </li>
             {% endfor %}
                 <li class="release_list_item">
@@ -106,9 +107,9 @@
                     <a href="{{item.url}}">{% image item.image max-250x250 class="merch_pic" %}</a>
                 </li>
             {% endfor %}
-                <li class="merch_list_item">
+                {% comment %} <li class="merch_list_item">
                     <a href="{% slugurl 'merch' %}"><img src="{% static 'image/red_block3.jpg' %}" class="merch_pic see_more"></a>
-                </li>
+                </li> {% endcomment %}
             </ul>
         </div>
         {% endif %}
@@ -168,5 +169,21 @@
     </div>
     
 </div>
+
+{% block extra_js %}
+
+        <script type="text/javascript">
+            /* curator-feed-default-feed-layout */
+            (function(){
+            var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+            i.src="https://cdn.curator.io/published/54bbeb02-1d85-40ca-b034-9302277871ec.js";
+            e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+            })();
+        </script>
+        <script src="{% static 'js/readmore.js' %}"></script>
+        <script src="{% static 'slick/slick.min.js' %}"></script>
+        <script src="{% static 'js/releases_slick.js' %}"></script>
+
+{% endblock %}
 
 {% endblock content %}
