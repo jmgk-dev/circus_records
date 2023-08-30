@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: auto minmax(100px, 1540px) auto;
     grid-template-rows: 48px minmax(min-content, max-content);
+    padding-bottom: 2rem;
 }
 
 .news_container {
@@ -38,7 +39,7 @@ li {
     grid-column: 2;
     display: flex;
     flex-direction: row;
-    overflow: scroll;
+    /* overflow: hidden; */
     margin: 0;
     padding: 0;
 }

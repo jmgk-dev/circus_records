@@ -12,15 +12,23 @@
 <div class="signup_container">
         <div class="signup_page_bar"></div>
 
-        <div class="signup_main_descrip">
-                {% include_block page.signup_text|richtext %}
-        </div>
+        <div class="signup_content">
 
-        <div class="contact_form">
-                <a href="https://dashboard.mailerlite.com/forms/244170/90059146017113940/share">SIGNUP</a>
-        </div>
+                <div class="signup_info">
 
-        <img src="{% static 'image/00A2797-3-EDIT-min.jpg' %}" class="signup_pic_static">
+                        <div class="signup_main_descrip">
+                                {% include_block page.signup_text|richtext %}
+                        </div>
+
+                        <div class="contact_form">
+                                <a href="https://dashboard.mailerlite.com/forms/244170/90059146017113940/share">SIGNUP</a>
+                        </div>
+
+                </div>
+
+                <img src="{% static 'image/00A2797-3-EDIT-min.jpg' %}" class="signup_pic_static">
+
+        </div>
 
 </div>
 

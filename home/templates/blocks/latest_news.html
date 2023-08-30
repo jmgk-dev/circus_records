@@ -10,11 +10,11 @@
     </div>
 </div>
 
-<ul class="news_list">
+<ul class="news_list news_slick_list">
     {% for news in latest_news %}
     <li class="news-items">
         {% image news.image original class="responsive_news" %}
-        <span class="news_text">{{news.description|richtext}}</span>
+        {% comment %} <span class="news_text">{{news.description|richtext}}</span> {% endcomment %}
     </li>
     {% endfor %}
 </ul>
