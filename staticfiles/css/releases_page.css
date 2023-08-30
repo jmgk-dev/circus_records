@@ -71,9 +71,6 @@ li {
     margin: 0 5px;
 }
 
-.page-numbers li:nth-child(@{paginator.page_number}) {
-    color: red;
-}
 
 /* --------------------------------------------------------- */
 
