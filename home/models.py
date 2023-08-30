@@ -283,8 +283,8 @@ class HomePageCarouselImages(Orderable):
     link = models.URLField(blank=True, default='')
 
     text = models.CharField(
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
         default='',
         max_length=255
     )
