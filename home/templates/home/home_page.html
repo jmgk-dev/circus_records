@@ -12,11 +12,8 @@
         <link rel="stylesheet" href="{% static 'css/bumpers.css' %}">
         <link rel="stylesheet" href="{% static 'css/news.css' %}">
         <link rel="stylesheet" href="{% static 'css/flickity.css' %}">
-{% endblock %}
-
-{% block extra_js %}
-        <script src="{% static 'js/flickity.pkgd.min.js' %}"></script>
-        <script src="{% static 'js/carousel.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -24,11 +21,21 @@
 <div class="carousel-container">
         <div class="main-carousel carousel">
                 {% for slide in page.carousel_images.all %}
-                <div class="carousel-cell"><a href="{{slide.link}}">{% image slide.carousel_image max-1500x600 class="responsive_banner_large" %}</a></div>
+                <div class="carousel-cell">
+                        {% image slide.carousel_image original class="responsive_banner_large" %}
+                        {% image slide.carousel_image fill-1000x590 class="responsive_banner_small" %}
+                        <div class="slide_info">
+                                <span class="carousel_type">{{slide.type}}</span>
+                                <span class="carousel_text">{{slide.text}}</span>
+                                <a href="{{slide.link}}"><span class="carousel_more">more...</span></a>
+                        </div>
+                </div>
                 {% endfor %}
         </div>
         <div class="info_box_container">
-                <div class="info_box"></div>
+                <div class="info_box">
+
+                </div>
         </div>
 </div>
 
@@ -39,12 +46,20 @@
 <div class="bumper-container">
 
         <div class="bumper">
-                        <button class="button responsive_bumper_item button1">About</button>
-                        <button class="button responsive_bumper_item button2">Playlists</button>
-                        <button class="button responsive_bumper_item button3">Merch</button>
-                        <button class="button responsive_bumper_item button4">Artists</button>
+                        <a href="{% slugurl 'about' %}" class="button responsive_bumper_item button1">About</a>
+                        <a href="{% slugurl 'playlists '%}" class="button responsive_bumper_item button2">Playlists</a>
+                        <a href="https://circus-records.store/" class="button responsive_bumper_item button3">Merch</a>
+                        <a href="{% slugurl 'artists' %}" class="button responsive_bumper_item button4">Artists</a>
         </div>
 
 </div>
+
+{% block extra_js %}
+        <script src="{% static 'js/flickity.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/carousel.js' %}"></script>
+        <script src="{% static 'slick/slick.min.js' %}"></script>
+        <script src="{% static 'js/homepage_slick.js' %}"></script>
+        <script src="{% static 'js/news_slick_list.js' %}"></script>
+{% endblock %}
 
 {% endblock content %}

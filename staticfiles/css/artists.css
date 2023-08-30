@@ -3,6 +3,7 @@
     grid-template-columns: auto minmax(100px, 1540px) auto;
     padding-bottom: 4rem;
     font-family: Acrom;
+    overflow-x: hidden;
 }
 
 .artists_list {
@@ -43,7 +44,7 @@
 }
 
 .artist-image {
-    width: 12rem;
+    width: 250px;
     height: auto;
     border-radius: 3%;
     z-index: 0;
@@ -56,7 +57,7 @@
 }
 
 .see_more_artist_image {
-    width: 12rem;
+    width: 250px;
     height: auto;
     border-radius: 3%;
     z-index: 0;
@@ -81,8 +82,12 @@
 @media screen and (max-width: 600px) {
 
     .artists_list {
-        overflow: scroll;
+        /* overflow: hidden; */
         justify-content: flex-start;
+    }
+
+    .block-artists {
+        padding-bottom: 2rem;
     }
 
 }

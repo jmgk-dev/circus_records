@@ -5,26 +5,28 @@ from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+WAGTAILADMIN_BASE_URL = "http://127.0.0.1"
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'REMOVED_DB_NAME',
-        'USER': 'REMOVED_DB_USER',
-        'PASSWORD': 'REMOVED_DB_PASSWORD',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'REMOVED_DB_NAME',
+#         'USER': 'REMOVED_DB_USER',
+#         'PASSWORD': 'REMOVED_DB_PASSWORD',
+#         'HOST': 'localhost',
+#         'PORT': '',
 #     }
 # }
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    }
+}
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "REMOVED_SECRET_KEY"

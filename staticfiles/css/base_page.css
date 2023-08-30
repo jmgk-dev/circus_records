@@ -143,7 +143,7 @@ a:active {
 }
 
 .sicon {
-    width: 30px;
+    width: 25px;
 }
 
 .show {display:block;} 
@@ -235,6 +235,10 @@ a:active {
     width: 40px;
 }
 
+.circus_wordlogo {
+    width: 150px;
+}
+
 .bar_menu {
     cursor: pointer;
 }
@@ -257,7 +261,7 @@ a:active {
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .sticky-header {
         grid-template-rows: 60px;
     }
@@ -304,6 +308,7 @@ a:active {
 
 .responsive_footer_logo {
     width: 60px;
+    padding-bottom: 1.1rem;
 }
 
 .footer_title {
@@ -343,8 +348,11 @@ a:active {
 }
 
 .footer-link {
-    padding-bottom: 1rem;
-}
+    padding-bottom: 1.5rem;
+    display: flex;
+    align-content: center;
+    gap: 10px;
+  }
 
 .footer-logo {
     padding-bottom: 0.5rem;
@@ -356,7 +364,7 @@ ul.footer-list {
 }
 
 .footer-icon {
-    width: 30px;
+    width: 20px;
 }
 
 @media screen and (max-width: 1540px) {
@@ -369,6 +377,15 @@ ul.footer-list {
 
 }
 
+@media screen and (max-width: 1000px) {
+
+    .footer_links {
+        justify-content: space-between;
+    }
+
+}
+
+
 @media screen and (max-width: 600px) {
 
     ul.footer-list {
@@ -376,9 +393,6 @@ ul.footer-list {
         list-style-type: none;
         padding-left: 1rem;
     }
-
-    .footer_links {
-        justify-content: space-between;
-    }
+    
 
 }

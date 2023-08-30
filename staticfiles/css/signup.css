@@ -11,8 +11,9 @@
 
 .signup_container {
     display: grid;
-    grid-template-rows: 48px 225px 225px;
-    grid-template-columns: auto repeat(2, minmax(100px, 770px)) auto;
+    grid-template-rows: 48px auto;
+    grid-template-columns: auto minmax(100px, 1540px) auto;
+    margin-bottom: 30px;
 }
 
 .signup_page_bar {
@@ -20,30 +21,48 @@
     height: 2px;
     background-color: black;
     margin: 3px 0;
-    grid-column: 2 / span 2;
+    grid-column: 2;
     grid-row: 1;
+}
+
+.signup_content {
+    grid-row: 2;
+    grid-column: 2;
+    display: flex;
+    flex-flow: row;
+}
+
+.signup_info {
+
 }
 
 .signup_main_descrip {
     font-family: Acrom;
-    grid-column: 2;
-    grid-row: 2;
     padding-left: 2rem;
     padding-right: 2rem;
 }
 
 .contact_form {
     font-family: Acrom;
-    grid-column: 2;
-    grid-row: 3;
     padding-left: 2rem;
     padding-right: 2rem;
 }
 
 .signup_pic_static {
     width: 100%;
-    grid-row: 2 / span 2;
-    grid-column: 3;
     padding-right: 2rem;
     padding-left: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+
+    .signup_pic_static {
+        /* display: none; */
+    }
+
+    .signup_content {
+        flex-flow: column;
+        gap: 30px;
+    }
+
 }
