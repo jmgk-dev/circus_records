@@ -21,7 +21,7 @@
     bottom: 100px;
     left: 100px;
     display: flex;
-    width: 80vw;
+    width: 1150px;
     justify-content: space-between;
 }
 
@@ -69,6 +69,14 @@
     color: white;
 }
 
+@media screen and (max-width: 1540px) {
+
+    .slide_info {
+        width: 75vw;
+    }
+
+}
+
 @media screen and (max-width: 1400px) {
     
     .info_box_container {
@@ -98,8 +106,12 @@
 
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 900px) {
 
+    .slide_info {
+        width: 80vw;
+        font-size: medium;
+    }
 
 }
 
@@ -113,13 +125,12 @@
         font-size: small;
         bottom: 5vw;
         left: 5vw;
-        font-size: smaller;
         gap: 7vw;
     }
 
     .info_box {
         width: 96%;
-        height: 9vw;
+        height: 15vw;
         margin-bottom: -13.7vw;
         border: 2px solid rgb(255, 255, 255);
     }
