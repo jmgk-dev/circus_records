@@ -9,27 +9,30 @@ $('.news_slick_list').slick({
     {
       breakpoint: 1500,
       settings: {
-        slidesToShow: 2.5,
+        slidesToShow: 2,
         slidesToScroll: 1,
-        dots: false,
+        dots: true,
+        arrows: true,
       }
     },
 
     {
       breakpoint: 1200,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
+        arrows: true,
       }
     },
 
     {
       breakpoint: 900,
       settings: {
-        slidesToShow: 1.5,
+        slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
+        arrows: true,
       }
     },
 
@@ -39,6 +42,7 @@ $('.news_slick_list').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
+        arrows: true,
       }
     },
     

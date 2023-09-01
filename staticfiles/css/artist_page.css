@@ -245,8 +245,8 @@
 }
 
 .news_pic {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 250px;
     border-radius: 8px;
 }
 
@@ -366,7 +366,7 @@
 
     .merch_list {
         flex-flow: row;
-        overflow: scroll;
+        overflow: hidden;
     }
 
 }

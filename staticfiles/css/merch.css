@@ -3,7 +3,7 @@
 .block-latest_merch {
     display: grid;
     grid-template-columns: auto minmax(100px, 1540px) auto;
-    grid-template-rows: 48px 450px;
+    grid-template-rows: 48px 380px;
 }
 
 li {
@@ -50,6 +50,7 @@ li {
     height: auto;
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
+    margin-bottom: 5px;
 }
 
 .responsive_merch:hover {
@@ -89,7 +90,6 @@ li {
 
     .block-latest_merch {
         grid-template-rows: 48px 350px;
-        padding-bottom: 2rem;
     }
 
     .merch-item {

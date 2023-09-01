@@ -2,59 +2,62 @@
 
 .bumper-container {
     display: grid;
-    grid-template-columns: auto 1540px auto;
+    grid-template-columns: auto minmax(200px, 1540px) auto;
     margin-bottom: 8vw;
 }
 
 .bumper {
     grid-column: 2;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     align-items: center;
-    justify-content: space-evenly
+    justify-content: center;
+    gap: 5vw;
+    padding: 20px;
+}
+
+.bumpers1 {
+    display: flex;
+    gap: 5vw;
+}
+
+.bumpers2 {
+    display: flex;
+    gap: 5vw;
 }
 
 .responsive_bumper_item {
-    width: 10%;
-    font-size: 1.2em;
-    height: 70px;
+    font-size: larger;
     filter: drop-shadow(3px 3px 2px grey);
     background-color: white;
     color: black;
+    font-family: Acrom;
+    padding: 30px 50px 30px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
 }
 
 @media screen and (max-width: 1540px) {
 
     .bumper-container {
         display: grid;
-        grid-template-columns: auto 1390px auto;
-    }
-
-}
-
-@media screen and (max-width: 600px) {
-
-    .bumper-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 232px;
-        padding-bottom: 0rem;
-    }
-    
-    .bumper {
-        grid-column: 1;
-        grid-row: 1;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
-        padding: 1rem;
+        grid-template-columns: auto 1fr auto;
     }
 
     .responsive_bumper_item {
-        width: 33%;
-        height: 80px;
-        font-size: 1em;
+        font-size: medium;
     }
+
+
+}
+
+
+@media screen and (max-width: 600px) {
+    
+
+
     
 }

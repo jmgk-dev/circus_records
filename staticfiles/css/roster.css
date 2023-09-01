@@ -71,6 +71,10 @@ li {
         grid-template-columns: 1fr;
     }
 
+    .roster_page_bar {
+        grid-column: 1;
+    }
+
     .artists {
         grid-column: 1;
     }
