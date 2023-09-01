@@ -1,6 +1,6 @@
 $('.artist_list').slick({
     dots: true,
-    arrows: false,
+    arrows: true,
     infinite: false,
     speed: 300,
     slidesToShow: 5,

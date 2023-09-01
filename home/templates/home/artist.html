@@ -64,19 +64,13 @@
 
         <!-- PLAYLIST -->
 
-                {% if request.in_preview_panel %}
+        
+        {% if page.playlist %}    
+            <div class="playlist">
+                    {% embed page.playlist %}
+            </div>
+        {% endif %}
 
-                <span>Open full preview to see this widget</span>
-        
-                {% else %}
-        
-                {% if page.playlist %}    
-                    <div class="playlist">
-                            {% embed page.playlist %}
-                    </div>
-                {% endif %}
-        
-                {% endif %}
 
         <!-- RELEASES -->
 
