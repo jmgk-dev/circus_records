@@ -1,6 +1,11 @@
 {% load wagtailimages_tags static %}
 {% load wagtailcore_tags %}
 
+    <div class="artists_title">
+        <div class="artists_bar"></div>
+        <div>Artists</div>
+    </div>  
+
     <ul class="artists_list slick_list">
     {% for artist in value.artists %}
         <li class="artist-item">

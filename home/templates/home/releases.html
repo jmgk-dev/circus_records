@@ -31,7 +31,7 @@
                 <option value="{{artist.slug}}" {% if filtered_artist == artist.slug %}selected{% endif %}>{{artist.title}}</option>
                 {% endfor %}
             </select>
-            {% if filtered_artist %}<a href="{{page.url}}">Reset</a>{% endif %}
+            {% if filtered_artist %}<a class="reset_button" href="{{page.url}}">Reset</a>{% endif %}
             <button class="submit_button" type="submit">Filter</button>
         </form>
         {% endif %}
@@ -58,13 +58,15 @@
         </li>
         {% endfor %}
         </ul>
+
+        <ul class="page_numbers">
         {% for page_number in page_obj.paginator.page_range %}
-        <ul>
             <li>
                 <a href="?page={{page_number}}" class="{% if page_number == page_obj.number %}current{% endif %}">{{page_number}}</a>
             </li>
+        {% endfor %}
         </ul>
-    {% endfor %}
+
 </div>
 
 </div>
