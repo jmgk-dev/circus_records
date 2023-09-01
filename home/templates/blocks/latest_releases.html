@@ -14,19 +14,27 @@
             <a href="{{release.url}}" class="releases">
                 {% image release.artwork original class="responsive_packshot" %}
             </a>
+
+            <div class="releases_info">
+
+            <ul class="release_credits">
+                <li class="release_artist_name">{{release.artist}}</li>
+                <li class="release_title">{{release.title}}</li>
+                {% comment %} <li class="release_type">{{release.release_type}}</li> {% endcomment %}
+            </ul>
+
             {% if release.artist_pages.all %}
             <ul class="release__artist-tags">
                 {% for artist in release.artist_pages.all %}
                     <li>
-                        <a href="{{artist.url}}"><span class="release_artist_name_link">{{release.artist}}</span></a>
+                        <a href="{{artist.url}}"><span class="release_artist_name_link">{{artist.title}}</span></a>
                     </li>
                 {% endfor %}
             </ul>
-            {% else %}
-            <span class="release_artist_name">{{release.artist}}</span>
             {% endif %}
-            <span class="release_title">{{release.title}}</span>
-            <span class="release_type">{{release.release_type}}</span>
+
+            </div>
+
         </li>
         {% endfor %}
         <div class="release_list_item">

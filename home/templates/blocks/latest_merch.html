@@ -15,8 +15,8 @@
                     {% image item.image original class="responsive_merch" %}
                 </a>
                 <span class="merch_item_title">{{item.title}}</span>
-                <span class="merch_item_price">{{item.price}}</span>
-                <span class="merch_item_type">{{item.merch_type}}</span>
+                {% comment %} <span class="merch_item_price">{{item.price}}</span>
+                <span class="merch_item_type">{{item.merch_type}}</span> {% endcomment %}
             </li>
         {% endfor %}
             <li class="merch-item">

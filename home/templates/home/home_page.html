@@ -45,12 +45,16 @@
 
 <div class="bumper-container">
 
-        <div class="bumper">
-                        <a href="{% slugurl 'about' %}" class="button responsive_bumper_item button1">About</a>
-                        <a href="{% slugurl 'playlists '%}" class="button responsive_bumper_item button2">Playlists</a>
-                        <a href="https://circus-records.store/" class="button responsive_bumper_item button3">Merch</a>
-                        <a href="{% slugurl 'artists' %}" class="button responsive_bumper_item button4">Artists</a>
-        </div>
+        <ul class="bumper">
+                <div class="bumpers1">
+                        <a class="flex_bumper" href="{% slugurl 'about' %}"><li class="responsive_bumper_item"><span>About</span></li></a>
+                        <a class="flex_bumper" href="{% slugurl 'playlists '%}"><li class="responsive_bumper_item"><span>Playlists</span></li></a>
+                </div>
+                <div class="bumpers2">
+                        <a class="flex_bumper" href="https://circus-records.store/"><li class="responsive_bumper_item"><span>Merch</span></li></a>
+                        <a class="flex_bumper" href="{% slugurl 'artists' %}"><li class="responsive_bumper_item"><span>Artists</span></li></a>
+                </div>
+        </ul>
 
 </div>
 

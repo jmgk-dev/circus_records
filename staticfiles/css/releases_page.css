@@ -60,14 +60,16 @@ li {
     padding: 2rem;
 } */
 
-.page-numbers {
+.page_numbers {
     list-style: none;
-    display: inline-flex;
+    display: flex;
     margin: 0;
     padding: 0;
+    justify-content: center;
+    font-family: Acrom;
 }
 
-.page-numbers li {
+.page_numbers li {
     margin: 0 5px;
 }
 
@@ -96,6 +98,10 @@ li {
     border: none;
     font-size: medium;
     cursor: pointer;
+}
+
+.reset_button {
+    padding: 5px;
 }
 
 /* --------------------------------------------------------- */

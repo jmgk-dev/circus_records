@@ -11,30 +11,25 @@ $('.artist_list').slick({
         settings: {
           slidesToShow: 4,
           slidesToScroll: 3,
+          arrows: true,
         }
       },
 
       {
-        breakpoint: 1200,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
+          arrows: true,
         }
       },
 
       {
-        breakpoint: 900,
+        breakpoint: 1100,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 2,
           slidesToScroll: 2,
-        }
-      },
-
-      {
-        breakpoint: 750,
-        settings: {
-          slidesToShow: 2.13,
-          slidesToScroll: 2,
+          arrows: true,
         }
       },
 

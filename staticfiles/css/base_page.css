@@ -50,7 +50,7 @@ a:active {
 }
 
 .button {
-    padding: 15px 30px;
+    padding: 20px 30px;
     text-align: center;
     text-decoration: none;
     color: white;
@@ -110,6 +110,8 @@ a:active {
 .menu_icon {
     width: 2rem;
     cursor: pointer;
+    /* margin-bottom: 40px;
+    margin-left: 40px; */
 }
 
 .burger-container {

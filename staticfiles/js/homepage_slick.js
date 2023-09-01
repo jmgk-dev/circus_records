@@ -9,27 +9,30 @@ $('.slick_list').slick({
       {
         breakpoint: 1500,
         settings: {
-          slidesToShow: 4.2,
+          slidesToShow: 4,
           slidesToScroll: 3,
           dots: true,
+          arrows: true,
         }
       },
 
       {
-        breakpoint: 1200,
+        breakpoint: 1250,
         settings: {
-          slidesToShow: 3.2,
+          slidesToShow: 3,
           slidesToScroll: 3,
           dots: true,
+          arrows: true,
         }
       },
 
       {
-        breakpoint: 900,
+        breakpoint: 1000,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 2,
           slidesToScroll: 2,
           dots: true,
+          arrows: true,
         }
       },
 

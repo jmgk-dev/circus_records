@@ -63,3 +63,36 @@ li {
 .news_text {
     padding-top: 20px;
 }
+
+@media screen and (max-width: 1500px) {
+
+    .responsive_news {
+        margin-left: 10vw;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+    .responsive_news {
+        margin-left: 28vw;
+    }
+
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .responsive_news {
+        margin-left: 20vw;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .responsive_news {
+        margin-left: 5vw;
+    }
+
+}
