@@ -21,7 +21,8 @@
     bottom: 100px;
     left: 100px;
     display: flex;
-    gap: 380px;
+    width: 80vw;
+    justify-content: space-between;
 }
 
 .carousel {
@@ -33,6 +34,7 @@
 .responsive_banner_large {
     width: 100%;
     height: auto;
+    border-radius: 15px;
 }
 
 .responsive_banner_small {

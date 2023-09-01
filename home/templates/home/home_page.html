@@ -19,7 +19,7 @@
 {% block content %}
 
 <div class="carousel-container">
-        <div class="main-carousel carousel">
+        <div class="main-carousel carousel" data-flickity='{ "autoPlay": true }'>
                 {% for slide in page.carousel_images.all %}
                 <div class="carousel-cell">
                         {% image slide.carousel_image original class="responsive_banner_large" %}
