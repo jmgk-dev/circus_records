@@ -27,6 +27,10 @@ h6 {
     font-family: Acrom;
 }
 
+ul.burger-elements {
+    list-style-type: none;
+}
+
 a:link {
     text-decoration: none;
 }
@@ -110,8 +114,6 @@ a:active {
 .menu_icon {
     width: 2rem;
     cursor: pointer;
-    /* margin-bottom: 40px;
-    margin-left: 40px; */
 }
 
 .burger-container {
@@ -136,6 +138,11 @@ a:active {
 .burger-link {
     padding-bottom: 3vh;
     color: white;
+}
+
+.link_text {
+    color: white;
+    text-decoration: underline;
 }
 
 .b-link-content {
@@ -164,7 +171,7 @@ a:active {
 
 .sticky-header {
     display: grid;
-    grid-template-columns: auto repeat(2, minmax(100px, 770px)) auto;
+    grid-template-columns: auto repeat(2, minmax(100px, 700px)) auto;
     grid-template-rows: 70px;
     position: sticky;
     top: 0;
@@ -179,7 +186,7 @@ a:active {
     flex-direction: row;
     align-items: center;
     padding-left: 3rem;
-    gap: 3vw;
+    gap: 2vw;
 }
 
 .header-links {
@@ -192,6 +199,10 @@ a:active {
     align-items: center;
     color: black;
     padding-right: 3rem;
+}
+
+.signup_header {
+    display: none;
 }
 
 .header-link {
@@ -234,7 +245,7 @@ a:active {
 }
 
 .circus_logo {
-    width: 40px;
+    width: 60px;
 }
 
 .circus_wordlogo {
@@ -243,6 +254,7 @@ a:active {
 
 .bar_menu {
     cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .bar1, .bar2, .bar3 {
@@ -264,6 +276,18 @@ a:active {
 }
 
 @media screen and (max-width: 900px) {
+
+    .sticky-header {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(100px, 700px));
+        grid-template-rows: 70px;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: rgba(255,255,255,0.9);
+    }
+    
     .sticky-header {
         grid-template-rows: 60px;
     }
@@ -271,32 +295,42 @@ a:active {
     .logos {
         grid-column: 1;
         padding-left: 1rem;
-        gap: 2rem;
+        gap: 1rem;
     }
 
+    .circus_wordlogo {
+        width: 100px;
+    }
+
+    .circus_logo {
+        width: 50px;
+    }
+    
     .links {
         display: none;
     }
-    
-    .search {
-        grid-column: 2;
-    }
 
-    .search_txt {
-        display: none;
+    .signup_header {
+        grid-column: 2;
+        font-family: Acrom;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 15px;
     }
 
     .header-links {
+        grid-column: 2;
         display: none;
     }
 
-    .search {
-        padding-right: 1rem;
+    .hlink6 {
+        background-color: black;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 3px;
     }
 
-    .search_txt {
-        display: none;
-    }
 }
 
 /* --------------------------------------------------------- FOOTER */
@@ -347,6 +381,7 @@ a:active {
     grid-row: 2;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 .footer-link {
@@ -354,7 +389,12 @@ a:active {
     display: flex;
     align-content: center;
     gap: 10px;
+    color: black;
   }
+
+.social-link {
+    text-decoration: underline;
+}
 
 .footer-logo {
     padding-bottom: 0.5rem;
@@ -379,11 +419,14 @@ ul.footer-list {
 
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
 
-    .footer_links {
-        justify-content: space-between;
+    ul.footer-list {
+        padding-right: 3rem;
+        list-style-type: none;
+        flex-basis: 50%;
     }
+
 
 }
 

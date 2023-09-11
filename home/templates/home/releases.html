@@ -15,46 +15,54 @@
 
     <div class="releases_page_bar"></div>
 
-    <div class="releases_main_descrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-
-    {% comment %} <div class="filters">
-            <div class="button filter_button">FILTERS</div>
-    </div> {% endcomment %}
+    {% if artists %}
+    <form class="filter_form" method="GET" action="{{page.url}}">
+        <select id="select-beast-empty" data-placeholder=""  autocomplete="off" name="artist">
+            <option value="">All</option>
+            {% for artist in artists %}
+            <option value="{{artist.slug}}" {% if filtered_artist == artist.slug %}selected{% endif %}>{{artist.title}}</option>
+            {% endfor %}
+        </select>
+        {% if filtered_artist %}<a class="reset_button" href="{{page.url}}">Reset</a>{% endif %}
+        <button class="submit_button" type="submit">Filter</button>
+    </form>
+    {% endif %}
 
 <div class="releases_catalogue_container">
-
-        {% if artists %}
-        <form class="filter_form" method="GET" action="{{page.url}}">
-            <select id="select-beast-empty" data-placeholder=""  autocomplete="off" name="artist">
-                <option value="">All</option>
-                {% for artist in artists %}
-                <option value="{{artist.slug}}" {% if filtered_artist == artist.slug %}selected{% endif %}>{{artist.title}}</option>
-                {% endfor %}
-            </select>
-            {% if filtered_artist %}<a class="reset_button" href="{{page.url}}">Reset</a>{% endif %}
-            <button class="submit_button" type="submit">Filter</button>
-        </form>
-        {% endif %}
-
+        
         <ul class="releases_list">
         {% for release in page_obj.object_list %}
         <li class="release_list_item">
+            <div class="format">
+                <span class="release_type">{{release.release_type}}</span>
+            </div>
             <a href="{{release.url}}" class="releases">
                 {% image release.artwork original class="responsive_packshot" %}
             </a>
-            {% if release.artist_pages.all %}
-            <ul class="release__artist-tags">
-                {% for artist in release.artist_pages.all %}
-                    <li>
-                        <a href="{{artist.url}}"><span class="release_artist_name_link">{{artist.title}}</span></a>
-                    </li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <span class="release_artist_name">{{release.artist}}</span>
-            {% endif %}
-            <span class="release_title">{{release.title}}</span>
-            <span class="release_type">{{release.release_type}}</span>
+
+
+            <div class="release_info">
+
+                <ul class="release_credits">
+                    <li class="release_artist_name">{{release.artist}}</li>
+                    <li class="release_title">{{release.title}}</li>
+                </ul>
+
+
+                {% if release.artist_pages.all %}
+                <ul class="release__artist-tags">
+                    {% for artist in release.artist_pages.all %}
+                        <li>
+                            <a href="{{artist.url}}"><span class="release_artist_name_link">{{artist.title}}</span></a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                {% endif %}
+
+
+            </div>
+
         </li>
         {% endfor %}
         </ul>
