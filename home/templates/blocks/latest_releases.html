@@ -9,37 +9,51 @@
     </div>   
     
     <ul class="releases_list slick_list">
+
         {% for release in latest_releases %}
         <li class="release_list_item">
-            <a href="{{release.url}}" class="releases">
-                {% image release.artwork original class="responsive_packshot" %}
-            </a>
 
-            <div class="releases_info">
+            <div class="item_content">
 
-            <ul class="release_credits">
-                <li class="release_artist_name">{{release.artist}}</li>
-                <li class="release_title">{{release.title}}</li>
-                {% comment %} <li class="release_type">{{release.release_type}}</li> {% endcomment %}
-            </ul>
+                <div class="format">
+                    <span class="release_type">{{release.release_type}}</span>
+                </div>
+                <a href="{{release.url}}" class="releases">
+                    {% image release.artwork original class="responsive_packshot" %}
+                </a>
 
-            {% if release.artist_pages.all %}
-            <ul class="release__artist-tags">
-                {% for artist in release.artist_pages.all %}
-                    <li>
-                        <a href="{{artist.url}}"><span class="release_artist_name_link">{{artist.title}}</span></a>
-                    </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
+
+                <div class="release_info">
+
+                    <ul class="release_credits">
+                        <li class="release_artist_name">{{release.artist}}</li>
+                        <li class="release_title">{{release.title}}</li>
+                    </ul>
+
+
+                    {% if release.artist_pages.all %}
+                    <ul class="release__artist-tags">
+                        {% for artist in release.artist_pages.all %}
+                            <li>
+                                <a href="{{artist.url}}"><span class="release_artist_name_link">{{artist.title}}</span></a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    {% endif %}
+
+
+                </div>
 
             </div>
 
         </li>
         {% endfor %}
-        <div class="release_list_item">
+
+        <div class="release_list_item see_more">
             <a href="{% slugurl 'releases' %}"><img src="{% static 'image/blue_block3.jpg' %}" class="responsive_packshot"></a>
         </div>
+
     </ul>
 
 {% endif %} 

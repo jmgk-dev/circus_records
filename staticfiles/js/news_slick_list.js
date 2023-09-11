@@ -16,15 +16,15 @@ $('.news_slick_list').slick({
       }
     },
 
-    {
-      breakpoint: 1200,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: true,
-        arrows: true,
-      }
-    },
+    // {
+    //   breakpoint: 1200,
+    //   settings: {
+    //     slidesToShow: 1,
+    //     slidesToScroll: 1,
+    //     dots: true,
+    //     arrows: true,
+    //   }
+    // },
 
     {
       breakpoint: 900,

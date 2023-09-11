@@ -403,7 +403,7 @@ class ReleasesPage(WagtailCacheMixin, Page):
             release_objs = release_objs.filter(artist_pages__slug=filtered_artist)
             context['filtered_artist'] = filtered_artist
 
-        page_obj = Paginator(release_objs, 8)
+        page_obj = Paginator(release_objs, 16)
 
         context['page_obj'] = page_obj.get_page(current_page)
 
@@ -599,13 +599,13 @@ class ArtistPage(WagtailCacheMixin, Page):
             context['listings'] = events
 
         context['releases'] = Release.objects.filter(
-            artist_pages=self, live=True).order_by('-release_date')
+            artist_pages=self, live=True).order_by('-release_date')[:4]
         
         context['merch'] = MerchItem.objects.filter(
-            artist_pages=self, live=True).order_by('-live')
+            artist_pages=self, live=True).order_by('-live')[:4]
 
         context['news'] = NewsItem.objects.filter(
-            artist_pages=self, live=True).order_by('-live')
+            artist_pages=self, live=True).order_by('-live')[:3]
         
         # context['playlist'] = Playlist.objects.filter(
         #     artist_pages=self, live=True).order_by('-live')

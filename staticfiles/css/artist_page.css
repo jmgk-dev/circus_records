@@ -34,6 +34,8 @@
     display: flex;
     flex-flow: row wrap;
     gap: 50px;
+    overflow: hidden;
+    height: 320px;
 }
 
 .artist-content {
@@ -196,7 +198,7 @@
     color: #0814f1;
 }
 
-.latest_release_pic {
+.latest_release_pic, .merch_pic {
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
     height: 250px;
@@ -208,15 +210,14 @@
 /* --------------------------------------------------------- */
 
 .livedate {
-    width: 220px;
-    height: 170px;
+    width: 250px;
+    height: 250px;
     padding: 1rem;
     border: black;
     border-style: solid;
     border-width: 1px;
     border-radius: 8px;
     color: black;
-    margin: 2rem;
 }
 
 .event {
@@ -225,14 +226,6 @@
 
 /* --------------------------------------------------------- */
 
-.merch_list_item {
-
-}
-
-.merch_pic {
-    border-radius: 3%;
-    border: 1px solid rgb(85, 85, 85);
-}
 
 .merch_title {
     color: #f40405;
@@ -267,23 +260,33 @@
 /* --------------------------------------------------------- */
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
 
-    /* .latest_release_pic {
-        width: 25vw;
-        height: auto;
+    .latest_release_pic, .merch_pic {
+        height: 16vw;
     }
+    
+    .artist_list {
+        height: 22vw;
+    }
+}
 
-    .merch_pic {
-        width: 25vw;
-        height: auto;
+@media screen and (max-width: 1300px) {
+
+    .latest_release_pic, .merch_pic {
+        height: 20vw;
+    }   
+    
+    .artist_list {
+        height: 28vw;
     }
+}
+
+@media screen and (max-width: 1100px) {
 
     .artist_list {
-        gap: 6vw;
-    } */
-    
-    
+        height: 30vw;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -301,10 +304,31 @@
         display: inline;
     }
 
+    .latest_release_pic, .merch_pic {
+        height: 25vw;
+    }
+
+    .artist_list {
+        height: 36vw;
+    }
+       
+
+}
+
+@media screen and (max-width: 750px) {
+    
+    .latest_release_pic, .merch_pic {
+        height: 38vw;
+    }
+
+    .artist_list {
+        height: 52vw;
+    }
+       
 }
 
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 600px) {
 
 
     .artist-content {
@@ -312,20 +336,6 @@
         grid-template-rows: 48px 48px 48px auto 48px minmax(75px, auto) auto auto;
     }
 
-    /* .latest_release_pic {
-        width: 40vw;
-        height: auto;
-    }
-
-    .merch_pic {
-        width: 40vw;
-        height: auto;
-    }
-
-    .artist_list {
-        gap: 4vw;
-        padding-left: 20px;
-    } */
 
     .artist_pic_square {
         grid-row: 4;
@@ -369,4 +379,18 @@
         overflow: hidden;
     }
 
+    .latest_release_pic, .merch_pic {
+        height: 300px;
+    }
+
+    .artist_list {
+        height: 390px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .latest_release_pic, .merch_pic {
+        margin-left: 7vw;;
+    }
 }

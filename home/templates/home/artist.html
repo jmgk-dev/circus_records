@@ -8,8 +8,8 @@
 
 {% block extra_css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/artist_page.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick_artistpage.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme_artistpage.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -101,9 +101,9 @@
                     <a href="{{item.url}}">{% image item.image max-250x250 class="merch_pic" %}</a>
                 </li>
             {% endfor %}
-                {% comment %} <li class="merch_list_item">
+                <li class="merch_list_item">
                     <a href="{% slugurl 'merch' %}"><img src="{% static 'image/red_block3.jpg' %}" class="merch_pic see_more"></a>
-                </li> {% endcomment %}
+                </li>
             </ul>
         </div>
         {% endif %}
@@ -135,19 +135,22 @@
         <div class="live_dates content_box">
             <span class="panel_title listings_title">Live Dates</span>
             <ul class="livedate_list artist_list">
-            {% for listing in listings %}
-                <li class="livedate">
+            {% for listing in listings|slice:":4" %}
+                <li>
                     <a href={{ listing.4 }}>
-                        <div>
+                        <div class="livedate">
                             <span class="event">{{ listing.1 }}</span>
                             <br>
-                            <span>{{ listing.0 }}</span>
+                            <span class="location">{{ listing.0 }}</span>
                             <br>
-                            <span>{{ listing.2 }} {{ listing.3 }}</span>    
+                            <span class="date">{{ listing.2 }} {{ listing.3 }}</span>    
                         </div>   
                     </a>
                 </li>
             {% endfor %}
+            <li class="merch_list_item">
+                <a href="{{page.songkick_url}}"><img src="{% static 'image/red_block3.jpg' %}" class="merch_pic see_more"></a>
+            </li>
             </ul>
         </div>
         {% endif %}
