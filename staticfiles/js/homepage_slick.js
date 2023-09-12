@@ -46,23 +46,23 @@ $('.slick_list').slick({
         }
       },
 
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1.3,
-          slidesToScroll: 1,
-          dots: true,
-        }
-      },
-      
       // {
-      //   breakpoint: 480,
+      //   breakpoint: 600,
       //   settings: {
-      //     slidesToShow: 1.5,
+      //     slidesToShow: 1.3,
       //     slidesToScroll: 1,
       //     dots: true,
       //   }
-      // }
+      // },
+      
+      {
+        breakpoint: 440,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1,
+          dots: true,
+        }
+      }
       // You can unslick at a given breakpoint now by adding:
       // settings: "unslick"
       // instead of a settings object

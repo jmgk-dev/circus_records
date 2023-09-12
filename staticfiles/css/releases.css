@@ -196,6 +196,6 @@ li {
     }
     
     .responsive_packshot, .release_list_item, .item_content {
-        width: 65vw;
+        width: 210px;
     }
 }
