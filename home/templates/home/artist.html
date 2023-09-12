@@ -45,6 +45,11 @@
                 <a href="{{page.spotify}}"><img src="{% static 'image/spotify_logo_500.png' %}" class="sicon_pic"></a>
             </div>
             {% endif %}
+            {% if page.apple_music %}
+            <div class="social_icon">
+                <a href="{{page.apple_music}}"><img src="{% static 'image/apple_logo_500.png' %}" class="sicon_pic"></a>
+            </div>
+            {% endif %}
             {% if page.instagram %}
             <div class="social_icon">
                 <a href="{{page.instagram}}"><img src="{% static 'image/ig_logo_500.png' %}" class="sicon_pic"></a>
@@ -53,6 +58,11 @@
             {% if page.twitter%}
             <div class="social_icon">
                 <a href="{{page.twitter}}"><img src="{% static 'image/x_logo_500.png' %}" class="sicon_pic"></a>
+            </div>
+            {% endif %}
+            {% if page.tiktok %}
+            <div class="social_icon">
+                <a href="{{page.tiktok}}"><img src="{% static 'image/tiktok_logo_500.png' %}" class="sicon_pic"></a>
             </div>
             {% endif %}
 
