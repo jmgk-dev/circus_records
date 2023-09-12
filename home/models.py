@@ -523,6 +523,16 @@ class ArtistPage(WagtailCacheMixin, Page):
         null=True
     )
 
+    apple_music = models.URLField(
+        blank=True, 
+        null=True
+    )
+
+    tiktok = models.URLField(
+        blank=True, 
+        null=True
+    )  
+
     twitter = models.URLField(
         blank=True, 
         null=True
@@ -538,6 +548,8 @@ class ArtistPage(WagtailCacheMixin, Page):
         FieldPanel('playlist'),
         FieldPanel('instagram'),
         FieldPanel('spotify'),
+        FieldPanel('apple_music'),
+        FieldPanel('tiktok'),
         FieldPanel('twitter'),
     ]
 
