@@ -57,7 +57,7 @@ class Release(ClusterableModel):
     ]
 
     release_type = models.CharField(
-        max_length=15, 
+        max_length=255, 
         choices=RELEASE_TYPE_CHOICES,
         default='Single',
         blank=False, 
@@ -70,7 +70,7 @@ class Release(ClusterableModel):
     ]
 
     release_label = models.CharField(
-        max_length=20, 
+        max_length=255, 
         choices=RELEASE_LABEL_CHOICES,
         default='Circus Records',
         blank=False, 
@@ -146,7 +146,7 @@ class MerchItem(ClusterableModel):
     ]
 
     merch_type = models.CharField(
-        max_length=11, 
+        max_length=255, 
         choices=MERCH_TYPE_CHOICES,
         blank=True, 
         null=True
@@ -311,7 +311,7 @@ class HomePageCarouselImages(Orderable):
     ]
 
     type = models.CharField(
-        max_length=11, 
+        max_length=255, 
         choices=TYPE_CHOICES,
         default='News',
         blank=True, 
