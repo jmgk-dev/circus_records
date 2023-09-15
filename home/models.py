@@ -70,7 +70,7 @@ class Release(ClusterableModel):
     ]
 
     release_label = models.CharField(
-        max_length=15, 
+        max_length=20, 
         choices=RELEASE_LABEL_CHOICES,
         default='Circus Records',
         blank=False, 
