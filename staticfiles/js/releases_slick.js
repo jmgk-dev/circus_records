@@ -45,25 +45,25 @@ $('.artist_list').slick({
         }
       },
 
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1.4,
-          slidesToScroll: 1,
-          dots: true,
-          arrows: false,
-        }
-      },
+      // {
+      //   breakpoint: 600,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 1,
+      //     dots: true,
+      //     arrows: true,
+      //   }
+      // },
       
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          arrows: true,
-        }
-      }
+      // {
+      //   breakpoint: 480,
+      //   settings: {
+      //     slidesToShow: 1,
+      //     slidesToScroll: 1,
+      //     dots: true,
+      //     arrows: true,
+      //   }
+      // }
       // You can unslick at a given breakpoint now by adding:
       // settings: "unslick"
       // instead of a settings object

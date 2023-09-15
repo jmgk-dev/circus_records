@@ -64,6 +64,19 @@ class Release(ClusterableModel):
         null=True
     )
 
+    RELEASE_LABEL_CHOICES = [
+        ('Circus Records', 'Circus Records'),
+        ('Circus Electric', 'Circus Electric'),
+    ]
+
+    release_label = models.CharField(
+        max_length=15, 
+        choices=RELEASE_LABEL_CHOICES,
+        default='Circus Records',
+        blank=False, 
+        null=True
+    )
+
     release_date = models.DateField(
         null=True,
         blank=True
@@ -87,6 +100,7 @@ class Release(ClusterableModel):
         FieldPanel('artwork'),
         FieldPanel('url'),
         FieldPanel('release_type'),
+        FieldPanel('release_label'),
         FieldPanel('release_date'),
         AutocompletePanel('artist_pages'),
         FieldPanel('live'),
