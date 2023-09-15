@@ -57,7 +57,7 @@ class Release(ClusterableModel):
     ]
 
     release_type = models.CharField(
-        max_length=11, 
+        max_length=15, 
         choices=RELEASE_TYPE_CHOICES,
         default='Single',
         blank=False, 
