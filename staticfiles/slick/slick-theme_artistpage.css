@@ -79,7 +79,7 @@
 
 .slick-prev
 {
-    left: 10px;
+    /* left: 10px; */
     z-index: 3;
 }
 [dir='rtl'] .slick-prev
@@ -98,7 +98,7 @@
 
 .slick-next
 {
-    right: 10px;
+    right: 0px;
 }
 [dir='rtl'] .slick-next
 {
@@ -117,13 +117,12 @@
 /* Dots */
 .slick-dotted.slick-slider
 {
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 .slick-dots
 {
     position: absolute;
-    /* bottom: -25px; */
 
     display: block;
 
@@ -135,7 +134,6 @@
 
     text-align: center;
 
-    margin-left: -2vw;
 }
 .slick-dots li
 {

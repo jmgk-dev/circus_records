@@ -3,6 +3,8 @@
 {
     position: relative;
 
+    
+
     display: block;
     box-sizing: border-box;
 
@@ -27,7 +29,7 @@
 
     margin: 0;
     padding: 0;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 
 }
 .slick-list:focus
@@ -123,11 +125,11 @@
 @media screen and (max-width: 600px) {
 
     .slick-track {
-        margin-left: 6vw;
+        /* margin-left: 6vw; */
     }
 
     .slick-list {
-        margin-left: -40px;
+        /* margin-left: -40px; */
     }
 }
 

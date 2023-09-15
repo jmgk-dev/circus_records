@@ -5,7 +5,7 @@
     {% for playlist in value.objects %}
     <li class="playlist_item">
         <span class="playlist_header">{{playlist.headline}}</span>
-        {% embed playlist.url %}
+        <iframe style="border-radius:12px" src="{{playlist.url}}" width="100%" height="730" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <spa class="playlist_descrip">{{playlist.description|richtext}}</span>
     </li>
     {% endfor %}

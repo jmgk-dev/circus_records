@@ -19,16 +19,20 @@
     <div class="artist_page_bar"></div>
 
         <div class="back_to_artists">
-            <a href="{% slugurl 'artists' %}"><div class="button back_button">⬅ back to artists</div></a>
+            <a href="{% slugurl 'artists' %}"><div class="button back_button">⬅ Back to Artists</div></a>
         </div>
 
         <div class="artist-name">{{page.title}}</div>
 
-        <div class="artist-info">{{page.bio|richtext|slice:":200"}}
+        {% comment %} <div class="artist-info">{{page.bio|richtext|slice:":200"}}
             <span id="dots">...</span>
             <span id="more">{{page.bio|richtext|slice:"200:"}}</span>
 
             <button class="readmore_button" onclick="readMore()" id="myBtn">Read more</button>
+        </div> {% endcomment %}
+
+        <div class="artist-info">
+            {{page.bio|richtext}}
         </div>
 
         <div class="artist_pic_landscape">
@@ -77,8 +81,7 @@
         
         {% if page.playlist %}    
             <div class="playlist">
-                    {% embed page.playlist %}
-            </div>
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/{{ page.playlist|slice:"34:56" }}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
         {% endif %}
 
 
@@ -94,7 +97,7 @@
                 </li>
             {% endfor %}
                 <li class="release_list_item">
-                    <a href="{% slugurl 'releases' %}"><img src="{% static 'image/blue_block3.jpg' %}" class="latest_release_pic see_more"></a>
+                    <a href="{% slugurl 'releases' %}"><img src="{% static 'image/blue_block4.jpg' %}" class="latest_release_pic see_more"></a>
                 </li>
             </ul>
         </div>
@@ -112,7 +115,7 @@
                 </li>
             {% endfor %}
                 <li class="merch_list_item">
-                    <a href="{% slugurl 'merch' %}"><img src="{% static 'image/red_block3.jpg' %}" class="merch_pic see_more"></a>
+                    <a href="{% slugurl 'merch' %}"><img src="{% static 'image/red_block4.jpg' %}" class="merch_pic see_more"></a>
                 </li>
             </ul>
         </div>
