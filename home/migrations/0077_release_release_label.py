@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='release',
             name='release_label',
-            field=models.CharField(choices=[('Single', 'Single'), ('EP', 'EP'), ('Album', 'Album'), ('Compilation', 'Compilation')], default='Circus Records', max_length=11, null=True),
+            field=models.CharField(choices=[('Single', 'Single'), ('EP', 'EP'), ('Album', 'Album'), ('Compilation', 'Compilation')], default='Circus Records', max_length=255, null=True),
         ),
     ]
