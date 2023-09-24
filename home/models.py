@@ -253,7 +253,8 @@ class Playlist(ClusterableModel, Orderable):
 
     description = RichTextField(
         null=False,
-        blank=False
+        blank=False,
+        max_length=255
     )
 
     artist_pages = ParentalManyToManyField(
@@ -476,6 +477,14 @@ class SignupPage(WagtailCacheMixin, Page):
         FieldPanel('signup_text')
     ]
 
+    def get_context(self, request, *args, **kwargs) -> dict:
+        context = super().get_context(request, *args, **kwargs)
+
+        context['news'] = NewsItem.objects.filter(
+            live=True).order_by('-live')[:3]
+
+        return context
+
 # ----------------------------------------------
 
 class ArtistPage(WagtailCacheMixin, Page):
@@ -631,7 +640,7 @@ class ArtistPage(WagtailCacheMixin, Page):
             artist_pages=self, live=True).order_by('-live')[:4]
 
         context['news'] = NewsItem.objects.filter(
-            artist_pages=self, live=True).order_by('-live')[:3]
+            artist_pages=self, live=True).order_by('-live')[:2]
         
         # context['playlist'] = Playlist.objects.filter(
         #     artist_pages=self, live=True).order_by('-live')

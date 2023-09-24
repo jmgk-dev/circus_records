@@ -26,11 +26,17 @@
                         {% image slide.carousel_image fill-1000x590 class="responsive_banner_small" %}
                         <div class="slide_info">
                                 <div class="slide_l">
-                                        <span class="carousel_type">{{slide.type}}</span>
-                                        <span class="carousel_text">{{slide.text}}</span>
+                                        <div class="carousel_type_box">
+                                                <span class="carousel_type">{{slide.type}}</span>
+                                        </div>
+                                        <div class="carousel_text_box">
+                                                <span class="carousel_text">{{slide.text}}</span>
+                                        </div>
                                 </div>
                                 <div class="slide_r">
-                                        <a href="{{slide.link}}"><span class="carousel_more">more...</span></a>
+                                        <div class="carousel_more_box">
+                                                <a href="{{slide.link}}"><span class="carousel_more">more...</span></a>
+                                        </div>
                                 </div>
                         </div>
                 </div>

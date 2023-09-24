@@ -5,6 +5,8 @@
 
 {% block extra_css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick_artistpage.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme_artistpage.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -21,7 +23,7 @@
                         </div>
 
                         <div class="contact_form">
-                                <a href="https://dashboard.mailerlite.com/forms/244170/90059146017113940/share">SIGNUP</a>
+                                <div class="ml-embedded" data-form="Yt7bAm"></div>
                         </div>
 
                 </div>
@@ -30,7 +32,28 @@
 
         </div>
 
+        <div class="list_content_title">
+                <span>Exclusive Mailing List Content</span>
+                <span>Check out some of the recent interviews, sneak-peeks and documentaries featured in our mailer. Sign up to be the first to see them, straight to your inbox!</span>
+        </div>
+
+        <ul class="mailing_list_content news_list">
+                {% for i in news %}
+                <li class="news-items">
+                    {% image i.image original class="news_image" %}
+                    {% comment %} <span class="news_text">{{news.description|richtext}}</span> {% endcomment %}
+                </li>
+                {% endfor %}
+        </ul>
+
 </div>
+
+{% block extra_js %}
+
+        <script src="{% static 'slick/slick.min.js' %}"></script>
+        <script src="{% static 'js/news_slick_list.js' %}"></script>
+
+{% endblock %}
 
 
 {% endblock content %}

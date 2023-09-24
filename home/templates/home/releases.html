@@ -34,6 +34,7 @@
         {% for release in page_obj.object_list %}
         <li class="release_list_item">
             <div class="format">
+                <span class="release_label">{{release.release_label}}</span>
                 <span class="release_type">{{release.release_type}}</span>
             </div>
             <a href="{{release.url}}" class="releases">
@@ -67,6 +68,8 @@
         {% endfor %}
         </ul>
 
+</div>
+
         <ul class="page_numbers">
         {% for page_number in page_obj.paginator.page_range %}
             <li>
@@ -74,8 +77,6 @@
             </li>
         {% endfor %}
         </ul>
-
-</div>
 
 </div>
 
