@@ -21,7 +21,22 @@
 
         {% block extra_css %}
         {% endblock %}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <!-- jquery -->
+
+        {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> {% endcomment %}
+
+        <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+
+        <!-- MailerLite Universal -->
+        <script>
+                (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+                .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+                n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+                (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+                ml('account', '244170');
+        </script>
+        <!-- End MailerLite Universal -->
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
@@ -39,7 +54,7 @@
                             <li class="burger-link"><a href="{% slugurl 'artists' %}">Artists</a></li>
                             <li class="burger-link"><a href="{% slugurl 'playlists' %}">Playlists</a></li>
                             <li class="burger-link"><a href="{% slugurl 'about' %}">About</a></li>
-                            <li class="burger-link"><a href="https://dashboard.mailerlite.com/forms/244170/90059146017113940/share">Sign Up</a></li>
+                            <li class="burger-link"><a href="{% slugurl 'signup' %}">Sign Up</a></li>
                     </ul>
                     <ul class="burger-elements element2">
                             <li class="burger-link">
@@ -111,7 +126,7 @@
                         <a href="{% slugurl 'artists' %}" class="artist_link"><div class="header-link hlink3">Artists</div></a>
                         <a href="{% slugurl 'playlists' %}" class="playlists_link"><div class="header-link hlink4">Playlists</div></a>
                         <a href="{% slugurl 'about' %}" class="about_link"><div class="header-link hlink5">About</div></a>
-                        <a href="https://dashboard.mailerlite.com/forms/244170/90059146017113940/share" class="signup_link"><div class="header-link hlink6">Sign Up</div></a>
+                        <a href="{% slugurl 'signup' %}" class="signup_link"><div class="header-link hlink6">Sign Up</div></a>
                 </div>
                 
                 <div class="signup_header">   

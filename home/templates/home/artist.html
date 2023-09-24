@@ -125,13 +125,16 @@
 
         {% if news %}
         <div class="artist-news-item content_box">
-            <span class="panel_title news_title">Latest News</span>
-            <ul class="news_list artist_list">
+            <span class="panel_title news_title">Mailing List Exclusives</span>
+            <ul class="news_list">
             {% for item in news %}
-                <li>
+                <li class="news_list_item">
                     <a href="{{item.url}}">{% image item.image max-500x281 class="news_pic" %}</a>
                 </li>
             {% endfor %}
+                <li class="news_list_item">
+                    <a href="{% slugurl 'signup' %}"><img src="{% static 'image/sign_up.png' %}" class="news_pic"></a>
+                </li>
             </ul>
 
         </div>
@@ -149,7 +152,7 @@
             <span class="panel_title listings_title">Live Dates</span>
             <ul class="livedate_list artist_list">
             {% for listing in listings|slice:":4" %}
-                <li>
+                <li class="live_date_item">
                     <a href={{ listing.4 }}>
                         <div class="livedate">
                             <span class="event">{{ listing.1 }}</span>
@@ -161,8 +164,12 @@
                     </a>
                 </li>
             {% endfor %}
-            <li class="merch_list_item">
-                <a href="{{page.songkick_url}}"><img src="{% static 'image/red_block3.jpg' %}" class="merch_pic see_more"></a>
+            <li class="live_date_item">
+                <a href={{ page.songkick_url }}>
+                    <div class="livedate">
+                        <span>See More<br>Live Dates</span> 
+                    </div>   
+                </a>
             </li>
             </ul>
         </div>
@@ -193,6 +200,7 @@
         <script src="{% static 'js/readmore.js' %}"></script>
         <script src="{% static 'slick/slick.min.js' %}"></script>
         <script src="{% static 'js/releases_slick.js' %}"></script>
+        <script src="{% static 'js/news_slick_list.js' %}"></script>
 
 {% endblock %}
 

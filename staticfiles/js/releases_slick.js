@@ -38,22 +38,22 @@ $('.artist_list').slick({
       {
         breakpoint: 750,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 2.5,
           slidesToScroll: 1,
           arrows: true,
           dots: true,
         }
       },
 
-      // {
-      //   breakpoint: 600,
-      //   settings: {
-      //     slidesToShow: 2,
-      //     slidesToScroll: 1,
-      //     dots: true,
-      //     arrows: true,
-      //   }
-      // },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false,
+        }
+      },
       
       // {
       //   breakpoint: 480,

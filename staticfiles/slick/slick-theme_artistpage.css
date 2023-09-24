@@ -23,7 +23,7 @@
     line-height: 0;
 
     position: absolute;
-    top: 50%;
+    top: 60%;
 
     display: block;
 
@@ -79,7 +79,7 @@
 
 .slick-prev
 {
-    /* left: 10px; */
+    left: -25px;
     z-index: 3;
 }
 [dir='rtl'] .slick-prev
@@ -98,7 +98,7 @@
 
 .slick-next
 {
-    right: 0px;
+    right: -25px;
 }
 [dir='rtl'] .slick-next
 {
@@ -133,6 +133,13 @@
     list-style: none;
 
     text-align: center;
+
+    > li {
+        display: inline-block;
+    }
+    > li:only-child {
+        display: none;
+    }
 
 }
 .slick-dots li

@@ -1,10 +1,11 @@
-$('.news_slick_list').slick({
+$('.news_list').slick({
   dots: false,
   arrows: false,
   infinite: false,
   speed: 300,
   slidesToShow: 3,
   slidesToScroll: 1,
+  // mobileFirst: true,
   responsive: [
     {
       breakpoint: 1500,
@@ -42,7 +43,7 @@ $('.news_slick_list').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
-        arrows: true,
+        arrows: false,
       }
     },
     
