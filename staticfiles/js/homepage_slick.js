@@ -5,6 +5,7 @@ $('.slick_list').slick({
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 4,
+    // mobileFirst: true,
     responsive: [
       {
         breakpoint: 1540,
