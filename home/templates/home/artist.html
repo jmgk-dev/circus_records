@@ -79,9 +79,20 @@
         <!-- PLAYLIST -->
 
         
-        {% if page.playlist %}    
-            <div class="playlist">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/{{ page.playlist|slice:"34:56" }}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+        {% if page.playlist %}
+            <div class="panel_bar playlists_bar"></div>
+            <span class="panel_title playlists_title">Playlists</span>
+            <ul class="playlists">
+                <li class="playlist_item"> 
+                    <iframe class="playlist" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/{{ page.playlist|slice:"34:56" }}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </li>
+                <li class="playlist_item"> 
+                    <iframe class="playlist" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4fb2qvWwMaN8MessXZ6yLm?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </li>
+                <li class="playlist_item see_more_playlist"> 
+                    <a href="{% slugurl 'playlists' %}"><span class="playlist">See More Playlists</span></a>
+                </li>
+            </ul>
         {% endif %}
 
 
@@ -89,6 +100,7 @@
 
         {% if releases %}
         <div class="latest_releases content_box">
+            <div class="panel_bar releases_bar"></div>
             <span class="panel_title releases_title">Latest Releases</span>
             <ul class="releases_list artist_list">
             {% for release in releases %}
@@ -107,6 +119,7 @@
 
         {% if merch %}
         <div class="merch content_box">
+            <div class="panel_bar merch_bar"></div>
             <span class="panel_title merch_title">Latest Merch</span>
             <ul class="merch_list artist_list">
             {% for item in merch %}
@@ -125,6 +138,7 @@
 
         {% if news %}
         <div class="artist-news-item content_box">
+            <div class="panel_bar news_bar"></div>
             <span class="panel_title news_title">Mailing List Exclusives</span>
             <ul class="news_list">
             {% for item in news %}
@@ -149,6 +163,7 @@
 
         {% if listings %}
         <div class="live_dates content_box">
+            <div class="panel_bar listings_bar"></div>
             <span class="panel_title listings_title">Live Dates</span>
             <ul class="livedate_list artist_list">
             {% for listing in listings|slice:":4" %}
@@ -166,7 +181,7 @@
             {% endfor %}
             <li class="live_date_item">
                 <a href={{ page.songkick_url }}>
-                    <div class="livedate">
+                    <div class="see_more_live">
                         <span>See More<br>Live Dates</span> 
                     </div>   
                 </a>
@@ -201,6 +216,7 @@
         <script src="{% static 'slick/slick.min.js' %}"></script>
         <script src="{% static 'js/releases_slick.js' %}"></script>
         <script src="{% static 'js/news_slick_list.js' %}"></script>
+        <script src="{% static 'js/playlists_slick_list.js' %}"></script>
 
 {% endblock %}
 

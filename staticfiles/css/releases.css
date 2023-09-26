@@ -4,7 +4,6 @@
     grid-template-columns: auto minmax(100px, 1540px) auto;
     grid-template-rows: 48px auto;
     overflow-x: hidden;
-    padding-bottom: 4rem;
 }
 
 li {
@@ -34,10 +33,15 @@ li {
 .releases_list {
     grid-row: 2;
     grid-column: 2;
+    list-style-type: none;
+    /* padding-top: 3.5rem; */
+    width: 90%; 
+    padding-left: 0;
+    margin:0px auto;
 }
 
 .release_list_item {
-    margin-right: 4rem;
+    margin: 10px;
     font-family: Acrom;
     display: flex;
     flex-direction: column;
@@ -46,15 +50,14 @@ li {
 }
 
 .responsive_packshot {
-    width: 236px;
-    height: auto;
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
-    margin-bottom: 5px;
+    height: auto;
+    width: 100%;
 }
 
 .item_content {
-    width: 236px;
+    /* width: 236px; */
 }
 
 .responsive_packshot:hover {
@@ -71,7 +74,7 @@ li {
 }
 
 .see_more {
-    margin-top: 26px;
+    margin-top: 38px;
 }
 
 .format {
@@ -82,7 +85,7 @@ li {
 
 .release_info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 5px;
 }
 
@@ -95,13 +98,13 @@ li {
 
 .release__artist-tags {
     display: flex;
-    flex-direction: column;
     padding: 0;
     flex-grow: 1;
     flex-basis: 50%;
     gap: 8px;
-    align-items: flex-end;
     margin-top: 3px;
+    align-items: flex-start;
+    flex-flow: row wrap;
 }
 
 .release_title {
@@ -134,15 +137,15 @@ li {
 @media screen and (max-width: 1540px) {
     
     .responsive_packshot, .release_list_item, .item_content {
-        width: 300px;
+        /* width: 300px; */
     }
 
     .releases_list {
-        display: flex;
+        /* display: flex;
         flex-flow: row wrap;
         padding: 0;
         justify-content: flex-start;
-        gap: 50px;
+        gap: 50px; */
     }
 
 }
@@ -150,19 +153,20 @@ li {
 @media screen and (max-width: 1400px) {
 
     .releases_list {
-        gap: 3vw;
+        /* gap: 3vw; */
     }
     
     .responsive_packshot, .release_list_item, .item_content {
-        width: 20vw;
+        /* width: 20vw; */
     }
 
     .release_info {
-        flex-direction: column;
+        /* flex-direction: column; */
     }
 
     .release__artist-tags {
         align-items: flex-start;
+        flex-flow: row wrap;
     }
 
 }
@@ -171,11 +175,11 @@ li {
 @media screen and (max-width: 1000px) {
 
     .releases_list {
-        gap: 4vw;
+        /* gap: 4vw; */
     }
     
     .responsive_packshot, .release_list_item, .item_content {
-        width: 27vw;
+        /* width: 27vw; */
     }
 
 }
@@ -183,12 +187,12 @@ li {
 @media screen and (max-width: 750px) {
 
     .releases_list {
-        gap: 6vw;
-        margin-left: 30px;
+        /* gap: 6vw;
+        margin-left: 30px; */
     }
     
     .responsive_packshot, .release_list_item, .item_content {
-        width: 40vw;
+        /* width: 40vw; */
     }
 
 }
@@ -196,10 +200,10 @@ li {
 @media screen and (max-width: 650px) {
 
     .releases_list {
-        gap: 4vw;
+        /* gap: 4vw; */
     }
     
     .responsive_packshot, .release_list_item, .item_content {
-        width: 210px;
+        /* width: 210px; */
     }
 }

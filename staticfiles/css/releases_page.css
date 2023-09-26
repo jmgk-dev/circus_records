@@ -29,7 +29,6 @@ li {
     padding-left: 0;
 }
 
-
 .page_numbers {
     list-style: none;
     display: flex;
@@ -49,7 +48,7 @@ li {
 /* --------------------------------------------------------- */
 
 .filter_form {
-    width: 100%;
+    width: 90%;
     font-family: Acrom;
     padding-left: 2rem;
     grid-row: 2;
@@ -82,17 +81,30 @@ li {
 
 .reset_button {
     padding: 5px;
+    color: #0814f1;
+    font-family: Acrom;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.7rem;
+    border-radius: 5%;
+    border: 1px solid #0814f1;
+    font-size: medium;
+    cursor: pointer;
+    height: 35px;
 }
 
 /* --------------------------------------------------------- */
 
 .releases_list {
-    display: flex;
-    flex-flow: row wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     padding: 0;
     width: 100%;
-    justify-content: center;
+    /* justify-content: center; */
     gap: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .release_list_item {
@@ -102,11 +114,12 @@ li {
     color: black;
     font-size: small;
     margin-bottom: 15px;
-    width: 324px;
+    width: 100%;
+    /* align-self: flex-start; */
 }
 
 .responsive_packshot {
-    width: 324px;
+    width: 100%;
     height: auto;
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
@@ -182,7 +195,7 @@ li {
 
 @media screen and (max-width: 1540px) {
     
-    .responsive_packshot, .release_list_item {
+    /* .responsive_packshot, .release_list_item {
         width: 300px;
     }
 
@@ -191,19 +204,28 @@ li {
         flex-flow: row wrap;
         padding: 0;
         gap: 50px;
+    } */
+
+    .releases_list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0;
+        width: 100%;
+        /* justify-content: center; */
+        gap: 45px;
     }
 
 }
 
 @media screen and (max-width: 1400px) {
 
-    .releases_list {
+    /* .releases_list {
         gap: 3vw;
     }
     
     .responsive_packshot, .release_list_item {
         width: 20vw;
-    }
+    } */
 
     .release_info {
         flex-direction: column;
@@ -213,16 +235,38 @@ li {
         align-items: flex-start;
     }
 
+    .filter_form {
+        grid-column: 2 / span 2;
+    }
+
+    .releases_list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 0;
+        width: 100%;
+        /* justify-content: center; */
+        gap: 35px;
+    }
+
 }
 
 @media screen and (max-width: 1050px) {
 
-    .releases_list {
+    /* .releases_list {
         gap: 4vw;
     }
     
     .responsive_packshot, .release_list_item {
         width: 27vw;
+    } */
+
+    .releases_list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+        width: 100%;
+        /* justify-content: center; */
+        gap: 30px;
     }
 
 }
@@ -230,24 +274,44 @@ li {
 
 @media screen and (max-width: 750px) {
 
-    .releases_list {
+    /* .releases_list {
         gap: 6vw;
     }
     
     .responsive_packshot, .release_list_item {
         width: 40vw;
+    } */
+
+    .releases_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        width: 100%;
+        /* justify-content: center; */
+        gap: 25px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
 }
 
 @media screen and (max-width: 650px) {
 
-    .releases_list {
+    /* .releases_list {
         gap: 4vw;
     }
     
     .responsive_packshot, .release_list_item {
         width: 45vw;
+    } */
+
+    .releases_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        width: 100%;
+        /* justify-content: center; */
+        gap: 15px;
     }
 
 }

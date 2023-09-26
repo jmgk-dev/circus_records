@@ -269,13 +269,17 @@ a:active {
     width: 2rem;
 }
 
+.hlink6 {
+    min-width: 80px;
+}
+
 
 @media screen and (max-width: 1540px) {
 
 
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
 
     .sticky-header {
         display: grid;
@@ -317,6 +321,7 @@ a:active {
         flex-direction: row;
         justify-content: flex-end;
         margin-top: 15px;
+        margin-right: 0.5rem;
     }
 
     .header-links {
@@ -325,10 +330,19 @@ a:active {
     }
 
     .hlink6 {
-        /* background-color: black;
-        color: white; */
+        background-color: black;
+        color: white;
         padding: 3px 8px;
         border-radius: 3px;
+        min-width: 80px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .circus_wordlogo {
+        display: none;
     }
 
 }
