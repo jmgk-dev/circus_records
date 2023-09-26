@@ -17,6 +17,9 @@
         {% comment %} <span class="news_text">{{news.description|richtext}}</span> {% endcomment %}
     </li>
     {% endfor %}
+    <li class="news-items">
+        <a href="{% slugurl 'signup' %}"><img src="{% static 'image/sign_up.png' %}" class="responsive_news"></a>
+    </li>
 </ul>
 
 {% endif %}

@@ -4,7 +4,6 @@
     display: grid;
     grid-template-columns: auto minmax(100px, 1540px) auto;
     grid-template-rows: 48px auto;
-    margin-bottom: 40px;
 }
 
 li {
@@ -33,27 +32,25 @@ li {
 .merch-items {
     grid-row: 2;
     grid-column: 2;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
     font-size: smaller;
-    margin-left: 30px;
-    height: 260px;
+    list-style-type: none;
+    width: 90%; 
+    padding-left: 0;
+    margin:0px auto;
 }
 
 .merch-item {
-    margin-right: 4rem;
     font-family: Acrom;
     display: flex;
     flex-direction: column;
+    margin: 10px;
 }
 
 .responsive_merch {
-    width: 250px;
-    height: auto;
     border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
-    margin-bottom: 5px;
+    height: auto;
+    width: 100%;
 }
 
 .responsive_merch:hover {
@@ -78,15 +75,15 @@ li {
 @media screen and (max-width: 1540px) {
     
     .responsive_merch, .merch-item {
-        width: 300px;
+        /* width: 300px; */
     }
 
     .merch-items {
-        display: flex;
+        /* display: flex;
         flex-flow: row wrap;
         padding: 0;
         justify-content: flex-start;
-        gap: 50px;
+        gap: 50px; */
     }
 
 }
@@ -94,11 +91,11 @@ li {
 @media screen and (max-width: 1400px) {
 
     .merch-items {
-        gap: 3vw;
+        /* gap: 3vw; */
     }
     
     .responsive_merch, .merch-item {
-        width: 20vw;
+        /* width: 20vw; */
     }
 
 }
@@ -106,12 +103,12 @@ li {
 @media screen and (max-width: 1000px) {
 
     .merch-items {
-        gap: 4vw;
-        height: 300px;
+        /* gap: 4vw;
+        height: 300px; */
     }
     
     .responsive_merch, .merch-item {
-        width: 27vw;
+        /* width: 27vw; */
     }
 
 }
@@ -120,11 +117,11 @@ li {
 @media screen and (max-width: 750px) {
 
     .merch-items {
-        gap: 6vw;
+        /* gap: 6vw; */
     }
     
     .responsive_merch, .merch-item {
-        width: 40vw;
+        /* width: 40vw; */
     }
 
 }
@@ -132,11 +129,11 @@ li {
 @media screen and (max-width: 650px) {
 
     .merch-items {
-        gap: 4vw;
+        /* gap: 4vw; */
     }
     
     .responsive_merch, .merch-item {
-        width: 65vw;
+        /* width: 65vw; */
     }
 
 }
