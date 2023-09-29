@@ -4,7 +4,7 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: auto minmax(100px, 1390px) auto;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     position: relative;
 }
 

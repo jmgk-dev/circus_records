@@ -1,0 +1,24 @@
+.front_page_about_us_container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto minmax(100px, 1390px) auto;
+    margin-bottom: 20px;
+}
+
+.front_page_about_us {
+    font-size: medium;
+    font-style: italic;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    grid-column: 2;
+    font-family: Acrom;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .front_page_about_us {
+        font-size: smaller;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
