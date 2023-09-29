@@ -89,8 +89,8 @@
                 <li class="playlist_item"> 
                     <iframe class="playlist" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4fb2qvWwMaN8MessXZ6yLm?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </li>
-                <li class="playlist_item see_more_playlist"> 
-                    <a href="{% slugurl 'playlists' %}"><span class="playlist">See More Playlists</span></a>
+                <li class="playlist_item"> 
+                    <a href="{% slugurl 'playlists' %}" class="see_more_playlist"><span class="see_more_playlist_text playlist">See More Playlists</span></a>
                 </li>
             </ul>
         {% endif %}
@@ -128,7 +128,7 @@
                 </li>
             {% endfor %}
                 <li class="merch_list_item">
-                    <a href="{% slugurl 'merch' %}"><img src="{% static 'image/red_block4.jpg' %}" class="merch_pic see_more"></a>
+                    <a href="https://circus-records.store" target="_blank"><img src="{% static 'image/red_block4.jpg' %}" class="merch_pic see_more"></a>
                 </li>
             </ul>
         </div>
@@ -168,7 +168,7 @@
             <ul class="livedate_list artist_list">
             {% for listing in listings|slice:":4" %}
                 <li class="live_date_item">
-                    <a href={{ listing.4 }}>
+                    <a href={{ listing.4 }} target="_blank">
                         <div class="livedate">
                             <span class="event">{{ listing.1 }}</span>
                             <br>
@@ -180,7 +180,7 @@
                 </li>
             {% endfor %}
             <li class="live_date_item">
-                <a href={{ page.songkick_url }}>
+                <a href={{ page.songkick_url }} target="_blank">
                     <div class="see_more_live">
                         <span>See More<br>Live Dates</span> 
                     </div>   

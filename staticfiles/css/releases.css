@@ -4,6 +4,7 @@
     grid-template-columns: auto minmax(100px, 1540px) auto;
     grid-template-rows: 48px auto;
     overflow-x: hidden;
+    margin-bottom: 20px;
 }
 
 li {
@@ -205,5 +206,9 @@ li {
     
     .responsive_packshot, .release_list_item, .item_content {
         /* width: 210px; */
+    }
+
+    .block-latest_releases {
+        margin-bottom: 20px;
     }
 }

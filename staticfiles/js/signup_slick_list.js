@@ -1,7 +1,7 @@
 $('.news_list').slick({
   dots: true,
   arrows: true,
-  infinite: true,
+  infinite: false,
   speed: 300,
   slidesToShow: 3,
   slidesToScroll: 1,
@@ -43,7 +43,7 @@ $('.news_list').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,
-        arrows: false,
+        arrows: true,
       }
     },
     
