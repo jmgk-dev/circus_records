@@ -11,7 +11,7 @@
     <ul class="merch-items slick_list">
         {% for item in latest_merch %}
             <li class="merch-item">
-                <a href="{{item.url}}" class="merch-pic">
+                <a href="{{item.url}}" target="_blank" class="merch-pic">
                     {% image item.image original class="responsive_merch" %}
                 </a>
                 <span class="merch_item_title">{{item.title}}</span>
@@ -20,7 +20,7 @@
             </li>
         {% endfor %}
             <li class="merch-item">
-                <a href="https://circus-records.store"><img src="{% static 'image/red_block4.jpg' %}" class="responsive_merch"></a>
+                <a href="https://circus-records.store" target="_blank"><img src="{% static 'image/red_block4.jpg' %}" class="responsive_merch"></a>
             </li>
     </ul>
     
