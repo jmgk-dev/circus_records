@@ -3,6 +3,7 @@
     grid-template-columns: auto minmax(100px, 1540px) auto;
     font-family: Acrom;
     overflow-x: hidden;
+    margin-bottom: 20px;
 }
 
 .artists_list {
@@ -155,7 +156,11 @@
     }
     
     .artist-image, .artist-item, .artist-logo {
-        /* width: 210px;
-    } */
+
+    }
+
+    .block-artists {
+        margin-bottom: 20px;
+    }
 
 }

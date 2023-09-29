@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="slide_r">
                                         <div class="carousel_more_box">
-                                                <a href="{{slide.link}}"><span class="carousel_more">more...</span></a>
+                                                <a href="{{slide.link}}" target="_blank"><span class="carousel_more">more...</span></a>
                                         </div>
                                 </div>
                         </div>
@@ -56,14 +56,10 @@
 <div class="bumper-container">
 
         <ul class="bumpers">
-                {% comment %} <div class="bumpers1"> {% endcomment %}
-                        <a class="flex_bumper" href="{% slugurl 'about' %}"><li class="responsive_bumper_item"><span>About</span></li></a>
-                        <a class="flex_bumper" href="{% slugurl 'playlists '%}"><li class="responsive_bumper_item"><span>Playlists</span></li></a>
-                {% comment %} </div>
-                <div class="bumpers2"> {% endcomment %}
-                        <a class="flex_bumper" href="https://circus-records.store/"><li class="responsive_bumper_item"><span>Merch</span></li></a>
-                        <a class="flex_bumper" href="{% slugurl 'artists' %}"><li class="responsive_bumper_item"><span>Artists</span></li></a>
-                {% comment %} </div> {% endcomment %}
+                        <a class="flex_bumper" href="{% slugurl 'about' %}"><li class="responsive_bumper_item about_bumper"><span class="about_text">About</span></li></a>
+                        <a class="flex_bumper" href="{% slugurl 'playlists' %}"><li class="responsive_bumper_item playlists_bumper"><span class="playlists_text">Playlists</span></li></a>
+                        <a class="flex_bumper" href="https://circus-records.store/" target="_blank"><li class="responsive_bumper_item merch_bumper"><span class="merch_text">Merch</span></li></a>
+                        <a class="flex_bumper" href="{% slugurl 'artists' %}"><li class="responsive_bumper_item artists_bumper"><span class="artists_text">Artists</span></li></a>
         </ul>
 
 </div>

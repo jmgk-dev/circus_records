@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: auto minmax(100px, 1540px) auto;
     grid-template-rows: 48px auto;
+    margin-bottom: 20px;
 }
 
 li {
@@ -134,6 +135,10 @@ li {
     
     .responsive_merch, .merch-item {
         /* width: 65vw; */
+    }
+
+    .block-latest_merch {
+        margin-bottom: 20px;
     }
 
 }

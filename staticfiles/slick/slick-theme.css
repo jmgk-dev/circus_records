@@ -79,7 +79,7 @@
 
 .slick-prev
 {
-    left: -30px;
+    left: -25px;
     z-index: 3;
 }
 [dir='rtl'] .slick-prev
@@ -135,7 +135,6 @@
 
     text-align: center;
 
-    margin-left: -2vw;
 }
 .slick-dots li
 {

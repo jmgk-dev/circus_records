@@ -123,11 +123,11 @@
 @media screen and (max-width: 600px) {
 
     .slick-track {
-        margin-left: 6vw;
+        /* margin-left: 6vw; */
     }
 
     .slick-list {
-        margin-left: -40px;
+        /* margin-left: -40px; */
     }
 }
 

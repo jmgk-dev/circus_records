@@ -3,7 +3,7 @@
 .bumper-container {
     display: grid;
     grid-template-columns: auto minmax(200px, 1540px) auto;
-    margin-bottom: 8vw;
+    margin-bottom: 20px;
 }
 
 .bumpers {
@@ -21,23 +21,11 @@
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
-    /* flex: 0 1 50%; */
     width: 200px;
 }
 
-/* .bumpers1 {
-    display: flex;
-    gap: 5vw;
-}
-
-.bumpers2 {
-    display: flex;
-    gap: 5vw;
-} */
-
 .responsive_bumper_item {
     font-size: larger;
-    /* filter: drop-shadow(3px 3px 2px grey); */
     background-color: white;
     color: black;
     font-family: Acrom;
@@ -59,15 +47,49 @@
         font-size: medium;
     }
 
-
 }
-
 
 @media screen and (max-width: 500px) {
     
     .flex_bumper {
         width: 120px;
     }
-
     
+}
+
+/* --------------------------------------------------------- ANIMATIONS */
+
+.about_bumper:hover {
+    transition: 0.3s;
+    background-color: #f7e905;
+}
+
+.playlists_bumper:hover {
+    transition: 0.3s;
+    background-color: #03c842;
+}
+
+.playlists_bumper:hover:first-child {
+    transition: 0.1s;
+    color: white;
+}
+
+.merch_bumper:hover {
+    transition: 0.3s;
+    background-color: #f40405;
+}
+
+.merch_bumper:hover:first-child {
+    transition: 0.1s;
+    color: white;
+}
+
+.artists_bumper:hover {
+    transition: 0.3s;
+    background-color: #e805f6;
+}
+
+.artists_bumper:hover:first-child {
+    transition: 0.1s;
+    color: white;
 }
