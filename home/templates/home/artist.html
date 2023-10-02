@@ -194,11 +194,12 @@
     
         </div>
 
-    <div class="social_feed">
         {% if page.rss_feed %}
+        <div class="social_feed">
             <rssapp-wall id="{{page.rss_feed}}"></rssapp-wall><script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+        </div>
         {% endif %}
-    </div>
+
     
 </div>
 
