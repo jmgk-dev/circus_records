@@ -1,6 +1,7 @@
 .block-artists {
     display: grid;
     grid-template-columns: auto minmax(100px, 1540px) auto;
+    grid-template-rows: 48px auto;
     font-family: Acrom;
     overflow-x: hidden;
     margin-bottom: 20px;
@@ -8,6 +9,7 @@
 
 .artists_list {
     grid-column: 2;
+    grid-row: 2;
     list-style-type: none;
     /* padding-top: 3.5rem; */
     width: 90%; 
