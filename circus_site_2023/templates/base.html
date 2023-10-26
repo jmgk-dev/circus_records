@@ -36,18 +36,18 @@
                 ml('account', '244170');
         </script>
         <!-- End MailerLite Universal -->
-    </head>
+        </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+        <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
         <div class="burger-bg" id="colour_burger_menu">
             <div class="menu_top_images">
-                        <img src="{% static 'image/menu_cross.png' %}" class="menu_icon" onclick="dropDown()">
-                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_white.png' %}" class="menu_logo"></a>
+                        {% comment %} <img src="{% static 'image/menu_cross.png' %}" class="menu_icon" onclick="dropDown()"> {% endcomment %}
             </div>
             <div class="burger-container">
-                    <ul class="burger-elements element1">
+                <div class="element1">
+                    <ul class="burger-elements">
                             <li class="burger-link"><a href="{% slugurl 'releases' %}">Releases</a></li>
                             <li class="burger-link"><a href="https://circus-records.store/" target="_blank">Merch</a></li>
                             <li class="burger-link"><a href="{% slugurl 'artists' %}">Artists</a></li>
@@ -55,7 +55,9 @@
                             <li class="burger-link"><a href="{% slugurl 'about' %}">About</a></li>
                             <li class="burger-link"><a href="{% slugurl 'signup' %}">Sign Up</a></li>
                     </ul>
-                    <ul class="burger-elements element2">
+                </div>
+                <div class="element2">
+                    <ul class="burger-elements">
                             <li class="burger-link">
                                 <a href="https://open.spotify.com/user/circusrecordsofficial?si=c53a5a9123a3405f" target="_blank" class="b-link-content">
                                         <img src="{% static 'image/spotify_logo_500_w.png' %}" class="sicon">
@@ -95,7 +97,7 @@
                             <li class="burger-link">
                                 <a href="https://www.youtube.com/c/circusrecords" target="_blank" class="b-link-content">
                                         <img src="{% static 'image/x_logo_500_w.png' %}" class="sicon">
-                                        <span class="link_text">Twitter</span>
+                                        <span class="link_text">X</span>
                                 </a>
                             </li>
                             <li class="burger-link">
@@ -105,31 +107,40 @@
                                 </a>
                             </li>
                     </ul>
+                </div>
             </div>
         </div>
         
-        <div class="sticky-header">
+        <div class="sticky-header" id="sticky_bg">
                 <div class="logos">
-                        <div onclick="dropDown()" class="bar_menu">
+                        <div onclick="menuAni(this); dropDown()" class="bar_menu">
                                 <div class="bar1"></div>
                                 <div class="bar2"></div>
                                 <div class="bar3"></div>
                         </div>
-                                <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_1k.png' %}" class="responsive_logo circus_logo"></a>
-                                <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_word_black.png' %}" class="responsive_logo circus_wordlogo"></a>
+                                {% comment %} <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_fulltext_withbadge.png' %}" class="responsive_logo circus_logoandword tohide"></a> {% endcomment %}
+                        
+                        <div class="tohide">
+                                <div class="circus_logo_container">        
+                                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_1k.png' %}" class="circus_logo"></a>
+                                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_textoneline.png' %}" class="circus_wordlogo"></a>
+                                </div>
+                        </div>
                 </div>
 
                 <div class="header-links">
-                        <a href="{% slugurl 'releases' %}" class="releases_link"><div class="header-link hlink1">Releases</div></a>
-                        <a href="https://circus-records.store/" target="_blank" class="merch_link"><div class="header-link hlink2">Merch</div></a>
-                        <a href="{% slugurl 'artists' %}" class="artist_link"><div class="header-link hlink3">Artists</div></a>
-                        <a href="{% slugurl 'playlists' %}" class="playlists_link"><div class="header-link hlink4">Playlists</div></a>
-                        <a href="{% slugurl 'about' %}" class="about_link"><div class="header-link hlink5">About</div></a>
-                        <a href="{% slugurl 'signup' %}" class="signup_link"><div class="header-link hlink6">Sign Up</div></a>
+                        <a href="{% slugurl 'releases' %}" class="tohide releases_link"><div class="header-link hlink1">Releases</div></a>
+                        <a href="https://circus-records.store/" target="_blank" class="tohide merch_link"><div class="header-link hlink2">Merch</div></a>
+                        <a href="{% slugurl 'artists' %}" class="artist_link"><div class="tohide header-link hlink3">Artists</div></a>
+                        <a href="{% slugurl 'playlists' %}" class="playlists_link"><div class="tohide header-link hlink4">Playlists</div></a>
+                        <a href="{% slugurl 'about' %}" class="about_link"><div class="tohide header-link hlink5">About</div></a>
+                        <a href="{% slugurl 'signup' %}" class="signup_link"><div class="tohide header-link hlink6">Sign Up</div></a>
+                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_white.png' %}" id="burger_logo" class="burger_logo"></a>
+
                 </div>
-                
+
                 <div class="signup_header">   
-                        <a href="{% slugurl 'signup' %}" class="signup_link"><div class="header-link hlink6">Sign Up</div></a>
+                        <a href="{% slugurl 'signup' %}" class="signup_link"><div class="header-link hlink6 tohide">Sign Up</div></a>
 
                 </div>
 
@@ -205,7 +216,7 @@
                                 <a href="https://www.youtube.com/c/circusrecords" target="_blank">
                                         <li class="footer-link social-link">
                                                 <img src="{% static 'image/x_logo_500.png' %}" class="footer-icon">
-                                                <span>Twitter</span>
+                                                <span>X</span>
                                         </li>
                                 </a>   
 
@@ -224,6 +235,8 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/circus_site_2023.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'js/loadimages.js' %}"></script>
         <script src="{% static 'js/dropdown.js' %}"></script>
         <script src="{% static 'js/roster.js' %}"></script>
 

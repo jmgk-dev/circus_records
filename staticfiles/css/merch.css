@@ -48,8 +48,6 @@ li {
 }
 
 .responsive_merch {
-    border-radius: 3%;
-    border: 1px solid rgb(85, 85, 85);
     height: auto;
     width: 100%;
 }
@@ -70,6 +68,11 @@ li {
     padding-left: 7rem;
     padding-top: 9rem;
     font-size: larger;
+}
+
+.merch_item_title {
+    display: flex;
+    justify-content: center;
 }
 
 

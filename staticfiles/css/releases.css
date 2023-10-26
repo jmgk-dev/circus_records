@@ -51,7 +51,6 @@ li {
 }
 
 .responsive_packshot {
-    border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
     height: auto;
     width: 100%;
@@ -211,4 +210,12 @@ li {
     .block-latest_releases {
         margin-bottom: 20px;
     }
+}
+
+@media screen and (max-width: 450px) {
+
+    .release_type {
+        display: none;
+    }
+
 }

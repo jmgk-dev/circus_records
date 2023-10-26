@@ -12,40 +12,27 @@
         <link rel="stylesheet" href="{% static 'css/bumpers.css' %}">
         <link rel="stylesheet" href="{% static 'css/news.css' %}">
         <link rel="stylesheet" href="{% static 'css/flickity.css' %}">
+        <link rel="stylesheet" href="{% static 'css/placeholder.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
         <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
 {% endblock %}
 
 {% block content %}
 
-<div class="carousel-container">
+{% comment %} <div class="content-wrapper" id="content-wrapper">
+        <div class="placeholder">
+          <div class="animated-background"></div>
+        </div>
+</div> {% endcomment %}
+
+<div class="carousel-container" id="slideshow-container">
         <div class="main-carousel carousel" data-flickity='{ "autoPlay": true }'>
                 {% for slide in page.carousel_images.all %}
                 <div class="carousel-cell">
                         {% image slide.carousel_image original class="responsive_banner_large" %}
                         {% image slide.carousel_image fill-1000x590 class="responsive_banner_small" %}
-                        <div class="slide_info">
-                                <div class="slide_l">
-                                        <div class="carousel_type_box">
-                                                <span class="carousel_type">{{slide.type}}</span>
-                                        </div>
-                                        <div class="carousel_text_box">
-                                                <span class="carousel_text">{{slide.text}}</span>
-                                        </div>
-                                </div>
-                                <div class="slide_r">
-                                        <div class="carousel_more_box">
-                                                <a href="{{slide.link}}" target="_blank"><span class="carousel_more">more...</span></a>
-                                        </div>
-                                </div>
-                        </div>
                 </div>
                 {% endfor %}
-        </div>
-        <div class="info_box_container">
-                <div class="info_box">
-
-                </div>
         </div>
 </div>
 

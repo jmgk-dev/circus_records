@@ -99,16 +99,13 @@ a:active {
 
 .menu_top_images {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 5vh;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    justify-content: flex-end;
+    padding-top: 2%;
+    padding-right: 2%;
 }
 
 .menu_logo {
-    width: 4rem;
+    width: 75px;
 }
 
 .menu_icon {
@@ -119,10 +116,10 @@ a:active {
 .burger-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 60vh;
+    grid-template-rows: auto;
     position: sticky; /* Stay in place */
     column-gap: 3rem;
-    padding-top: max(10vh, 40px);
+    padding-top: 5%;
     font-size: larger;
 }
 
@@ -131,12 +128,24 @@ a:active {
     font-family: Acrom;
     display: flex;
     flex-direction: column;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.element1 {
+    display: flex;
+    justify-content: center;
+    margin-left: 40%;
+}
+
+.element2 {
+    display: flex;
+    justify-content: center;
+    margin-right: 40%;
 }
 
 .burger-link {
-    padding-bottom: 3vh;
+    padding-bottom: 20%;
     color: white;
 }
 
@@ -151,18 +160,63 @@ a:active {
     gap: 10px;
 }
 
+.burger_logo {
+    width: 50px;
+    display: none;
+}
+
 .sicon {
     width: 25px;
 }
 
 .show {display:block;} 
 
+.hide_bg {
+    background-color: transparent !important;
+} 
 
 @media screen and (max-width: 600px) {
 
     .burger-container {
         column-gap: 0rem;
         font-size: medium;
+        margin-top: 10%;
+    }
+
+    .element1 {
+        display: flex;
+        justify-content: center;
+        margin-left: 20%;
+    }
+    
+    .element2 {
+        display: flex;
+        justify-content: center;
+        margin-right: 20%;
+    }
+
+    .menu_logo {
+        width: 60px;
+    }
+
+    .menu_top_images {
+        padding-top: 3%;
+        padding-right: 3%;
+    }
+
+    .sicon {
+        width: 20px;
+        height: 20px;
+    }
+    
+
+}
+
+
+@media screen and (max-width: 400px) {
+
+    .burger-container {
+        font-size: small;
     }
 
 }
@@ -172,11 +226,11 @@ a:active {
 .sticky-header {
     display: grid;
     grid-template-columns: auto repeat(2, minmax(100px, 700px)) auto;
-    grid-template-rows: 70px;
+    grid-template-rows: 80px;
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 1000;
     background-color: rgba(255,255,255,0.9);
 }
 
@@ -240,17 +294,30 @@ a:active {
     background-color: black;
 }
 
-.responsive_logo {
-    width: 2rem;
+.circus_logo_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .circus_logo {
-    width: 60px;
+    display: none;
+    width: 30px;
 }
 
 .circus_wordlogo {
-    width: 150px;
+    width: 90%;
 }
+
+.search_icon {
+    width: 2rem;
+}
+
+.hlink6 {
+    min-width: 80px;
+}
+
+/* --------------------------------------------------------- MENU ANIMATION */
 
 .bar_menu {
     cursor: pointer;
@@ -265,34 +332,46 @@ a:active {
     transition: 0.4s;
 }
 
-.search_icon {
-    width: 2rem;
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-3px, 7px) ;
+    transform: rotate(-45deg) translate(-3px, 7px) ;
+    background-color: white;
+  }
+  
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+  
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-3px, -7px) ;
+  transform: rotate(45deg) translate(-3px, -7px) ;
+  background-color: white;
 }
 
-.hlink6 {
-    min-width: 80px;
-}
+
+/* --------------------------------------------------------- */
 
 
-@media screen and (max-width: 1540px) {
 
+@media screen and (max-width: 1250px) {
 
-}
-
-@media screen and (max-width: 950px) {
-
-    .sticky-header {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(100px, 700px));
-        grid-template-rows: 70px;
-        position: sticky;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        background-color: rgba(255,255,255,0.9);
+    .circus_wordlogo {
+        width: 80%
     }
-    
+
+    .circus_logo {
+        width: 20px;
+    }
+
+}
+
+@media screen and (max-width: 1100px) {
+
     .sticky-header {
+        grid-template-columns: repeat(2, minmax(100px, 700px));
         grid-template-rows: 60px;
     }
 
@@ -303,11 +382,12 @@ a:active {
     }
 
     .circus_wordlogo {
-        width: 100px;
+        width: 300px;
+        margin-left: -5px;
     }
 
     .circus_logo {
-        width: 50px;
+        width: 20px;
     }
     
     .links {
@@ -339,10 +419,29 @@ a:active {
 
 }
 
+@media screen and (max-width: 550px) {
+
+    .circus_wordlogo {
+        width: 220px
+    }
+
+    .circus_logo {
+        width: 15px;
+    }
+
+
+}
+
 @media screen and (max-width: 400px) {
 
     .circus_wordlogo {
         display: none;
+    }
+
+    .circus_logo {
+        display: block;
+        width: 40px;
+        margin-bottom: 5px;
     }
 
 }

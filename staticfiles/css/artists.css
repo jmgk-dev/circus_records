@@ -72,8 +72,6 @@
 .artist-image {
     z-index: 0;
     position: relative;
-    border-radius: 3%;
-    border: 1px solid rgb(85, 85, 85);
     height: auto;
     width: 100%;
 }
@@ -86,7 +84,6 @@
 .see_more_artist_image {
     width: 236px;
     height: auto;
-    border-radius: 3%;
     z-index: 0;
     position: relative;
 }
