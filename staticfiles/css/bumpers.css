@@ -64,6 +64,11 @@
     background-color: #f7e905;
 }
 
+.about_bumper:hover:first-child {
+    transition: 0.1s;
+    color: white;
+}
+
 .playlists_bumper:hover {
     transition: 0.3s;
     background-color: #03c842;
