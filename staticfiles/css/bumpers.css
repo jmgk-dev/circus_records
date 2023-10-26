@@ -6,6 +6,10 @@
     margin-bottom: 20px;
 }
 
+.about_text {
+    color: black !important;
+}
+
 .bumpers {
     grid-column: 2;
     display: flex;
