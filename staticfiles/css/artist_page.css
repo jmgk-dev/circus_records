@@ -165,7 +165,6 @@
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
-    border-radius: 1%;
 }
 
 /* --------------------------------------------------------- */
@@ -247,12 +246,17 @@
 }
 
 .latest_release_pic, .merch_pic ,.livedate {
-    border-radius: 3%;
-    border: 1px solid rgb(85, 85, 85);
     height: auto;
     width: 100%;
 }
 
+.livedate, .latest_release_pic {
+    border: 1px solid rgb(85, 85, 85);
+}
+
+.livedate {
+    border-radius: 3%;
+}
 
 
 /* --------------------------------------------------------- */
@@ -289,7 +293,7 @@
 .news_pic {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    /* border-radius: 8px; */
 }
 
 .news_title {
@@ -377,7 +381,7 @@
         height: auto;
         width: 100%;
         object-fit: cover;
-        border-radius: 1%;
+        /* border-radius: 1%; */
     }
 
 }

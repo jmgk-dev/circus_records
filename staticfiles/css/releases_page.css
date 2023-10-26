@@ -121,7 +121,6 @@ li {
 .responsive_packshot {
     width: 100%;
     height: auto;
-    border-radius: 3%;
     border: 1px solid rgb(85, 85, 85);
 }
 
@@ -312,6 +311,14 @@ li {
         width: 100%;
         /* justify-content: center; */
         gap: 15px;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+
+    .release_type {
+        display: none;
     }
 
 }
