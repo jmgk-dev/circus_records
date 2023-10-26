@@ -286,6 +286,10 @@ a:active {
     background-color: #03c842;
 }
 
+.hlink5 {
+    color: black !important;
+}
+
 .hlink5:hover {
     background-color: #f7e905;
 }
