@@ -135,7 +135,7 @@ a:active {
 .element1 {
     display: flex;
     justify-content: center;
-    margin-left: 40%;
+    margin-left: 20%;
 }
 
 .element2 {
@@ -186,7 +186,7 @@ a:active {
     .element1 {
         display: flex;
         justify-content: center;
-        margin-left: 20%;
+        margin-left: 10%;
     }
     
     .element2 {
