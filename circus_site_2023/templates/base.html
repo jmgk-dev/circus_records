@@ -17,7 +17,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/base_page.css' %}">
-        <link rel="stylesheet" href="{% static 'css/loader.css' %}">
 
         {% block extra_css %}
         {% endblock %}
@@ -147,10 +146,6 @@
 
         </div>
 
-        <div id="loading-screen">
-                <img src="{% static 'image/circus_logo-min.png' %}">
-        </div>
-
         {% block content %}{% endblock %}
 
         <div class="footer-container">
@@ -240,7 +235,6 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/circus_site_2023.js' %}"></script>
-        <script src="{% static 'js/loadimages.js' %}"></script>
         <script src="{% static 'js/dropdown.js' %}"></script>
         <script src="{% static 'js/roster.js' %}"></script>
 
