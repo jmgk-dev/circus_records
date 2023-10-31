@@ -1,3 +1,7 @@
+p {
+    display: flex;
+}
+
 .hlink5 {
     text-decoration: underline;
     color: #f7e905;
@@ -109,13 +113,13 @@
 
 @media screen and (max-width: 1200px) {
 
+    .mission_pic, .history_pic, .gaming_pic {
+        max-width: 100%;
+    }
+
     .mission {
         flex-flow: column;
         align-items: center;
-    }
-
-    .mission_pic, .history_pic, .gaming_pic {
-        max-width: 100%;
     }
 
     .history {
@@ -126,6 +130,18 @@
     .gaming {
         flex-flow: column;
         align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .about_container {
+        font-size: small;
+    }
+
+    .about_mission {
+        flex-basis: 100%;
     }
 
 }
