@@ -7,7 +7,7 @@
 
 .front_page_about_us {
     font-size: medium;
-    font-style: italic;
+    /* font-style: italic; */
     padding-left: 1rem;
     padding-right: 1rem;
     grid-column: 2;
