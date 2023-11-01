@@ -52,6 +52,7 @@
     flex-direction: column;
     color: black;
     font-size: smaller;
+    font-weight: bold;
 }
 
 .artist-item:not(:last-child) {
