@@ -108,7 +108,7 @@ li {
 }
 
 .release_title {
-    font-style: oblique;
+    /* font-style: oblique; */
 }
 
 .release_type {
@@ -124,6 +124,10 @@ li {
     border-radius: 3px;
     padding: 2px;
     margin-bottom: 5px;
+}
+
+.release_artist_name {
+    font-weight: bold;
 }
 
 .release_artist_name_link {
