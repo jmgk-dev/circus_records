@@ -3,8 +3,8 @@
 .carousel-container {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: auto minmax(100px, 1390px) auto;
-    margin-bottom: 50px;
+    grid-template-columns: auto minmax(100px, 1540px) auto;
+    margin-bottom: 55px;
     position: relative;
 }
 

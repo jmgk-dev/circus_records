@@ -1,3 +1,33 @@
+.home_page_bar_container {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto minmax(100px, 1540px) auto;
+}
+
+.home_page_bar {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin: 3px 0;
+    grid-column: 2;
+    margin-bottom: 25px;
+}
+
+.home_page_bar_container2 {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto minmax(100px, 1540px) auto;
+}
+
+.home_page_bar2 {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin: 3px 0;
+    grid-column: 2;
+    margin-bottom: 30px;
+}
+
 .front_page_about_us_container {
     display: grid;
     grid-template-rows: auto;
