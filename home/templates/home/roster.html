@@ -17,7 +17,7 @@
                 {% for artist in artists %}
                     <li>
                         <a href="{{artist.url}}">
-                            {% comment %} {% image artist.thumbnail original class="responsive_packshot" %} {% endcomment %}
+                            {% image artist.thumbnail original class="artist_pic" %}
                            <span class="artist">{{artist.title}}</span>
                         </a>
                     </li>
@@ -26,5 +26,9 @@
 
 
 </div>
+
+{% block extra_js %}
+        <script src="{% static 'js/roster.js' %}"></script>
+{% endblock %}
 
 {% endblock content %}

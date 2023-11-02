@@ -38,7 +38,7 @@ $('.artist_list').slick({
       {
         breakpoint: 750,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 3,
           slidesToScroll: 1,
           arrows: true,
           dots: true,
@@ -48,7 +48,7 @@ $('.artist_list').slick({
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2.5,
+          slidesToShow: 2,
           slidesToScroll: 1,
           dots: true,
           arrows: false,

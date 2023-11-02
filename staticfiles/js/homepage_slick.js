@@ -40,7 +40,7 @@ $('.slick_list').slick({
       {
         breakpoint: 750,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
           dots: true,
           arrows: true,
@@ -50,7 +50,7 @@ $('.slick_list').slick({
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 1.7,
+          slidesToShow: 2,
           slidesToScroll: 1,
           dots: true,
           arrows: false,
