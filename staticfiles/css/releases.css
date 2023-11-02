@@ -214,12 +214,17 @@ li {
     .block-latest_releases {
         margin-bottom: 20px;
     }
-}
 
-@media screen and (max-width: 450px) {
+    .release__artist-tags {
+        display: none;
+    }
 
     .release_type {
         display: none;
     }
+}
+
+@media screen and (max-width: 450px) {
+
 
 }
