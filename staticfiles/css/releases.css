@@ -199,6 +199,14 @@ li {
         /* width: 40vw; */
     }
 
+    .release__artist-tags {
+        display: none;
+    }
+
+    .release_type {
+        display: none;
+    }
+
 }
 
 @media screen and (max-width: 650px) {
@@ -215,13 +223,6 @@ li {
         margin-bottom: 20px;
     }
 
-    .release__artist-tags {
-        display: none;
-    }
-
-    .release_type {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 450px) {
