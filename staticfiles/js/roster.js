@@ -1,3 +1,3 @@
 function artistPic() {
-    document.getElementById("fluxpic").classList.toggle("show");
+    document.getElementById("artist_pic").classList.toggle("show");
   }

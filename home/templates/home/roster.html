@@ -17,8 +17,8 @@
                 {% for artist in artists %}
                     <li>
                         <a href="{{artist.url}}">
-                            {% image artist.thumbnail original class="artist_pic" %}
-                           <span class="artist">{{artist.title}}</span>
+                            {% image artist.thumbnail original class="artist_pic" id="artist_pic" %}
+                           <span onmouseover="" class="artist">{{artist.title}}</span>
                         </a>
                     </li>
                 {% endfor %}
