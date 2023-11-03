@@ -30,7 +30,7 @@ $('.playlists').slick({
       {
         breakpoint: 900,
         settings: {
-          slidesToShow: 1.5,
+          slidesToShow: 1,
           slidesToScroll: 1,
           dots: true,
           arrows: true,
