@@ -10,7 +10,7 @@ $('.news_list').slick({
     {
       breakpoint: 1500,
       settings: {
-        slidesToShow: 2.5,
+        slidesToShow: 3,
         slidesToScroll: 1,
         dots: true,
         arrows: true,
@@ -28,9 +28,9 @@ $('.news_list').slick({
     // },
 
     {
-      breakpoint: 900,
+      breakpoint: 1100,
       settings: {
-        slidesToShow: 1.5,
+        slidesToShow: 2,
         slidesToScroll: 1,
         dots: true,
         arrows: true,
