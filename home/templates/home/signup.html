@@ -41,8 +41,9 @@
 
         <ul class="mailing_list_content news_list">
                 {% for i in news %}
+                
                 <li class="news-items">
-                    {% image i.image original class="news_image" %}
+                    <a href="{{i.url}}" >{% image i.image original class="news_image" %}</a>
                     {% comment %} <span class="news_text">{{news.description|richtext}}</span> {% endcomment %}
                 </li>
                 {% endfor %}
