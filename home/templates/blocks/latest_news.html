@@ -13,7 +13,7 @@
 <ul class="news_list news_slick_list">
     {% for news in latest_news %}
     <li class="news-items">
-        <a href="{{value.url}}" target="_blank" >
+        <a href="{{news.url}}" target="_blank" >
             {% image news.image original class="responsive_news" %}
         </a>
     </li>
