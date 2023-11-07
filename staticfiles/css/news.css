@@ -48,6 +48,12 @@ li {
     width: 100%;
 }
 
+.responsive_news:hover {
+    cursor: pointer;
+    opacity: 0.6;
+    transition-duration: 0.3s;
+}
+
 .news-items {
     font-family: Acrom;
     display: flex;

@@ -46,6 +46,12 @@
     /* border-radius: 15px; */
 }
 
+.responsive_banner_large:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    transition-duration: 0.3s;
+}
+
 .responsive_banner_small {
     width: 100%;
     height: auto;
