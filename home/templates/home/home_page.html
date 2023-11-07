@@ -36,8 +36,10 @@
         <div class="main-carousel carousel" data-flickity='{ "autoPlay": true }'>
                 {% for slide in page.carousel_images.all %}
                 <div class="carousel-cell">
+                        <a href="{{slide.link}}" >
                         {% image slide.carousel_image original class="responsive_banner_large" %}
                         {% image slide.carousel_image fill-1000x590 class="responsive_banner_small" %}
+                        </a>
                 </div>
                 {% endfor %}
         </div>

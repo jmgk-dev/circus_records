@@ -2,44 +2,79 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>
-            {% block title %}
-            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-            {% wagtail_site as current_site %}
-            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
-            {% endblock %}
-        </title>
-        <meta name="description" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <head>
+                <meta charset="utf-8" />
+                <title>
+                    {% block title %}
+                    {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+                    {% endblock %}
+                    {% block title_suffix %}
+                    {% wagtail_site as current_site %}
+                    {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+                    {% endblock %}
+                </title>
+                <meta name="description" content="Founded in 2009 by Doctor P and Flux Pavilion, Circus Records is a globally-recognised record label specialising in bass music.">
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}"> {% endcomment %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/base_page.css' %}">
 
-        {% block extra_css %}
-        {% endblock %}
+                <!-- Google Tag Manager -->
+                <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({‘gtm.start’:
+                new Date().getTime(),event:‘gtm.js’});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!=‘dataLayer’?‘&l=‘+l:‘’;j.async=true;j.src=
+                ’https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,‘script’,‘dataLayer’,‘GTM-5Z9PR9W’);</script>
+                <!-- End Google Tag Manager -->
+        
+                <!-- Google / Search Engine Tags -->
+                <meta itemprop="name" content="Circus Records | Ruining Silence Since 2009">
+                <meta itemprop="description" content="Founded in 2009 by Doctor P and Flux Pavilion, Circus Records is a globally-recognised record label specialising in bass music.">
+                <meta itemprop="image" content="/static/image/image/circus_logo_1k.png">
+        
+                <!-- Facebook Meta Tags -->
+                <meta property="og:url" content="http://circus-records.co.uk">
+                <meta property="og:type" content="website">
+                <meta property="og:title" content="Circus Records | Ruining Silence Since 2009">
+                <meta property="og:description" content="Founded in 2009 by Doctor P and Flux Pavilion, Circus Records is a globally-recognised record label specialising in bass music.">
+                <meta property="og:image" content="/static/image/circus_logo_1k.png">
+        
+                <!-- Twitter Meta Tags -->
+                <meta name="twitter:card" content="summary_large_image">
+                <meta name="twitter:title" content="Circus Records | Ruining Silence Since 2009">
+                <meta name="twitter:description" content="Founded in 2009 by Doctor P and Flux Pavilion, Circus Records is a globally-recognised record label specialising in bass music.">
+                <meta name="twitter:image" content="/static/image/circus_logo_1k.png">
+        
+                <link rel="icon" type="image/x-icon" href="{%  static 'favicon.ico' %}">
 
-        <!-- jquery -->
+                {# Global stylesheets #}
+                <link rel="stylesheet" type="text/css" href="{% static 'css/base_page.css' %}">
+        
+                {% block extra_css %}
+                {% endblock %}
+        
+                <!-- jquery -->
 
-        {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> {% endcomment %}
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+                {% comment %} <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script> {% endcomment %}
+        
+                <!-- MailerLite Universal -->
+                <script>
+                        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+                        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+                        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+                        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+                        ml('account', '244170');
+                </script>
+                <!-- End MailerLite Universal -->
 
-        <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
-
-        <!-- MailerLite Universal -->
-        <script>
-                (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-                .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-                n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-                (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-                ml('account', '244170');
-        </script>
-        <!-- End MailerLite Universal -->
         </head>
 
         <body class="{% block body_class %}{% endblock %}">
+
+                <!-- Google Tag Manager (noscript) -->
+                <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z9PR9W"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                <!-- End Google Tag Manager (noscript) -->
+
         {% wagtailuserbar %}
 
         <div class="burger-bg" id="colour_burger_menu">
