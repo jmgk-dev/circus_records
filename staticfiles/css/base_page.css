@@ -51,6 +51,7 @@ a:active {
 
 .header-link {
     text-underline-offset: 12px;
+    text-transform: capitalize;
 }
 
 .button {
@@ -144,14 +145,20 @@ a:active {
     margin-right: 40%;
 }
 
+.b_list_1 {
+    gap: 3vh;
+}
+
 .burger-link {
     padding-bottom: 20%;
     color: white;
+    text-transform: capitalize;
 }
 
 .link_text {
     color: white;
     text-decoration: underline;
+    text-transform: capitalize;
 }
 
 .b-link-content {
@@ -213,7 +220,7 @@ a:active {
 }
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 300px) {
 
     .burger-container {
         font-size: small;
@@ -507,6 +514,7 @@ a:active {
     align-content: center;
     gap: 10px;
     color: black;
+    text-transform: capitalize;
   }
 
 .social-link {
@@ -524,6 +532,7 @@ ul.footer-list {
 
 .footer-icon {
     width: 20px;
+    text-transform: capitalize;
 }
 
 @media screen and (max-width: 1540px) {
