@@ -691,3 +691,8 @@ class PlaylistPage(WagtailCacheMixin, Page):
 
 class ContactPage(WagtailCacheMixin, Page):
     template = "home/contact.html"
+
+# ----------------------------------------------
+
+class CookiePolicy(WagtailCacheMixin, Page):
+    template = "home/cookie_policy.html"
