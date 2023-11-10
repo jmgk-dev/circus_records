@@ -80,6 +80,7 @@ a:active {
     display: none;
     overflow-x: hidden; /* Disable horizontal scroll */
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    /* background: linear-gradient(-45deg, #f40405, #e805f6, #0814f1, #03c842); */
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
