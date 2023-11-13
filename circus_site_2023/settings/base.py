@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from datetime import date, timedelta
 
 from dotenv import load_dotenv
 
@@ -28,6 +29,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
+    "storages",
     "django_extensions",
     "home",
     "search",
@@ -158,8 +160,18 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+AWS_S3_ACCESS_KEY_ID='DO00NHH8BKTPTBBXYP4F'
+AWS_SECRET_ACCESS_KEY='qj0tXCTbGSWe7sBpQzEhhJ5GHoKR+kHD6HAXnIUZ6cE'
 
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
 
 # Wagtail settings
 

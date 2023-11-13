@@ -35,9 +35,3 @@ SECRET_KEY = "django-insecure-7zi+l^q)wq!x@#kcl9+@h*pzueeb&zkxs7snb*x1fxd#y+5p94
 ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-
-try:
-    from .local import *
-except ImportError:
-    pass
