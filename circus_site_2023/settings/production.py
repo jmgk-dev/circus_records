@@ -44,6 +44,7 @@ STORAGES = {
         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
+TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 
 AWS_HEADERS = {
     'Expires': TIME_IN_A_YEAR.strftime('%a, %d %b %Y %H:%M:%S'),
@@ -62,7 +63,9 @@ AWS_STORAGE_BUCKET_NAME = 'circus-site-23'
 AWS_S3_ENDPOINT_URL = f"https://{AWS_S3_REGION_NAME}.digitaloceanspaces.com"
 AWS_S3_FILE_OVERWRITE = False
 AWS_IS_GZIPPED = True
-#AWS_S3_SECURE_URLS = True
+AWS_S3_SECURE_URLS = True
 AWS_PRELOAD_METADATA = False
 AWS_DEFAULT_ACL = 'public-read'
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_REGION_NAME}.digitaloceanspaces.com'
+AWS_S3_URL_PROTOCOL = 'https:'
+MEDIA_ROOT = 'media/'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_REGION_NAME}.cdn.digitaloceanspaces.com'
