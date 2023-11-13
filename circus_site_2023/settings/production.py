@@ -5,7 +5,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["146.190.150.21"]
+ALLOWED_HOSTS = ["146.190.150.21", "0.0.0.0"]
 
 WAGTAILADMIN_BASE_URL = "http://146.190.150.21"
 
@@ -39,6 +39,9 @@ TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
 

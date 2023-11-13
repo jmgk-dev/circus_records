@@ -166,12 +166,52 @@ AWS_SECRET_ACCESS_KEY='REMOVED_AWS_SECRET_KEY'
 
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "storages.backends.s3.S3Storage",
     },
     "staticfiles": {
         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
+
+TIME_IN_A_YEAR = date.today() + timedelta(days=365)
+
+####################################################################################################
+# AWS
+####################################################################################################
+
+AWS_HEADERS = {
+    'Expires': TIME_IN_A_YEAR.strftime('%a, %d %b %Y %H:%M:%S'),
+    'Cache-Control': 'max-age=2628000',
+}
+
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': TIME_IN_A_YEAR.strftime('%a, %d %b %Y %H:%M:%S'),
+    'CacheControl': 'max-age=2628000',
+}
+
+AWS_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_S3_REGION_NAME = "sfo3"
+AWS_STORAGE_BUCKET_NAME = 'circus-site-23'
+AWS_STORAGE_BUCKET_NAME = "circus-site-23"
+AWS_S3_ENDPOINT_URL = f"https://{AWS_S3_REGION_NAME}.digitaloceanspaces.com"
+AWS_S3_FILE_OVERWRITE = False
+AWS_IS_GZIPPED = True
+#AWS_S3_SECURE_URLS = True
+AWS_PRELOAD_METADATA = False
+AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.ams3.{AWS_S3_REGION_NAME}.digitaloceanspaces.com'
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
+
+# MEDIA_URL = '{}{}/'.format(AWS_S3_CUSTOM_DOMAIN, MEDIA_ROOT)
 
 # Wagtail settings
 
