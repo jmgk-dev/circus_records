@@ -696,3 +696,13 @@ class ContactPage(WagtailCacheMixin, Page):
 
 class CookiePolicy(WagtailCacheMixin, Page):
     template = "home/cookie_policy.html"
+
+# ----------------------------------------------
+
+class TermsConditions(WagtailCacheMixin, Page):
+    template = "home/terms_conditions.html"
+
+# ----------------------------------------------
+
+class PrivacyPolicy(WagtailCacheMixin, Page):
+    template = "home/privacy_policy.html"
