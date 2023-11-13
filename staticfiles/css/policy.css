@@ -1,0 +1,11 @@
+.policy_container {
+    display: grid;
+    grid-template-columns: auto max(1540px) auto;
+}
+
+.policy {
+    grid-column: 2;
+    margin: 50px 0px 50px 0px;
+}
+
+
