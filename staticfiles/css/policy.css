@@ -1,6 +1,6 @@
 .policy_container {
     display: grid;
-    grid-template-columns: auto max(1540px) auto;
+    grid-template-columns: auto minmax(100px, 1540px) auto;
 }
 
 .policy {
