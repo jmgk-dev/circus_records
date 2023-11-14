@@ -5,9 +5,9 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["146.190.150.21", "0.0.0.0"]
+ALLOWED_HOSTS = ["146.190.150.21", "0.0.0.0", 'circus-records.co.uk', 'www.circus-records.co.uk']
 
-WAGTAILADMIN_BASE_URL = "http://146.190.150.21"
+WAGTAILADMIN_BASE_URL = "https://circus-records.co.uk"
 
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
