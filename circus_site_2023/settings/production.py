@@ -40,6 +40,10 @@ TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 ####################################################################################################
 # AWS
 ####################################################################################################
+
+AWS_S3_ACCESS_KEY_ID = os.environ.get('AWS_S3_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
 STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
