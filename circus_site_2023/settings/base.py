@@ -161,27 +161,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-AWS_S3_ACCESS_KEY_ID='REMOVED_AWS_ACCESS_KEY_ID'
-AWS_SECRET_ACCESS_KEY='REMOVED_AWS_SECRET_KEY'
-
-STORAGES = {
-    "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
-    },
-    "staticfiles": {
-        "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    },
-}
-
 TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 
 ####################################################################################################
 # AWS
 ####################################################################################################
 
+AWS_S3_ACCESS_KEY_ID = os.environ.get('AWS_S3_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
 STORAGES = {
     "default": {
-        "BACKEND": "storages.backends.s3.S3Storage",
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
@@ -218,7 +209,7 @@ DEFAULT_FROM_EMAIL = 'jamie@circus-records.co.uk'
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-        'LOCATION': os.path.join(BASE_DIR, 'cache'),        
+        'LOCATION': os.path.join(BASE_DIR, 'cache'),
     },
     "wagtailcache": {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',

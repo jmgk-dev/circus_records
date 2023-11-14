@@ -1,6 +1,10 @@
 import os
 from datetime import date, timedelta
 
+from boto3.s3.connection import S3Connection
+from django.core.exceptions import SuspiciousOperation
+from storages.backends.s3boto3 import S3Boto3Storage
+
 from .base import *
 
 DEBUG = False
@@ -39,6 +43,9 @@ TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 STORAGES = {
     "default": {
         "BACKEND": "storages.backends.s3.S3Storage",
+        "OPTIONS": {
+            "location": "media",
+        },
     },
     "staticfiles": {
         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
@@ -55,6 +62,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'Expires': TIME_IN_A_YEAR.strftime('%a, %d %b %Y %H:%M:%S'),
     'CacheControl': 'max-age=2628000',
 }
+MEDIA_ROOT = 'media/'
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
@@ -67,5 +75,6 @@ AWS_S3_SECURE_URLS = True
 AWS_PRELOAD_METADATA = False
 AWS_DEFAULT_ACL = 'public-read'
 AWS_S3_URL_PROTOCOL = 'https:'
-MEDIA_ROOT = 'media/'
+#MEDIA_ROOT = 'media/'
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_REGION_NAME}.cdn.digitaloceanspaces.com'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
