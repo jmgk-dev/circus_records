@@ -1,10 +1,6 @@
 import os
 from datetime import date, timedelta
 
-from boto3.s3.connection import S3Connection
-from django.core.exceptions import SuspiciousOperation
-from storages.backends.s3boto3 import S3Boto3Storage
-
 from .base import *
 
 DEBUG = False
@@ -55,6 +51,7 @@ STORAGES = {
         "BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage',
     },
 }
+
 TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 
 AWS_HEADERS = {
