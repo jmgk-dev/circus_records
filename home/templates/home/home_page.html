@@ -33,7 +33,7 @@
 </div>
 
 <div class="carousel-container" id="slideshow-container">
-        <div class="main-carousel carousel" data-flickity='{ "autoPlay": true }'>
+        <div class="main-carousel carousel" data-flickity='{ "wrapAround": true }'>
                 {% for slide in page.carousel_images.all %}
                 <div class="carousel-cell">
                         <a href="{{slide.link}}" target="_blank">
