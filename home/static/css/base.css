@@ -33,7 +33,6 @@ a:link {
 
 .header-links a:visited {
     text-decoration: none;
-    color: black;
 }
 
 .burger-link a:visited {
@@ -47,6 +46,7 @@ a:active {
 
 .header-link {
     text-underline-offset: 12px;
+    color: black;
 }
 
 .button {
@@ -133,6 +133,9 @@ a:active {
 
 .burger-link {
     padding-bottom: 3vh;
+}
+
+.bg_link {
     color: white;
 }
 
