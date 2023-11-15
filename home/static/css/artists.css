@@ -111,4 +111,8 @@
         padding-left: 3rem;
     }
 
+    .artist-logo {
+        display: none;
+    }
+
 }
