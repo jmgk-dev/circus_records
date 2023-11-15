@@ -150,9 +150,12 @@ a:active {
     gap: 3vh;
 }
 
+.bg_link {
+    color: white;
+}
+
 .burger-link {
     padding-bottom: 20%;
-    color: white;
     text-transform: capitalize;
 }
 
@@ -259,7 +262,6 @@ a:active {
     justify-content: flex-end;
     gap: 1rem;
     align-items: center;
-    color: black;
     padding-right: 3rem;
 }
 
@@ -270,6 +272,7 @@ a:active {
 .header-link {
     padding: 8px;
     border-radius: 4px;
+    color: black;
 }
 
 .header-link:hover {
