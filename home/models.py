@@ -411,6 +411,7 @@ class ReleasesPage(WagtailCacheMixin, Page):
             Release
             .objects
             .filter(live=True)
+            .order_by('-release_date')
             .prefetch_related('artist_pages')
         )
 
