@@ -385,19 +385,6 @@ class MerchPage(WagtailCacheMixin, Page):
 class ReleasesPage(WagtailCacheMixin, Page):
     template = "home/releases.html"
 
-    # releases_catalogue = StreamField(
-    # [
-    #     ('releases_catalogue', ReleasesCatalogueBlock())
-    # ],
-    # null=True,
-    # blank=True,
-    # use_json_field = True
-    # )
-
-    # content_panels = Page.content_panels + [
-    #     FieldPanel('releases_catalogue')
-    # ]
-
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
@@ -420,6 +407,10 @@ class ReleasesPage(WagtailCacheMixin, Page):
             context['filtered_artist'] = filtered_artist
 
         page_obj = Paginator(release_objs, 16)
+
+        query_string = request.GET.copy()
+        query_string.pop('page', None)
+        context['pagination_params'] = query_string.urlencode()
 
         context['page_obj'] = page_obj.get_page(current_page)
 
