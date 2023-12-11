@@ -2,6 +2,18 @@ p {
     display: flex;
 }
 
+button {
+    width: 200px;
+    padding: 15px;
+    font-family: Acrom;
+    color: white;
+    background-color: black;
+    border: none;
+    font-size: medium;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
 .hlink5 {
     text-decoration: underline;
     color: #f7e905;
@@ -22,6 +34,14 @@ p {
     margin: 3px 0;
     grid-column: 2 / span 2;
     grid-row: 1;
+}
+
+.contact_links {
+    display: flex;
+    flex-direction: column;
+    font-family: Acrom;
+    gap: 20px;
+    align-items: center;
 }
 
 .mission {
@@ -113,8 +133,13 @@ p {
 
 @media screen and (max-width: 1200px) {
 
-    .mission_pic, .history_pic, .gaming_pic {
+    .history_pic, .gaming_pic {
         max-width: 100%;
+    }
+
+    .mission_pic {
+        max-width: 100%;
+        margin-top: 40px;
     }
 
     .mission {
@@ -135,6 +160,10 @@ p {
 }
 
 @media screen and (max-width: 600px) {
+
+    .mission_pic {
+        display: none;
+    }
 
     .about_container {
         font-size: small;
