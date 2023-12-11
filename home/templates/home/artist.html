@@ -105,11 +105,11 @@
             <ul class="releases_list artist_list">
             {% for release in releases %}
                 <li class="release_list_item">
-                    <a href="{{release.url}}">{% image release.artwork original class="latest_release_pic" %}</a>
+                    <a href="{{release.url}}" target="_blank">{% image release.artwork original class="latest_release_pic" %}</a>
                 </li>
             {% endfor %}
                 <li class="release_list_item">
-                    <a href="{% slugurl 'releases' %}" target="_blank"><img src="{% static 'image/blue_block4.jpg' %}" class="latest_release_pic see_more"></a>
+                    <a href="{% slugurl 'releases' %}"><img src="{% static 'image/blue_block4.jpg' %}" class="latest_release_pic see_more"></a>
                 </li>
             </ul>
         </div>
@@ -123,7 +123,7 @@
             <span class="panel_title merch_title">Latest Merch</span>
             <ul class="merch_list artist_list">
             {% for item in merch %}
-                <li class="merch_list_item">
+                <li class="merch_list_item" target="_blank">
                     <a href="{{item.url}}">{% image item.image max-250x250 class="merch_pic" %}</a>
                 </li>
             {% endfor %}
