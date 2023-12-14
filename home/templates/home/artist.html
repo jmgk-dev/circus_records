@@ -123,8 +123,8 @@
             <span class="panel_title merch_title">Latest Merch</span>
             <ul class="merch_list artist_list">
             {% for item in merch %}
-                <li class="merch_list_item" target="_blank">
-                    <a href="{{item.url}}">{% image item.image max-250x250 class="merch_pic" %}</a>
+                <li class="merch_list_item">
+                    <a href="{{item.url}}" target="_blank">{% image item.image max-250x250 class="merch_pic" %}</a>
                 </li>
             {% endfor %}
                 <li class="merch_list_item">
