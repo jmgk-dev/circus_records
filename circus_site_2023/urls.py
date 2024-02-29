@@ -5,6 +5,7 @@ from django.contrib import admin
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
+from wagtail.contrib.sitemaps.views import sitemap
 
 from search import views as search_views
 
@@ -13,6 +14,7 @@ from django.conf.urls import include
 from wagtailautocomplete.urls.admin import urlpatterns as autocomplete_admin_urls
 
 urlpatterns = [
+    path('sitemap.xml', sitemap),
     path("django-admin/", admin.site.urls),
     path("admin/autocomplete/", include(autocomplete_admin_urls)),
     path("admin/", include(wagtailadmin_urls)),
