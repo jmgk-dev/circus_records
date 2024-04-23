@@ -129,7 +129,7 @@ class LatestNewsBlock(blocks.StructBlock):
             .objects
             .filter(live=True)
             .prefetch_related('artist_pages')
-            .order_by('-live')
+            .order_by('live')
         )[:value['limit']]
 
         return context
