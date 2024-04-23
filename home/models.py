@@ -473,7 +473,7 @@ class SignupPage(WagtailCacheMixin, Page):
         context = super().get_context(request, *args, **kwargs)
 
         context['news'] = NewsItem.objects.filter(
-            live=True).order_by('-live')[:5]
+            live=True).order_by('live')[:5]
 
         return context
 
