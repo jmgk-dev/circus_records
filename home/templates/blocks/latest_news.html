@@ -11,9 +11,6 @@
 </div>
 
 <ul class="news_list news_slick_list">
-    <li class="news-items">
-        <a href="{% slugurl 'signup' %}"><img src="{% static 'image/sign_up2.png' %}" class="responsive_news"></a>
-    </li>
     {% for news in latest_news %}
     <li class="news-items">
         <a href="{{news.url}}" target="_blank" >
@@ -21,6 +18,9 @@
         </a>
     </li>
     {% endfor %}
+    <li class="news-items">
+        <a href="{% slugurl 'signup' %}"><img src="{% static 'image/sign_up2.png' %}" class="responsive_news"></a>
+    </li>
 </ul>
 
 {% endif %}
