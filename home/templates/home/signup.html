@@ -40,7 +40,7 @@
         </div>
 
         <ul class="mailing_list_content news_list">
-                {% for i in news %}
+                {% for i in news reversed %}
                 
                 <li class="news-items">
                     <a href="{{i.url}}" >{% image i.image original class="news_image" %}</a>
