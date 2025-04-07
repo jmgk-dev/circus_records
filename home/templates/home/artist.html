@@ -36,37 +36,41 @@
         </div>
 
         <div class="artist_pic_landscape">
-            {% image page.photo width-900 class="artist_pic_static" %}
+            {% with alt_text=page.title|stringformat:"s photo" %}
+                {% image page.photo width-900 class="artist_pic_static" alt=alt_text %}
+            {% endwith %}
         </div>
 
         <div class="artist_pic_square">
-            {% image page.thumbnail fill-400x400 class="artist_pic_static" %}
+            {% with alt_text=page.title|stringformat:"s photo" %}
+                {% image page.thumbnail fill-400x400 class="artist_pic_static" alt=alt_text %}
+            {% endwith %}
         </div>
 
         <div class="artist-socials">
             {% if page.spotify %}
             <div class="social_icon">
-                <a href="{{page.spotify}}"><img src="{% static 'image/spotify_logo_500.png' %}" class="sicon_pic"></a>
+                <a href="{{page.spotify}}"><img src="{% static 'image/spotify_logo_500.png' %}" alt="Spotify Logo" class="sicon_pic"></a>
             </div>
             {% endif %}
             {% if page.apple_music %}
             <div class="social_icon">
-                <a href="{{page.apple_music}}"><img src="{% static 'image/apple_logo_500.png' %}" class="sicon_pic"></a>
+                <a href="{{page.apple_music}}"><img src="{% static 'image/apple_logo_500.png' %}" alt="Apple Logo" class="sicon_pic"></a>
             </div>
             {% endif %}
             {% if page.instagram %}
             <div class="social_icon">
-                <a href="{{page.instagram}}"><img src="{% static 'image/ig_logo_500.png' %}" class="sicon_pic"></a>
+                <a href="{{page.instagram}}"><img src="{% static 'image/ig_logo_500.png' %}" alt="instagram Logo" class="sicon_pic"></a>
             </div>
             {% endif %}
             {% if page.twitter%}
             <div class="social_icon">
-                <a href="{{page.twitter}}"><img src="{% static 'image/x_logo_500.png' %}" class="sicon_pic"></a>
+                <a href="{{page.twitter}}"><img src="{% static 'image/x_logo_500.png' %}" alt="X Logo" class="sicon_pic"></a>
             </div>
             {% endif %}
             {% if page.tiktok %}
             <div class="social_icon">
-                <a href="{{page.tiktok}}"><img src="{% static 'image/tiktok_logo_500.png' %}" class="sicon_pic"></a>
+                <a href="{{page.tiktok}}"><img src="{% static 'image/tiktok_logo_500.png' %}" alt="TikTok Logo" class="sicon_pic"></a>
             </div>
             {% endif %}
 
@@ -161,24 +165,26 @@
 
         {% else %}
 
-        {% if listings %}
+        {% if live_dates %}
         <div class="live_dates content_box">
             <div class="panel_bar listings_bar"></div>
             <span class="panel_title listings_title">Live Dates</span>
             <ul class="livedate_list artist_list">
-            {% for listing in listings|slice:":4" %}
+            {% for listing in live_dates %}
                 <li class="live_date_item">
-                    <a href={{ listing.4 }} target="_blank">
+                    <a href={{ listing.ticket_link }} target="_blank">
                         <div class="livedate">
-                            <span class="event">{{ listing.1 }}</span>
+                            <span class="event"><b>{{ listing.event_name }}</b></span>
                             <br>
-                            <span class="location">{{ listing.0 }}</span>
+                            <span class="location" style="font-style: italic;">{{ listing.venue }}</span>
                             <br>
-                            <span class="date">{{ listing.2 }} {{ listing.3 }}</span>    
+                            <span class="date">{{ listing.date }}</span>    
                         </div>   
                     </a>
                 </li>
             {% endfor %}
+
+            {% if page.songkick_url %}
             <li class="live_date_item">
                 <a href={{ page.songkick_url }} target="_blank">
                     <div class="see_more_live">
@@ -186,6 +192,8 @@
                     </div>   
                 </a>
             </li>
+            {% endif %}
+
             </ul>
         </div>
         {% endif %}
