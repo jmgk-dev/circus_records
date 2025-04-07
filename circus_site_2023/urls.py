@@ -8,9 +8,6 @@ from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.contrib.sitemaps.views import sitemap
 
 from search import views as search_views
-
-from django.conf.urls import include
-
 from wagtailautocomplete.urls.admin import urlpatterns as autocomplete_admin_urls
 
 urlpatterns = [
@@ -19,6 +16,8 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
+    path("sitemap.xml", sitemap),
+    path("", include(wagtail_urls)),
 ]
 
 
