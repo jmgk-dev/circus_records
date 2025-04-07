@@ -37,9 +37,6 @@ ipython==8.4.0
 jedi==0.18.1
 kiwisolver==1.4.3
 l18n==2021.3
-matplotlib==3.5.2
-matplotlib-inline==0.1.3
-numpy==1.23.0
 openpyxl==3.0.10
 outcome==1.2.0
 packaging==21.3
@@ -47,7 +44,6 @@ pandas==1.4.3
 parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==9.1.1
 pluggy==1.0.0
 prompt-toolkit==3.0.29
 ptyprocess==0.7.0
@@ -65,10 +61,8 @@ python-dateutil==2.8.2
 python-dotenv==0.20.0
 pytube==12.1.2
 pytz==2022.1
-PyYAML==6.0
 requests==2.27.1
 selenium==4.2.0
-ShopifyAPI==12.3.0
 six==1.16.0
 sniffio==1.2.0
 sortedcontainers==2.4.0
@@ -92,7 +86,6 @@ webdriver-manager==3.7.0
 webencodings==0.5.1
 WebOb==1.8.7
 whitenoise==6.5.0
-Willow==1.5
 wsproto==1.1.0
 xlrd==2.0.1
 XlsxWriter==3.0.3
