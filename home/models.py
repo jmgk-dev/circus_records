@@ -23,6 +23,58 @@ from wagtailcache.cache import WagtailCacheMixin
 # ----------------------------------------------
 
 @register_snippet
+class LiveDate(ClusterableModel):
+
+    artist_pages = ParentalManyToManyField(
+        'home.ArtistPage',
+        blank=False,
+        related_name='+'
+    )
+
+    event_name = models.CharField(
+        null=False,
+        blank=True,
+        max_length=255
+    )
+
+    venue = models.CharField(
+        null=False,
+        blank=False,
+        max_length=255
+    )   
+
+    date = models.DateField(
+        null=True,
+        blank=False
+    )
+
+    ticket_link = models.URLField(
+        blank=False, 
+        null=True
+    )
+
+    live = models.BooleanField(
+        default=False,
+        null=False,
+        blank=True
+    )
+
+    panels = [
+        AutocompletePanel('artist_pages'),
+        FieldPanel('event_name'),
+        FieldPanel('venue'),
+        FieldPanel('date'),
+        FieldPanel('ticket_link'),
+        FieldPanel('live'),
+    ]
+
+    def __str__(self):
+        return f'{self.event_name} - {self.venue} - {self.date}'
+
+
+# ----------------------------------------------
+
+@register_snippet
 class Release(ClusterableModel):
 
     artist = models.CharField(
@@ -568,62 +620,62 @@ class ArtistPage(WagtailCacheMixin, Page):
         FieldPanel('twitter'),
     ]
 
-    def get_events_from_songkick(self):
-        try:
-            response = requests.get(self.songkick_url)
-            assert response.status_code == 200
-            content = response.content
-        except Exception as e:
-            bugsnag.notify(e)
-            return []
+    # def get_events_from_songkick(self):
+    #     try:
+    #         response = requests.get(self.songkick_url)
+    #         assert response.status_code == 200
+    #         content = response.content
+    #     except Exception as e:
+    #         bugsnag.notify(e)
+    #         return []
             
-        soup = BeautifulSoup(content, 'html.parser')
-        calendar = soup.find(id="calendar-summary")
-        events = []
+    #     soup = BeautifulSoup(content, 'html.parser')
+    #     calendar = soup.find(id="calendar-summary")
+    #     events = []
 
-        if calendar:
+    #     if calendar:
             
-            listings = calendar.find_all(class_="event-listing")
+    #         listings = calendar.find_all(class_="event-listing")
 
-            for event in listings:
-                event_list = []
+    #         for event in listings:
+    #             event_list = []
 
-                city = event.find(class_='primary-detail')
-                event_list.append(city.text)
+    #             city = event.find(class_='primary-detail')
+    #             event_list.append(city.text)
 
-                venue = event.find(class_='secondary-detail')
-                event_list.append(venue.text)
+    #             venue = event.find(class_='secondary-detail')
+    #             event_list.append(venue.text)
 
-                month = event.find(class_='month')
-                event_list.append(month.text)
+    #             month = event.find(class_='month')
+    #             event_list.append(month.text)
 
-                date = event.find(class_='date')
-                event_list.append(date.text.strip())
+    #             date = event.find(class_='date')
+    #             event_list.append(date.text.strip())
 
-                link = event.a
-                event_list.append("https://www.songkick.com/" + link.get('href'))
+    #             link = event.a
+    #             event_list.append("https://www.songkick.com/" + link.get('href'))
 
-                events.append(event_list)
+    #             events.append(event_list)
 
-        return events
+    #     return events
     
-    def get_events(self):
-        cache_key = f'events_for_{self.slug}'
-        cached_data = cache.get(cache_key)
-        if not cached_data:
-            data = self.get_events_from_songkick()
-            cache.set(cache_key, data, 3600) # hour
-            return data
+    # def get_events(self):
+    #     cache_key = f'events_for_{self.slug}'
+    #     cached_data = cache.get(cache_key)
+    #     if not cached_data:
+    #         data = self.get_events_from_songkick()
+    #         cache.set(cache_key, data, 3600) # hour
+    #         return data
 
-        return cached_data
+    #     return cached_data
 
     def get_context(self, request, *args, **kwargs) -> dict:
         context = super().get_context(request, *args, **kwargs)
 
-        if self.songkick_url:
-            events = self.get_events()
+        # if self.songkick_url:
+        #     events = self.get_events()
             
-            context['listings'] = events
+        #     context['listings'] = events
 
         context['releases'] = Release.objects.filter(
             artist_pages=self, live=True).order_by('-release_date')[:4]
@@ -634,8 +686,8 @@ class ArtistPage(WagtailCacheMixin, Page):
         context['news'] = NewsItem.objects.filter(
             artist_pages=self, live=True).order_by('-live')[:2]
         
-        # context['playlist'] = Playlist.objects.filter(
-        #     artist_pages=self, live=True).order_by('-live')
+        context['live_dates'] = LiveDate.objects.filter(
+            artist_pages=self, live=True).order_by('date')
 
         return context
 

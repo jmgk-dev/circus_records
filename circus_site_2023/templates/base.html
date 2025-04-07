@@ -134,49 +134,49 @@
                     <ul class="burger-elements b_list_2">
                             <li class="burger-link">
                                 <a href="https://open.spotify.com/user/circusrecordsofficial?si=c53a5a9123a3405f" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/spotify_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/spotify_logo_500_w.png' %}" class="sicon" alt="Spotify logo">
                                         <span class="link_text">spotify</span>
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="https://www.instagram.com/circusrecords/" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/ig_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/ig_logo_500_w.png' %}" class="sicon" alt="instagram logo">
                                         <span class="link_text">instagram</span>
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="https://www.youtube.com/c/circusrecords" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/youtube_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/youtube_logo_500_w.png' %}" class="sicon" alt="YouTube logo">
                                         <span class="link_text">youtube</span>
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="https://www.twitch.tv/circusrecords" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/twitch_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/twitch_logo_500_w.png' %}" class="sicon" alt="Twitch logo">
                                         <span class="link_text">twitch</span>
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="https://www.facebook.com/circusrecords/" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/fb_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/fb_logo_500_w.png' %}" class="sicon" alt="Facebook logo">
                                         <span class="link_text">facebook</span>
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="https://www.tiktok.com/@circusrecords" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/tiktok_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/tiktok_logo_500_w.png' %}" class="sicon" alt="TikTok logo">
                                         <span class="link_text">tiktok</span>
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="https://twitter.com/circus_records" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/x_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/x_logo_500_w.png' %}" class="sicon" alt="X formerly Twitter logo">
                                         <span class="link_text">x</span>
                                 </a>
                             </li>
                             <li class="burger-link">
                                 <a href="https://soundcloud.com/circusrecords" target="_blank" class="b-link-content">
-                                        <img src="{% static 'image/sc_logo_500_w.png' %}" class="sicon">
+                                        <img src="{% static 'image/sc_logo_500_w.png' %}" class="sicon" alt="Soundcloud logo">
                                         <span class="link_text">soundcloud</span>
                                 </a>
                             </li>
@@ -194,26 +194,25 @@
                         </div>                        
                         <div class="tohide">
                                 <div class="circus_logo_container">        
-                                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_1k.png' %}" class="circus_logo"></a>
-                                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_textoneline2.png' %}" class="circus_wordlogo"></a>
+                                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_1k.png' %}" class="circus_logo" alt="Circus logo"></a>
+                                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_textoneline2.png' %}" class="circus_wordlogo" alt="Circus word logo"></a>
                                 </div>
                         </div>
                 </div>
 
                 <div class="header-links">
-                        <a href="{% slugurl 'releases' %}" class="tohide releases_link"><div class="header-link hlink1">releases</div></a>
-                        <a href="https://circus-records.store/" target="_blank" class="tohide merch_link"><div class="header-link hlink2">merch</div></a>
-                        <a href="{% slugurl 'artists' %}" class="artist_link"><div class="tohide header-link hlink3">artists</div></a>
-                        <a href="{% slugurl 'playlists' %}" class="playlists_link"><div class="tohide header-link hlink4">playlists</div></a>
-                        <a href="{% slugurl 'about' %}" class="about_link"><div class="tohide header-link hlink5">about</div></a>
-                        <a href="{% slugurl 'signup' %}" class="signup_link"><div class="tohide header-link hlink6">sign up</div></a>
-                        <a href="{% slugurl 'home' %}"><img src="{% static 'image/circus_logo_white.png' %}" id="burger_logo" class="burger_logo"></a>
+                        <a href="{% slugurl 'releases' %}" aria-label="Stream and buy Circus Records Releases" class="tohide releases_link"><div class="header-link hlink1">releases</div></a>
+                        <a href="https://circus-records.store/" target="_blank" aria-label="Buy Circus Records Merch" class="tohide merch_link"><div class="header-link hlink2">merch</div></a>
+                        <a href="{% slugurl 'artists' %}" class="artist_link" aria-label="View Circus Records Artists"><div class="tohide header-link hlink3">artists</div></a>
+                        <a href="{% slugurl 'playlists' %}" class="playlists_link" aria-label="Stream Circus Records Playlists"><div class="tohide header-link hlink4">playlists</div></a>
+                        <a href="{% slugurl 'about' %}" class="about_link" aria-label="Read about Circus Records"><div class="tohide header-link hlink5">about</div></a>
+                        <a href="{% slugurl 'signup' %}" class="signup_link" aria-label="Signup to Circus Records mailing list" ><div class="tohide header-link hlink6">sign up</div></a>
+                        <a href="{% slugurl 'home' %}" aria-label="Return to Circus Records home page" ><img src="{% static 'image/circus_logo_white.png' %}" id="burger_logo" class="burger_logo" alt="Circus logo"></a>
 
                 </div>
 
                 <div class="signup_header">   
                         <a href="{% slugurl 'signup' %}" class="signup_link"><div class="header-link hlink6 tohide">Sign Up</div></a>
-
                 </div>
 
         </div>
@@ -225,7 +224,7 @@
                 <div class="footer_links">
 
                         <ul class="footer-list">
-                                <li class="footer-logo"><img src="{% static 'image/circus_logo-min.png' %}" class="responsive_footer_logo"></li>
+                                <li class="footer-logo"><img src="{% static 'image/circus_logo-min.png' %}" class="responsive_footer_logo" alt="Circus logo"></li>
                                 <a href="{% slugurl 'about' %}" class="about_link"><li class="footer-link">about</li></a>
                                 <a href="https://www.labelradar.com/labels/circusrecords/profile" target="_blank"><li class="footer-link">demo submission</li></a>
                         </ul>
@@ -241,28 +240,28 @@
 
                                 <a href="https://open.spotify.com/user/circusrecordsofficial?si=c53a5a9123a3405f" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/spotify_logo_500.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/spotify_logo_500.png' %}" class="footer-icon" alt="Spotify logo">
                                                 <span>spotify</span>
                                         </li>
                                 </a>
 
                                 <a href="https://www.instagram.com/circusrecords/" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/ig_logo_500.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/ig_logo_500.png' %}" class="footer-icon" alt="instagram logo">
                                                 <span>instagram</span>
                                         </li>
                                 </a>    
 
                                 <a href="https://www.youtube.com/c/circusrecords" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/youtube_logo_500_b.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/youtube_logo_500_b.png' %}" class="footer-icon" alt="YouTube logo">
                                                 <span>youtube</span>
                                         </li>
                                 </a>   
 
                                 <a href="https://www.twitch.tv/circusrecords" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/twitch_logo_500.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/twitch_logo_500.png' %}" class="footer-icon" alt="Twitch logo">
                                                 <span>twitch</span>
                                         </li>
                                 </a>    
@@ -273,28 +272,28 @@
 
                                 <a href="https://www.facebook.com/circusrecords/" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/fb_logo_500.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/fb_logo_500.png' %}" class="footer-icon" alt="Facebook logo">
                                                 <span>facebook</span>
                                         </li>
                                 </a>
 
                                 <a href="https://www.tiktok.com/@circusrecords" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/tiktok_logo_500.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/tiktok_logo_500.png' %}" class="footer-icon" alt="TikTok logo">
                                                 <span>tiktok</span>
                                         </li>
                                 </a>    
 
                                 <a href="https://twitter.com/circus_records" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/x_logo_500.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/x_logo_500.png' %}" class="footer-icon" alt="X formerly Twitter logo">
                                                 <span>x</span>
                                         </li>
                                 </a>   
 
                                 <a href="https://soundcloud.com/circusrecords" target="_blank">
                                         <li class="footer-link social-link">
-                                                <img src="{% static 'image/sc_logo_500.png' %}" class="footer-icon">
+                                                <img src="{% static 'image/sc_logo_500.png' %}" class="footer-icon" alt="Soundcloud logo">
                                                 <span>soundcloud</span>
                                         </li>
                                 </a>   
