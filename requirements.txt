@@ -27,7 +27,7 @@ draftjs-exporter==2.1.7
 et-xmlfile==1.1.0
 executing==0.8.3
 filetype==1.2.0
-fonttools==4.33.3
+fonttools==4.43.0
 h11==0.13.0
 html5lib==1.1
 idna==3.3
