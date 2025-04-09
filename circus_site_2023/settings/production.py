@@ -27,7 +27,7 @@ DATABASES = {
 }
 
 BUGSNAG = {
-    'api_key': 'REMOVED_BUGSNAG_API_KEY',
+    'api_key': os.environ['BUGSNAG_API_KEY'],
     'project_root': '/home/jamiek/crsite',
 }
 

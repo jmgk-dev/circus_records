@@ -405,19 +405,6 @@ class HomePage(WagtailCacheMixin, Page):
 class MerchPage(WagtailCacheMixin, Page):
     template = "home/merch.html"
 
-    # merch_catalogue = StreamField(
-    # [
-    #     ('merch_catalogue', MerchCatalogueBlock())
-    # ],
-    # null=True,
-    # blank=True,
-    # use_json_field = True
-    # )
-
-    # content_panels = Page.content_panels + [
-    #     FieldPanel('merch_catalogue')
-    # ]
-
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
@@ -620,62 +607,8 @@ class ArtistPage(WagtailCacheMixin, Page):
         FieldPanel('twitter'),
     ]
 
-    # def get_events_from_songkick(self):
-    #     try:
-    #         response = requests.get(self.songkick_url)
-    #         assert response.status_code == 200
-    #         content = response.content
-    #     except Exception as e:
-    #         bugsnag.notify(e)
-    #         return []
-            
-    #     soup = BeautifulSoup(content, 'html.parser')
-    #     calendar = soup.find(id="calendar-summary")
-    #     events = []
-
-    #     if calendar:
-            
-    #         listings = calendar.find_all(class_="event-listing")
-
-    #         for event in listings:
-    #             event_list = []
-
-    #             city = event.find(class_='primary-detail')
-    #             event_list.append(city.text)
-
-    #             venue = event.find(class_='secondary-detail')
-    #             event_list.append(venue.text)
-
-    #             month = event.find(class_='month')
-    #             event_list.append(month.text)
-
-    #             date = event.find(class_='date')
-    #             event_list.append(date.text.strip())
-
-    #             link = event.a
-    #             event_list.append("https://www.songkick.com/" + link.get('href'))
-
-    #             events.append(event_list)
-
-    #     return events
-    
-    # def get_events(self):
-    #     cache_key = f'events_for_{self.slug}'
-    #     cached_data = cache.get(cache_key)
-    #     if not cached_data:
-    #         data = self.get_events_from_songkick()
-    #         cache.set(cache_key, data, 3600) # hour
-    #         return data
-
-    #     return cached_data
-
     def get_context(self, request, *args, **kwargs) -> dict:
         context = super().get_context(request, *args, **kwargs)
-
-        # if self.songkick_url:
-        #     events = self.get_events()
-            
-        #     context['listings'] = events
 
         context['releases'] = Release.objects.filter(
             artist_pages=self, live=True).order_by('-release_date')[:4]
@@ -696,23 +629,12 @@ class ArtistPage(WagtailCacheMixin, Page):
 class RosterPage(WagtailCacheMixin, Page):
     template = "home/roster.html"
 
-    # body = StreamField(
-    # [
-    #     ('artists', RosterBlock()),
-    # ],
-    # null=True,
-    # blank=True,
-    # use_json_field = True
-    # )
-
-    # content_panels = Page.content_panels + [
-    #     FieldPanel('body')
-    # ]
     def get_context(self, request, *args, **kwargs) -> dict:
         context = super().get_context(request, *args, **kwargs)
         artists = ArtistPage.objects.live().order_by('title')
         context['artists'] = artists
         return context
+
 # ----------------------------------------------
 
 class PlaylistPage(WagtailCacheMixin, Page):
