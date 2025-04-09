@@ -32,7 +32,7 @@ h11==0.13.0
 html5lib==1.1
 idna==3.7
 iniconfig==1.1.1
-ipython==8.4.0
+ipython==8.10.0
 jedi==0.18.1
 kiwisolver==1.4.3
 l18n==2021.3
