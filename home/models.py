@@ -10,7 +10,7 @@ from wagtail.models import Orderable, Page
 from modelcluster.fields import ParentalKey
 from wagtail.images import get_image_model_string
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel, AutocompletePanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.fields import StreamField
 from wagtail.snippets.models import register_snippet
 # from wagtail.contrib.settings.models import BaseSetting, register_setting
