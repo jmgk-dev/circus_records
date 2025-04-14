@@ -9,7 +9,7 @@ ALLOWED_HOSTS = ["146.190.150.21", "0.0.0.0", 'circus-records.co.uk', 'www.circu
 
 WAGTAILADMIN_BASE_URL = "https://circus-records.co.uk"
 
-SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+SECRET_KEY = os.environ['SECURE_PRODUCTION_KEY']
 
 DB_NAME = os.environ['DB_NAME']
 DB_USER = os.environ['DB_USER']
@@ -28,7 +28,7 @@ DATABASES = {
 
 BUGSNAG = {
     'api_key': os.environ['BUGSNAG_API_KEY'],
-    'project_root': '/home/jamiek/crsite',
+    'project_root': os.environ['BUGSNAG_PROJECT_ROOT'],
 }
 
 TIME_IN_A_YEAR = date.today() + timedelta(days=365)
