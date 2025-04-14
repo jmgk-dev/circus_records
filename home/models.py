@@ -149,7 +149,7 @@ class Release(ClusterableModel):
     panels = [
         FieldPanel('artist'),
         FieldPanel('title'),
-        FieldPanel('artwork', widget_type='image_chooser'),
+        FieldPanel('artwork'),
         FieldPanel('url'),
         FieldPanel('release_type'),
         FieldPanel('release_label'),
