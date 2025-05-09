@@ -33,6 +33,23 @@ BUGSNAG = {
 
 TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 
+
+####################################################################################################
+# EMAIL
+####################################################################################################
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ['EMAIL_HOST_URL']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'Password Reset <passwordreset@circus-records.co.uk>'
+
+WAGTAILADMIN_NOTIFICATION_FROM_EMAIL = DEFAULT_FROM_EMAIL
+
+
 ####################################################################################################
 # AWS
 ####################################################################################################
