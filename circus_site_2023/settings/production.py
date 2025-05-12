@@ -33,6 +33,12 @@ BUGSNAG = {
 
 TIME_IN_A_YEAR = date.today() + timedelta(days=365)
 
+# Enforce HTTPS in production
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 
 ####################################################################################################
 # EMAIL
