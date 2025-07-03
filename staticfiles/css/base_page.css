@@ -580,3 +580,19 @@ ul.footer-list {
     flex-direction: column;
     align-items: center;
 }
+
+.burger-credits {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;           /* white text */
+    text-align: center;    /* centered text */
+    padding: 16px 0;       /* vertical padding */
+    z-index: 1000;         /* stays above most elements */
+}
+
+.bg-copyright-text {
+    color: white;
+}
