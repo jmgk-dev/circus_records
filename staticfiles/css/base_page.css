@@ -581,6 +581,10 @@ ul.footer-list {
     align-items: center;
 }
 
+.credits-container a {
+    text-decoration: underline;
+}
+
 .burger-credits {
     position: fixed;
     left: 0;
@@ -591,6 +595,14 @@ ul.footer-list {
     text-align: center;    /* centered text */
     padding: 16px 0;       /* vertical padding */
     z-index: 1000;         /* stays above most elements */
+}
+
+.burger-credits a {
+    color: #fff;
+}
+
+.burger-credit a:hover {
+    color: #ffe066;
 }
 
 .bg-copyright-text {
