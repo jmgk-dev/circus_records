@@ -5,7 +5,7 @@ bugsnag==4.5.0
 certifi==2025.1.31
 charset-normalizer==3.4.1
 defusedxml==0.7.1
-Django==5.2.1
+Django==5.2.2
 django-extensions==4.0
 django-filter==23.5
 django-modelcluster==6.4
@@ -26,12 +26,12 @@ pillow==10.4.0
 pillow_heif==0.22.0
 python-dotenv==1.1.0
 pytz==2025.2
-requests==2.32.3
+requests==2.32.4
 six==1.17.0
 soupsieve==2.6
 sqlparse==0.5.3
 telepath==0.3.1
-urllib3==2.3.0
+urllib3>=2.5.0
 wagtail==6.3.4
 wagtail-autocomplete==0.12.0
 wagtail-cache==2.5.1
