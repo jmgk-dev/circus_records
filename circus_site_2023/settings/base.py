@@ -90,6 +90,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "circus_site_2023.context_processors.global_ids",
             ],
         },
     },
@@ -206,3 +207,15 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR, 'cache'),
     },
 }
+
+####################################################################################################
+# GLOBAL IDS
+####################################################################################################
+
+GOOGLE_ANALYTICS_ID = os.getenv("GOOGLE_ANALYTICS_ID", "")
+MAILERLITE_ACCOUNT_ID = os.getenv("MAILERLITE_ACCOUNT_ID", "")
+META_PIXEL_ID = os.getenv("META_PIXEL_ID", "")
+TERMLY_UUID = os.getenv("TERMLY_UUID", "")
+GOOGLE_SITE_VERIFICATION = os.getenv("GOOGLE_SITE_VERIFICATION", "")
+TERMS_POLICY_UUID = os.getenv("TERMS_POLICY_UUID", "")
+PRIVACY_POLICY_UUID = os.getenv("PRIVACY_POLICY_UUID", "")

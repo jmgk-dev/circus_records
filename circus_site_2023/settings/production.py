@@ -102,3 +102,5 @@ AWS_S3_URL_PROTOCOL = 'https:'
 #MEDIA_ROOT = 'media/'
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_REGION_NAME}.cdn.digitaloceanspaces.com'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+
+
