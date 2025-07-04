@@ -4,29 +4,22 @@
 <html lang="en">
         <head>
 
-                <!-- cookie consent banner -->
-                <!-- <script type="text/javascript" src="https://app.termly.io/embed.min.js" data-auto-block="on" data-website-uuid="***REMOVED***"></script> -->
-                <script  type="text/javascript"  src="https://app.termly.io/resource-blocker/***REMOVED***?autoBlock=on"></script>
+                {% if TERMLY_UUID %}
+                        <!-- cookie consent banner -->
+                        <script  type="text/javascript"  src="https://app.termly.io/resource-blocker/{{ TERMLY_UUID }}?autoBlock=on"></script>
+                 {% endif %}
 
-
+                {% if GOOGLE_ANALYTICS_ID %}
                 <!-- Google tag (gtag.js) -->
-                <script async src="https://www.googletagmanager.com/gtag/js?id=***REMOVED***"></script>
-                <script>
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
+                        <script async src="https://www.googletagmanager.com/gtag/js?id={{ GOOGLE_ANALYTICS_ID }}"></script>
+                        <script>
+                          window.dataLayer = window.dataLayer || [];
+                          function gtag(){dataLayer.push(arguments);}
+                          gtag('js', new Date());
 
-                  gtag('config', '***REMOVED***');
-                </script>
-
-
-                <!-- Google Tag Manager -->
-<!--                 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-5Z9PR9W');</script> -->
-                <!-- End Google Tag Manager -->
+                          gtag('config', '{{ GOOGLE_ANALYTICS_ID }}');
+                        </script>
+                {% endif %}
 
                 <meta charset="utf-8" />
                 <title>
@@ -76,46 +69,47 @@
         
                 <!-- jquery -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        
-                <!-- MailerLite Universal -->
-                <script>
-                        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-                        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-                        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-                        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-                        ml('account', '***REMOVED***');
-                </script>
-                <!-- End MailerLite Universal -->
 
-                <!-- Meta Pixel Code -->
-                <script>
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '***REMOVED***');
-                fbq('track', 'PageView');
-                </script>
-                <noscript><img height="1" width="1" style="display:none"
-                src="https://www.facebook.com/tr?id=***REMOVED***&ev=PageView&noscript=1"
-                /></noscript>
-                <!-- End Meta Pixel Code -->
+                {% if MAILERLITE_ACCOUNT_ID %}
+                        <!-- MailerLite Universal -->
+                        <script>
+                                (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+                                .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+                                n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+                                (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+                                ml('account', '{{ MAILERLITE_ACCOUNT_ID }}');
+                        </script>
+                        <!-- End MailerLite Universal -->
+                {% endif %}
 
-                <!-- Google site verification -->
-                <meta name="google-site-verification" content="***REMOVED***" />
+                {% if META_PIXEL_ID %}
+                        <!-- Meta Pixel Code -->
+                        <script>
+                        !function(f,b,e,v,n,t,s)
+                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                        n.queue=[];t=b.createElement(e);t.async=!0;
+                        t.src=v;s=b.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t,s)}(window, document,'script',
+                        'https://connect.facebook.net/en_US/fbevents.js');
+                        fbq('init', '{{ META_PIXEL_ID }}');
+                        fbq('track', 'PageView');
+                        </script>
+                        <noscript><img height="1" width="1" style="display:none"
+                        src="https://www.facebook.com/tr?id={{ META_PIXEL_ID }}&ev=PageView&noscript=1"
+                        /></noscript>
+                        <!-- End Meta Pixel Code -->
+                {% endif %}
+
+                {% if GOOGLE_SITE_VERIFICATION %}
+                        <!-- Google site verification -->
+                        <meta name="google-site-verification" content="{{ GOOGLE_SITE_VERIFICATION }}" />
+                {% endif %}
 
         </head>
 
         <body class="{% block body_class %}{% endblock %}">
-
-        <!-- Google Tag Manager (noscript) -->
-<!--         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z9PR9W"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
-        <!-- End Google Tag Manager (noscript) -->
 
         {% wagtailuserbar %}
 
@@ -241,8 +235,18 @@
                         <ul class="footer-list">
                                 <a href="{% slugurl 'about' %}" class="about_link"><li class="footer-link">contact</li></a>
                                 <a href="{% slugurl 'signup' %}" class="signup_link"><li class="footer-link">sign up</li></a>
-                                <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=***REMOVED***" class="tc_link"><li class="footer-link">terms & conditions</li></a>
-                                <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=***REMOVED***" class="privacy_link"><li class="footer-link">privacy policy</li></a>
+
+                                {% if TERMS_POLICY_UUID %}
+                                <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID={{ TERMS_POLICY_UUID }}" class="tc_link"><li class="footer-link">terms & conditions</li></a>
+                                {% else %}
+                                <a href="" class="tc_link"><li class="footer-link">terms & conditions</li></a>
+                                {% endif %}
+
+                                {% if PRIVACY_POLICY_UUID %}
+                                <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID={{ PRIVACY_POLICY_UUID }}" class="privacy_link"><li class="footer-link">privacy policy</li></a>
+                                {% else %}
+                                <a href="" class="privacy_link"><li class="footer-link">privacy policy</li></a>
+                                {% endif %}
                         </ul>
 
                         <ul class="footer-list">
