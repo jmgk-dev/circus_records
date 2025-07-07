@@ -35,12 +35,6 @@
             {{page.bio|richtext}}
         </div>
 
-        <div class="artist_pic_landscape">
-            {% with alt_text=page.title|stringformat:"s photo" %}
-                {% image page.photo width-900 class="artist_pic_static" alt=alt_text %}
-            {% endwith %}
-        </div>
-
         <div class="artist_pic_square">
             {% with alt_text=page.title|stringformat:"s photo" %}
                 {% image page.thumbnail fill-400x400 class="artist_pic_static" alt=alt_text %}

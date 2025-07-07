@@ -593,8 +593,8 @@ class ArtistPage(WagtailCacheMixin, Page):
     ) 
 
     content_panels = Page.content_panels + [
-        FieldPanel('photo'),
-        FieldPanel('thumbnail'),
+        # FieldPanel('photo'),
+        FieldPanel('thumbnail', heading='Press Shot (Square)'),
         FieldPanel('logo'),
         FieldPanel('songkick_url'),
         FieldPanel('rss_feed'),

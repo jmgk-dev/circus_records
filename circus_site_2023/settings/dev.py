@@ -9,6 +9,9 @@ DEBUG = True
 
 WAGTAILADMIN_BASE_URL = "http://127.0.0.1"
 
+# SECURITY WARNING: define the correct hosts in production!
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -20,8 +23,5 @@ DATABASES = {
 }
 
 SECRET_KEY = os.getenv('DJANGO_DEV_KEY', get_random_secret_key())
-
-# SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
