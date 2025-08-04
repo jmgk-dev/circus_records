@@ -16,59 +16,61 @@
 
 <div class="artist-content">
 
-    <div class="artist_page_bar"></div>
+    <div class="artist-header">
+        <div class="artist_page_bar"></div>
 
         <div class="back_to_artists">
             <a href="{% slugurl 'artists' %}"><div class="button back_button">⬅ Back to Artists</div></a>
         </div>
 
-        <div class="artist-name">{{page.title}}</div>
+        <div class="artist-info-section">
+            <div class="artist-details">
+                <div class="artist-name">{{page.title}}</div>
 
-        {% comment %} <div class="artist-info">{{page.bio|richtext|slice:":200"}}
-            <span id="dots">...</span>
-            <span id="more">{{page.bio|richtext|slice:"200:"}}</span>
+                <div class="artist-info">
+                    {{page.bio|richtext}}
+                </div>
 
-            <button class="readmore_button" onclick="readMore()" id="myBtn">Read more</button>
-        </div> {% endcomment %}
+                <div class="artist-socials">
+                    {% if page.spotify %}
+                    <div class="social_icon">
+                        <a href="{{page.spotify}}"><img src="{% static 'image/spotify_logo_500.png' %}" alt="Spotify Logo" class="sicon_pic"></a>
+                    </div>
+                    {% endif %}
+                    {% if page.apple_music %}
+                    <div class="social_icon">
+                        <a href="{{page.apple_music}}"><img src="{% static 'image/apple_logo_500.png' %}" alt="Apple Logo" class="sicon_pic"></a>
+                    </div>
+                    {% endif %}
+                    {% if page.instagram %}
+                    <div class="social_icon">
+                        <a href="{{page.instagram}}"><img src="{% static 'image/ig_logo_500.png' %}" alt="instagram Logo" class="sicon_pic"></a>
+                    </div>
+                    {% endif %}
+                    {% if page.twitter%}
+                    <div class="social_icon">
+                        <a href="{{page.twitter}}"><img src="{% static 'image/x_logo_500.png' %}" alt="X Logo" class="sicon_pic"></a>
+                    </div>
+                    {% endif %}
+                    {% if page.tiktok %}
+                    <div class="social_icon">
+                        <a href="{{page.tiktok}}"><img src="{% static 'image/tiktok_logo_500.png' %}" alt="TikTok Logo" class="sicon_pic"></a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
 
-        <div class="artist-info">
-            {{page.bio|richtext}}
+            {% if page.thumbnail %}
+            <div class="artist-picture-container">
+                <div class="artist_pic_square">
+                    {% with alt_text=page.title|stringformat:"s photo" %}
+                        {% image page.thumbnail fill-400x400 class="artist_pic_static" alt=alt_text %}
+                    {% endwith %}
+                </div>
+            </div>
+            {% endif %}
         </div>
-
-        <div class="artist_pic_square">
-            {% with alt_text=page.title|stringformat:"s photo" %}
-                {% image page.thumbnail fill-400x400 class="artist_pic_static" alt=alt_text %}
-            {% endwith %}
-        </div>
-
-        <div class="artist-socials">
-            {% if page.spotify %}
-            <div class="social_icon">
-                <a href="{{page.spotify}}"><img src="{% static 'image/spotify_logo_500.png' %}" alt="Spotify Logo" class="sicon_pic"></a>
-            </div>
-            {% endif %}
-            {% if page.apple_music %}
-            <div class="social_icon">
-                <a href="{{page.apple_music}}"><img src="{% static 'image/apple_logo_500.png' %}" alt="Apple Logo" class="sicon_pic"></a>
-            </div>
-            {% endif %}
-            {% if page.instagram %}
-            <div class="social_icon">
-                <a href="{{page.instagram}}"><img src="{% static 'image/ig_logo_500.png' %}" alt="instagram Logo" class="sicon_pic"></a>
-            </div>
-            {% endif %}
-            {% if page.twitter%}
-            <div class="social_icon">
-                <a href="{{page.twitter}}"><img src="{% static 'image/x_logo_500.png' %}" alt="X Logo" class="sicon_pic"></a>
-            </div>
-            {% endif %}
-            {% if page.tiktok %}
-            <div class="social_icon">
-                <a href="{{page.tiktok}}"><img src="{% static 'image/tiktok_logo_500.png' %}" alt="TikTok Logo" class="sicon_pic"></a>
-            </div>
-            {% endif %}
-
-        </div>
+    </div>
 
         <!-- PANELS  -->
 
