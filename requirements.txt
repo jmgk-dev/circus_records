@@ -25,7 +25,7 @@ jmespath==1.0.1
 l18n==2021.3
 laces==0.1.2
 openpyxl==3.1.5
-pillow==12.1.1
+Pillow>=11,<12
 pillow_heif==0.22.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.0
@@ -43,4 +43,3 @@ wagtail-cache==2.5.1
 webencodings==0.5.1
 WebOb==1.8.9
 whitenoise==6.9.0
-Willow==1.10.0
