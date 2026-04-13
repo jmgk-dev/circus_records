@@ -7,7 +7,7 @@ bugsnag==4.5.0
 certifi==2025.1.31
 charset-normalizer==3.4.1
 defusedxml==0.7.1
-Django==5.2.11
+Django>=5.2.13
 django-extensions==4.0
 django-filter==23.5
 django-modelcluster==6.4
