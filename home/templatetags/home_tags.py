@@ -7,7 +7,7 @@ register = template.Library()
 @register.inclusion_tag('tags/merch_tag.html', takes_context=True)
 def merch_items(context):
     return {
-        'merch_items': MerchItem.objects.all(),
+        'merch_items': MerchItem.objects.filter(live=True),
         'request': context['request'],
     }
 
@@ -15,7 +15,7 @@ def merch_items(context):
 @register.inclusion_tag('tags/release_tag.html', takes_context=True)
 def releases(context):
     return {
-        'releases': Release.objects.all(),
+        'releases': Release.objects.filter(live=True),
         'request': context['request'],
     }
 
@@ -23,6 +23,6 @@ def releases(context):
 @register.inclusion_tag('tags/playlist_tag.html', takes_context=True)
 def playlists(context):
     return {
-        'playlists': Playlist.objects.all(),
+        'playlists': Playlist.objects.filter(live=True),
         'request': context['request'],
     }

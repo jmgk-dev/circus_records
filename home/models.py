@@ -1,24 +1,25 @@
 from django.db import models
-from django.shortcuts import render
-import bugsnag
-import requests
-from bs4 import BeautifulSoup
-
 from modelcluster.models import ClusterableModel
-from modelcluster.fields import ParentalManyToManyField
+from modelcluster.fields import ParentalManyToManyField, ParentalKey
 from wagtail.models import Orderable, Page
-from modelcluster.fields import ParentalKey
 from wagtail.images import get_image_model_string
-from wagtail.fields import RichTextField
+from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
-from wagtail.fields import StreamField
 from wagtail.snippets.models import register_snippet
-# from wagtail.contrib.settings.models import BaseSetting, register_setting
-from . blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesBlock, ArtistsBlock, RosterBlock, LatestMerchBlock, LatestNewsBlock, PlaylistsBlock
 from wagtailautocomplete.edit_handlers import AutocompletePanel
 from django.core.paginator import Paginator
 from django.core.cache import cache
 from wagtailcache.cache import WagtailCacheMixin
+from .blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesBlock, ArtistsBlock, RosterBlock, LatestMerchBlock, LatestNewsBlock, PlaylistsBlock
+
+# Snippets are standalone content objects managed in the Wagtail admin.
+# They use ClusterableModel (instead of plain Model) so that
+# ParentalManyToManyField relationships can be saved transactionally
+# alongside the snippet via Wagtail's editing UI.
+#
+# The `live` boolean on each snippet is a manual publish toggle —
+# separate from Wagtail's page live/draft system. Only items with
+# live=True are shown on the frontend.
 
 # ----------------------------------------------
 
@@ -335,6 +336,8 @@ class Playlist(ClusterableModel, Orderable):
 
 # ----------------------------------------------
 
+# Orderable gives this model a sort_order field so editors can drag
+# carousel slides into any sequence via the Wagtail InlinePanel UI.
 class HomePageCarouselImages(Orderable):
 
     page = ParentalKey("home.HomePage", related_name="carousel_images")
@@ -379,6 +382,9 @@ class HomePageCarouselImages(Orderable):
 
 # ----------------------------------------------
 
+# WagtailCacheMixin caches full page responses for one week (configured in
+# settings). The cache is invalidated automatically via wagtail_hooks.py
+# whenever a page is published.
 class HomePage(WagtailCacheMixin, Page):
 
     body = StreamField(
@@ -427,6 +433,7 @@ class ReleasesPage(WagtailCacheMixin, Page):
     def get_context(self, request, *args, **kwargs):
         context = super().get_context(request, *args, **kwargs)
 
+        # Only show artists who have at least one release attached.
         artists = ArtistPage.objects.exclude(releases=None).live().values('slug', 'title')
         context['artists'] = artists
 
@@ -447,6 +454,8 @@ class ReleasesPage(WagtailCacheMixin, Page):
 
         page_obj = Paginator(release_objs, 16)
 
+        # Preserve the artist filter in paginated URLs by stripping only
+        # the page parameter before passing the query string to the template.
         query_string = request.GET.copy()
         query_string.pop('page', None)
         context['pagination_params'] = query_string.urlencode()
@@ -512,7 +521,7 @@ class SignupPage(WagtailCacheMixin, Page):
         context = super().get_context(request, *args, **kwargs)
 
         context['news'] = NewsItem.objects.filter(
-            live=True).order_by('live')[:5]
+            live=True).order_by('-id')[:5]
 
         return context
 
@@ -520,14 +529,6 @@ class SignupPage(WagtailCacheMixin, Page):
 
 class ArtistPage(WagtailCacheMixin, Page):
     template = "home/artist.html"
-
-    photo = models.ForeignKey(
-        get_image_model_string(),
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name="+"
-    )
 
     thumbnail = models.ForeignKey(
         get_image_model_string(),
@@ -593,7 +594,6 @@ class ArtistPage(WagtailCacheMixin, Page):
     ) 
 
     content_panels = Page.content_panels + [
-        # FieldPanel('photo'),
         FieldPanel('thumbnail', heading='Press Shot (Square)'),
         FieldPanel('logo'),
         FieldPanel('songkick_url'),
@@ -614,10 +614,10 @@ class ArtistPage(WagtailCacheMixin, Page):
             artist_pages=self, live=True).order_by('-release_date')[:4]
         
         context['merch'] = MerchItem.objects.filter(
-            artist_pages=self, live=True).order_by('-live')[:4]
+            artist_pages=self, live=True).order_by('-id')[:4]
 
         context['news'] = NewsItem.objects.filter(
-            artist_pages=self, live=True).order_by('-live')[:2]
+            artist_pages=self, live=True).order_by('-id')[:2]
         
         context['live_dates'] = LiveDate.objects.filter(
             artist_pages=self, live=True).order_by('date')

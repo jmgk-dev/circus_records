@@ -9,17 +9,16 @@ def search(request):
     search_query = request.GET.get("query", None)
     page = request.GET.get("page", 1)
 
-    # Search
     if search_query:
         search_results = Page.objects.live().search(search_query)
-        query = SearchQuery.get(search_query)
-
-        # Record hit
-        query.add_hit()
+        # add_hit() records this query in Wagtail's search promotions feature,
+        # so popular searches can be surfaced in the admin for content tuning.
+        SearchQuery.get(search_query).add_hit()
     else:
         search_results = Page.objects.none()
 
-    # Pagination
+    # Paginator handles both missing page numbers and out-of-range requests
+    # gracefully by falling back to page 1 or the last page respectively.
     paginator = Paginator(search_results, 10)
     try:
         search_results = paginator.page(page)

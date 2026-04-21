@@ -5,7 +5,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["146.190.150.21", "0.0.0.0", 'circus-records.co.uk', 'www.circus-records.co.uk']
+ALLOWED_HOSTS = ['circus-records.co.uk', 'www.circus-records.co.uk']
 
 WAGTAILADMIN_BASE_URL = "https://circus-records.co.uk"
 
@@ -38,6 +38,9 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 
 
 ####################################################################################################

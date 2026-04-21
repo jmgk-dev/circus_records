@@ -3,6 +3,15 @@ from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.blocks import SnippetChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 
+# StreamField blocks used to compose the HomePage and PlaylistPage content.
+#
+# "Latest" blocks (LatestReleasesBlock, LatestMerchBlock, LatestNewsBlock)
+# pull live content dynamically via get_context, so editors only need to
+# configure how many items to show — the content itself is always up to date.
+#
+# "Catalogue" blocks (ReleasesCatalogueBlock, MerchCatalogueBlock) are
+# manually curated: editors choose specific items to feature.
+
 # ----------------------------------------------
 
 class ReleaseBlock(blocks.StructBlock):
@@ -56,6 +65,7 @@ class LatestReleasesBlock(blocks.StructBlock):
     limit = blocks.IntegerBlock(label="Show maximum", required=True, default=3)
 
     def get_context(self, value, parent_context=None):
+        # Imported here to avoid a circular import (blocks ↔ models).
         from .models import Release
         context = super().get_context(value, parent_context=parent_context)
 
@@ -105,7 +115,7 @@ class LatestMerchBlock(blocks.StructBlock):
             MerchItem
             .objects
             .filter(live=True)
-            .order_by('-live')
+            .order_by('-id')
         )[:value['limit']]
 
         return context
