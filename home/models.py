@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from modelcluster.models import ClusterableModel
 from modelcluster.fields import ParentalManyToManyField, ParentalKey
 from wagtail.models import Orderable, Page
@@ -8,7 +9,6 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.snippets.models import register_snippet
 from wagtailautocomplete.edit_handlers import AutocompletePanel
 from django.core.paginator import Paginator
-from django.core.cache import cache
 from wagtailcache.cache import WagtailCacheMixin
 from .blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesBlock, ArtistsBlock, RosterBlock, LatestMerchBlock, LatestNewsBlock, PlaylistsBlock
 
@@ -46,11 +46,11 @@ class LiveDate(ClusterableModel):
 
     date = models.DateField(
         null=True,
-        blank=False
+        blank=True
     )
 
     ticket_link = models.URLField(
-        blank=False, 
+        blank=True,
         null=True
     )
 
@@ -59,6 +59,8 @@ class LiveDate(ClusterableModel):
         null=False,
         blank=True
     )
+
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     panels = [
         AutocompletePanel('artist_pages'),
@@ -98,7 +100,7 @@ class Release(ClusterableModel):
     )
 
     url = models.URLField(
-        blank=False, 
+        blank=True,
         null=True
     )
 
@@ -110,11 +112,11 @@ class Release(ClusterableModel):
     ]
 
     release_type = models.CharField(
-        max_length=255, 
+        max_length=255,
         choices=RELEASE_TYPE_CHOICES,
         default='Single',
-        blank=False, 
-        null=True
+        null=False,
+        blank=False,
     )
 
     RELEASE_LABEL_CHOICES = [
@@ -123,11 +125,11 @@ class Release(ClusterableModel):
     ]
 
     release_label = models.CharField(
-        max_length=255, 
+        max_length=255,
         choices=RELEASE_LABEL_CHOICES,
         default='Circus Records',
-        blank=False, 
-        null=True
+        null=False,
+        blank=False,
     )
 
     release_date = models.DateField(
@@ -146,6 +148,8 @@ class Release(ClusterableModel):
         null=False,
         blank=True
     )
+
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     panels = [
         FieldPanel('artist'),
@@ -181,7 +185,7 @@ class MerchItem(ClusterableModel):
     )
 
     url = models.URLField(
-        blank=False, 
+        blank=True,
         null=True
     )
 
@@ -199,10 +203,10 @@ class MerchItem(ClusterableModel):
     ]
 
     merch_type = models.CharField(
-        max_length=255, 
+        max_length=255,
         choices=MERCH_TYPE_CHOICES,
-        blank=True, 
-        null=True
+        blank=True,
+        null=True,
     )
 
     artist_pages = ParentalManyToManyField(
@@ -216,6 +220,8 @@ class MerchItem(ClusterableModel):
         null=False,
         blank=True
     )
+
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     panels = [
         FieldPanel('title'),
@@ -249,7 +255,7 @@ class NewsItem(ClusterableModel):
     )
 
     url = models.URLField(
-        blank=False, 
+        blank=True,
         null=True
     )
 
@@ -269,6 +275,8 @@ class NewsItem(ClusterableModel):
         null=False,
         blank=True
     )
+
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
 
     panels = [
         FieldPanel('title'),
@@ -300,7 +308,7 @@ class Playlist(ClusterableModel):
     )
 
     url = models.URLField(
-        blank=False, 
+        blank=True,
         null=True
     )
 
@@ -321,6 +329,8 @@ class Playlist(ClusterableModel):
         blank=True
     )
 
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+
     panels = [
         FieldPanel('title'),
         FieldPanel('headline'),
@@ -331,7 +341,7 @@ class Playlist(ClusterableModel):
     ]
 
     def __str__(self):
-        return f'{self.title}'
+        return self.title
 
 # ----------------------------------------------
 
@@ -520,7 +530,7 @@ class SignupPage(WagtailCacheMixin, Page):
         context = super().get_context(request, *args, **kwargs)
 
         context['news'] = NewsItem.objects.filter(
-            live=True).order_by('-id')[:5]
+            live=True).order_by('-created_at')[:5]
 
         return context
 
@@ -613,10 +623,10 @@ class ArtistPage(WagtailCacheMixin, Page):
             artist_pages=self, live=True).order_by('-release_date')[:4]
         
         context['merch'] = MerchItem.objects.filter(
-            artist_pages=self, live=True).order_by('-id')[:4]
+            artist_pages=self, live=True).order_by('-created_at')[:4]
 
         context['news'] = NewsItem.objects.filter(
-            artist_pages=self, live=True).order_by('-id')[:2]
+            artist_pages=self, live=True).order_by('-created_at')[:2]
         
         context['live_dates'] = LiveDate.objects.filter(
             artist_pages=self, live=True).order_by('date')

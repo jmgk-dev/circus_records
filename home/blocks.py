@@ -115,7 +115,7 @@ class LatestMerchBlock(blocks.StructBlock):
             MerchItem
             .objects
             .filter(live=True)
-            .order_by('-id')
+            .order_by('-created_at')
         )[:value['limit']]
 
         return context
@@ -139,7 +139,7 @@ class LatestNewsBlock(blocks.StructBlock):
             .objects
             .filter(live=True)
             .prefetch_related('artist_pages')
-            .order_by('-id')
+            .order_by('-created_at')
         )[:value['limit']]
 
         return context
