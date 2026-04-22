@@ -16,7 +16,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     "storages",
-    "django_extensions",
     "home",
     "search",
     "wagtail.contrib.forms",
@@ -40,7 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
     "whitenoise.runserver_nostatic",
     "django.contrib.sitemaps",
 ]
@@ -83,12 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "circus_site_2023.wsgi.application"
 
-
-
-
-# Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -104,17 +96,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
-
 LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
 
 USE_I18N = True
-
-USE_L10N = True
 
 USE_TZ = True
 
@@ -148,18 +134,13 @@ STORAGES = {
 
 # Wagtail settings
 
-WAGTAIL_SITE_NAME = "circus_site_2023"
+WAGTAIL_SITE_NAME = "Circus Records"
 
-# Search
-# https://docs.wagtail.org/en/stable/topics/search/backends.html
 WAGTAILSEARCH_BACKENDS = {
     "default": {
         "BACKEND": "wagtail.search.backends.database",
     }
 }
-
-# Base URL to use when referring to full URLs within the Wagtail admin backend -
-# e.g. in notification emails. Don't include '/admin' or a trailing slash
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

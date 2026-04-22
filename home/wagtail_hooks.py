@@ -1,4 +1,3 @@
-from django.core.cache import cache
 from wagtail import hooks
 from wagtailcache.cache import clear_cache
 

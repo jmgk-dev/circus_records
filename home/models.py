@@ -280,12 +280,12 @@ class NewsItem(ClusterableModel):
     ]
 
     def __str__(self):
-        return f'{self.title}'
-    
+        return self.title
+
 # ----------------------------------------------
 
 @register_snippet
-class Playlist(ClusterableModel, Orderable):
+class Playlist(ClusterableModel):
 
     title = models.CharField(
         null=False,
@@ -307,7 +307,6 @@ class Playlist(ClusterableModel, Orderable):
     description = RichTextField(
         null=False,
         blank=False,
-        max_length=255
     )
 
     artist_pages = ParentalManyToManyField(
