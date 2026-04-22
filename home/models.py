@@ -20,6 +20,11 @@ from .blocks import MerchCatalogueBlock, ReleasesCatalogueBlock, LatestReleasesB
 # The `live` boolean on each snippet is a manual publish toggle —
 # separate from Wagtail's page live/draft system. Only items with
 # live=True are shown on the frontend.
+#
+# Each snippet has a `created_at` field using `default=timezone.now`
+# rather than `auto_now_add=True`. Both are functionally equivalent,
+# but `default=timezone.now` allows Django to generate non-interactive
+# migrations when adding the field to existing tables.
 
 # ----------------------------------------------
 
